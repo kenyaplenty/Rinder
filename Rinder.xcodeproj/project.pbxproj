@@ -18,6 +18,10 @@
 		1357C368255E0AB100B1A89A /* RinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C367255E0AB100B1A89A /* RinderUITests.swift */; };
 		1357C37A255E0B8100B1A89A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C378255E0B8100B1A89A /* HomeVC.swift */; };
 		1357C37B255E0B8100B1A89A /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1357C379255E0B8100B1A89A /* HomeVC.xib */; };
+		1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C382255E138600B1A89A /* RestaurantHelper.swift */; };
+		172A2FCCA4AFBFD6CCE3B9BE /* Pods_RinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D505362DDDD81B4A0EE743EB /* Pods_RinderTests.framework */; };
+		2C594F5F5A1FA2696752C0E3 /* Pods_Rinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205E3341B059B67B117F3A9F /* Pods_Rinder.framework */; };
+		6B032A6E45A30CF1B14AED9E /* Pods_Rinder_RinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176DC0567E35D7E358A5C0D4 /* Pods_Rinder_RinderUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D25156DB2A210CCEC78F5FB /* Pods-Rinder-RinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder-RinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1357C33F255E0AAD00B1A89A /* Rinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1357C342255E0AAD00B1A89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1357C344255E0AAD00B1A89A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +60,15 @@
 		1357C369255E0AB100B1A89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1357C378255E0B8100B1A89A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1357C379255E0B8100B1A89A /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		1357C382255E138600B1A89A /* RestaurantHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHelper.swift; sourceTree = "<group>"; };
+		176DC0567E35D7E358A5C0D4 /* Pods_Rinder_RinderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinder_RinderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		205E3341B059B67B117F3A9F /* Pods_Rinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21C672E98EC87D4FAE5854C6 /* Pods-RinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinderTests.debug.xcconfig"; path = "Target Support Files/Pods-RinderTests/Pods-RinderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B248AC196048C2219C996C5 /* Pods-Rinder-RinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder-RinderUITests.release.xcconfig"; path = "Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7B8C2B7DC99D15F81F49D0BC /* Pods-Rinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder.release.xcconfig"; path = "Target Support Files/Pods-Rinder/Pods-Rinder.release.xcconfig"; sourceTree = "<group>"; };
+		84D4439205480FBE266C44EE /* Pods-RinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinderTests.release.xcconfig"; path = "Target Support Files/Pods-RinderTests/Pods-RinderTests.release.xcconfig"; sourceTree = "<group>"; };
+		B0E9EF6178197870E23A8B32 /* Pods-Rinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder.debug.xcconfig"; path = "Target Support Files/Pods-Rinder/Pods-Rinder.debug.xcconfig"; sourceTree = "<group>"; };
+		D505362DDDD81B4A0EE743EB /* Pods_RinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C594F5F5A1FA2696752C0E3 /* Pods_Rinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172A2FCCA4AFBFD6CCE3B9BE /* Pods_RinderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +92,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B032A6E45A30CF1B14AED9E /* Pods_Rinder_RinderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EBE9C647BA906D92759ECA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				205E3341B059B67B117F3A9F /* Pods_Rinder.framework */,
+				176DC0567E35D7E358A5C0D4 /* Pods_Rinder_RinderUITests.framework */,
+				D505362DDDD81B4A0EE743EB /* Pods_RinderTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1357C336255E0AAD00B1A89A = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +116,8 @@
 				1357C35B255E0AB100B1A89A /* RinderTests */,
 				1357C366255E0AB100B1A89A /* RinderUITests */,
 				1357C340255E0AAD00B1A89A /* Products */,
+				9A51A119921889FF167E7BF1 /* Pods */,
+				0EBE9C647BA906D92759ECA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +134,7 @@
 		1357C341255E0AAD00B1A89A /* Rinder */ = {
 			isa = PBXGroup;
 			children = (
+				1357C382255E138600B1A89A /* RestaurantHelper.swift */,
 				1357C342255E0AAD00B1A89A /* AppDelegate.swift */,
 				1357C344255E0AAD00B1A89A /* SceneDelegate.swift */,
 				1357C346255E0AAD00B1A89A /* ViewController.swift */,
@@ -137,6 +167,20 @@
 			path = RinderUITests;
 			sourceTree = "<group>";
 		};
+		9A51A119921889FF167E7BF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0E9EF6178197870E23A8B32 /* Pods-Rinder.debug.xcconfig */,
+				7B8C2B7DC99D15F81F49D0BC /* Pods-Rinder.release.xcconfig */,
+				0D25156DB2A210CCEC78F5FB /* Pods-Rinder-RinderUITests.debug.xcconfig */,
+				4B248AC196048C2219C996C5 /* Pods-Rinder-RinderUITests.release.xcconfig */,
+				21C672E98EC87D4FAE5854C6 /* Pods-RinderTests.debug.xcconfig */,
+				84D4439205480FBE266C44EE /* Pods-RinderTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1357C36C255E0AB100B1A89A /* Build configuration list for PBXNativeTarget "Rinder" */;
 			buildPhases = (
+				6EE7F59438C4C345F61BB25F /* [CP] Check Pods Manifest.lock */,
 				1357C33B255E0AAD00B1A89A /* Sources */,
 				1357C33C255E0AAD00B1A89A /* Frameworks */,
 				1357C33D255E0AAD00B1A89A /* Resources */,
+				A2DAD4CA17CFD6786DC1BE81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1357C36F255E0AB100B1A89A /* Build configuration list for PBXNativeTarget "RinderTests" */;
 			buildPhases = (
+				9BFB94A8F4B003BCAD5026EB /* [CP] Check Pods Manifest.lock */,
 				1357C354255E0AB100B1A89A /* Sources */,
 				1357C355255E0AB100B1A89A /* Frameworks */,
 				1357C356255E0AB100B1A89A /* Resources */,
@@ -179,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1357C372255E0AB100B1A89A /* Build configuration list for PBXNativeTarget "RinderUITests" */;
 			buildPhases = (
+				17D1B1EF811744F33DFEE5F5 /* [CP] Check Pods Manifest.lock */,
 				1357C35F255E0AB100B1A89A /* Sources */,
 				1357C360255E0AB100B1A89A /* Frameworks */,
 				1357C361255E0AB100B1A89A /* Resources */,
+				7CD77CD245CFC8FE7FA32C4F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,6 +312,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17D1B1EF811744F33DFEE5F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rinder-RinderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EE7F59438C4C345F61BB25F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CD77CD245CFC8FE7FA32C4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BFB94A8F4B003BCAD5026EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RinderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2DAD4CA17CFD6786DC1BE81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder/Pods-Rinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder/Pods-Rinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rinder/Pods-Rinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1357C33B255E0AAD00B1A89A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -270,6 +422,7 @@
 			files = (
 				1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */,
 				1357C37A255E0B8100B1A89A /* HomeVC.swift in Sources */,
+				1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */,
 				1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */,
 				1357C345255E0AAD00B1A89A /* SceneDelegate.swift in Sources */,
 				1357C34D255E0AAD00B1A89A /* Rinder.xcdatamodeld in Sources */,
@@ -445,6 +598,7 @@
 		};
 		1357C36D255E0AB100B1A89A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0E9EF6178197870E23A8B32 /* Pods-Rinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -464,6 +618,7 @@
 		};
 		1357C36E255E0AB100B1A89A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B8C2B7DC99D15F81F49D0BC /* Pods-Rinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -483,6 +638,7 @@
 		};
 		1357C370255E0AB100B1A89A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21C672E98EC87D4FAE5854C6 /* Pods-RinderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +660,7 @@
 		};
 		1357C371255E0AB100B1A89A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D4439205480FBE266C44EE /* Pods-RinderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -525,6 +682,7 @@
 		};
 		1357C373255E0AB100B1A89A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D25156DB2A210CCEC78F5FB /* Pods-Rinder-RinderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,6 +702,7 @@
 		};
 		1357C374255E0AB100B1A89A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B248AC196048C2219C996C5 /* Pods-Rinder-RinderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
