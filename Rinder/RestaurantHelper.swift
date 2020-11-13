@@ -10,7 +10,7 @@ import Foundation
 class RestaurantHelper {
     
     static func getCategories() {
-        var endPointString = "https://opentdb.com/api.php"
+        var endPointString = "https://opentdb.com/api.php" //zomato
     }
     
 }
