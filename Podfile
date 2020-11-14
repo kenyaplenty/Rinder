@@ -8,7 +8,8 @@ target 'Rinder' do
   # Pods for Rinder
   pod 'Firebase/Analytics'
   pod 'Alamofire', '~> 5.2'
-
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
   target 'RinderTests' do
     inherit! :search_paths
