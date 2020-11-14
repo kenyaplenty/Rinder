@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20B5255FA52A00FE65CB /* Restaurant.swift */; };
+		132B20BD255FB73900FE65CB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20BC255FB73900FE65CB /* SearchResult.swift */; };
+		132B20C6255FB76D00FE65CB /* SavedRestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */; };
+		132B20C7255FB76D00FE65CB /* SavedRestaurantsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */; };
+		132B20D0255FB82E00FE65CB /* SavedRestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20CE255FB82E00FE65CB /* SavedRestaurantCell.swift */; };
+		132B20D1255FB82E00FE65CB /* SavedRestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132B20CF255FB82E00FE65CB /* SavedRestaurantCell.xib */; };
 		1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C342255E0AAD00B1A89A /* AppDelegate.swift */; };
 		1357C345255E0AAD00B1A89A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C344255E0AAD00B1A89A /* SceneDelegate.swift */; };
 		1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C346255E0AAD00B1A89A /* ViewController.swift */; };
@@ -43,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		0D25156DB2A210CCEC78F5FB /* Pods-Rinder-RinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder-RinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		132B20B5255FA52A00FE65CB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		132B20BC255FB73900FE65CB /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRestaurantsVC.swift; sourceTree = "<group>"; };
+		132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRestaurantsVC.xib; sourceTree = "<group>"; };
+		132B20CE255FB82E00FE65CB /* SavedRestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRestaurantCell.swift; sourceTree = "<group>"; };
+		132B20CF255FB82E00FE65CB /* SavedRestaurantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRestaurantCell.xib; sourceTree = "<group>"; };
 		1357C33F255E0AAD00B1A89A /* Rinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1357C342255E0AAD00B1A89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1357C344255E0AAD00B1A89A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +121,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		132B20BA255FB6FB00FE65CB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1357C346255E0AAD00B1A89A /* ViewController.swift */,
+				1357C378255E0B8100B1A89A /* HomeVC.swift */,
+				1357C379255E0B8100B1A89A /* HomeVC.xib */,
+				132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */,
+				132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		132B20BB255FB71700FE65CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1357C34B255E0AAD00B1A89A /* Rinder.xcdatamodeld */,
+				132B20BC255FB73900FE65CB /* SearchResult.swift */,
+				132B20B5255FA52A00FE65CB /* Restaurant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1357C336255E0AAD00B1A89A = {
 			isa = PBXGroup;
 			children = (
@@ -134,17 +168,17 @@
 		1357C341255E0AAD00B1A89A /* Rinder */ = {
 			isa = PBXGroup;
 			children = (
+				132B20BB255FB71700FE65CB /* Models */,
+				132B20BA255FB6FB00FE65CB /* View Controllers */,
 				1357C382255E138600B1A89A /* RestaurantHelper.swift */,
 				1357C342255E0AAD00B1A89A /* AppDelegate.swift */,
 				1357C344255E0AAD00B1A89A /* SceneDelegate.swift */,
-				1357C346255E0AAD00B1A89A /* ViewController.swift */,
 				1357C348255E0AAD00B1A89A /* Main.storyboard */,
 				1357C34E255E0AB100B1A89A /* Assets.xcassets */,
 				1357C350255E0AB100B1A89A /* LaunchScreen.storyboard */,
 				1357C353255E0AB100B1A89A /* Info.plist */,
-				1357C34B255E0AAD00B1A89A /* Rinder.xcdatamodeld */,
-				1357C378255E0B8100B1A89A /* HomeVC.swift */,
-				1357C379255E0B8100B1A89A /* HomeVC.xib */,
+				132B20CE255FB82E00FE65CB /* SavedRestaurantCell.swift */,
+				132B20CF255FB82E00FE65CB /* SavedRestaurantCell.xib */,
 			);
 			path = Rinder;
 			sourceTree = "<group>";
@@ -177,7 +211,6 @@
 				21C672E98EC87D4FAE5854C6 /* Pods-RinderTests.debug.xcconfig */,
 				84D4439205480FBE266C44EE /* Pods-RinderTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -193,6 +226,7 @@
 				1357C33C255E0AAD00B1A89A /* Frameworks */,
 				1357C33D255E0AAD00B1A89A /* Resources */,
 				A2DAD4CA17CFD6786DC1BE81 /* [CP] Embed Pods Frameworks */,
+				F4487DF8EE4B334CCEF0A534 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,6 +265,7 @@
 				1357C360255E0AB100B1A89A /* Frameworks */,
 				1357C361255E0AB100B1A89A /* Resources */,
 				7CD77CD245CFC8FE7FA32C4F /* [CP] Embed Pods Frameworks */,
+				4340FB8A3DECA99977893274 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,8 +326,10 @@
 			files = (
 				1357C352255E0AB100B1A89A /* LaunchScreen.storyboard in Resources */,
 				1357C37B255E0B8100B1A89A /* HomeVC.xib in Resources */,
+				132B20D1255FB82E00FE65CB /* SavedRestaurantCell.xib in Resources */,
 				1357C34F255E0AB100B1A89A /* Assets.xcassets in Resources */,
 				1357C34A255E0AAD00B1A89A /* Main.storyboard in Resources */,
+				132B20C7255FB76D00FE65CB /* SavedRestaurantsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +370,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4340FB8A3DECA99977893274 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6EE7F59438C4C345F61BB25F /* [CP] Check Pods Manifest.lock */ = {
@@ -413,6 +467,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rinder/Pods-Rinder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F4487DF8EE4B334CCEF0A534 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder/Pods-Rinder-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rinder/Pods-Rinder-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rinder/Pods-Rinder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -420,9 +491,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132B20C6255FB76D00FE65CB /* SavedRestaurantsVC.swift in Sources */,
 				1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */,
 				1357C37A255E0B8100B1A89A /* HomeVC.swift in Sources */,
+				132B20BD255FB73900FE65CB /* SearchResult.swift in Sources */,
+				132B20D0255FB82E00FE65CB /* SavedRestaurantCell.swift in Sources */,
 				1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */,
+				132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */,
 				1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */,
 				1357C345255E0AAD00B1A89A /* SceneDelegate.swift in Sources */,
 				1357C34D255E0AAD00B1A89A /* Rinder.xcdatamodeld in Sources */,
