@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20B5255FA52A00FE65CB /* Restaurant.swift */; };
+		132B20BD255FB73900FE65CB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20BC255FB73900FE65CB /* SearchResult.swift */; };
+		132B20C6255FB76D00FE65CB /* SavedRestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */; };
+		132B20C7255FB76D00FE65CB /* SavedRestaurantsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */; };
+		132B20D0255FB82E00FE65CB /* SavedRestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20CE255FB82E00FE65CB /* SavedRestaurantCell.swift */; };
+		132B20D1255FB82E00FE65CB /* SavedRestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132B20CF255FB82E00FE65CB /* SavedRestaurantCell.xib */; };
 		1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C342255E0AAD00B1A89A /* AppDelegate.swift */; };
 		1357C345255E0AAD00B1A89A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C344255E0AAD00B1A89A /* SceneDelegate.swift */; };
 		1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C346255E0AAD00B1A89A /* ViewController.swift */; };
@@ -45,6 +50,11 @@
 /* Begin PBXFileReference section */
 		0D25156DB2A210CCEC78F5FB /* Pods-Rinder-RinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder-RinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		132B20B5255FA52A00FE65CB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		132B20BC255FB73900FE65CB /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRestaurantsVC.swift; sourceTree = "<group>"; };
+		132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRestaurantsVC.xib; sourceTree = "<group>"; };
+		132B20CE255FB82E00FE65CB /* SavedRestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRestaurantCell.swift; sourceTree = "<group>"; };
+		132B20CF255FB82E00FE65CB /* SavedRestaurantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedRestaurantCell.xib; sourceTree = "<group>"; };
 		1357C33F255E0AAD00B1A89A /* Rinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1357C342255E0AAD00B1A89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1357C344255E0AAD00B1A89A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +121,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		132B20BA255FB6FB00FE65CB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1357C346255E0AAD00B1A89A /* ViewController.swift */,
+				1357C378255E0B8100B1A89A /* HomeVC.swift */,
+				1357C379255E0B8100B1A89A /* HomeVC.xib */,
+				132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */,
+				132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		132B20BB255FB71700FE65CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1357C34B255E0AAD00B1A89A /* Rinder.xcdatamodeld */,
+				132B20BC255FB73900FE65CB /* SearchResult.swift */,
+				132B20B5255FA52A00FE65CB /* Restaurant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1357C336255E0AAD00B1A89A = {
 			isa = PBXGroup;
 			children = (
@@ -136,18 +168,17 @@
 		1357C341255E0AAD00B1A89A /* Rinder */ = {
 			isa = PBXGroup;
 			children = (
+				132B20BB255FB71700FE65CB /* Models */,
+				132B20BA255FB6FB00FE65CB /* View Controllers */,
 				1357C382255E138600B1A89A /* RestaurantHelper.swift */,
 				1357C342255E0AAD00B1A89A /* AppDelegate.swift */,
 				1357C344255E0AAD00B1A89A /* SceneDelegate.swift */,
-				1357C346255E0AAD00B1A89A /* ViewController.swift */,
 				1357C348255E0AAD00B1A89A /* Main.storyboard */,
 				1357C34E255E0AB100B1A89A /* Assets.xcassets */,
 				1357C350255E0AB100B1A89A /* LaunchScreen.storyboard */,
 				1357C353255E0AB100B1A89A /* Info.plist */,
-				1357C34B255E0AAD00B1A89A /* Rinder.xcdatamodeld */,
-				1357C378255E0B8100B1A89A /* HomeVC.swift */,
-				1357C379255E0B8100B1A89A /* HomeVC.xib */,
-				132B20B5255FA52A00FE65CB /* Restaurant.swift */,
+				132B20CE255FB82E00FE65CB /* SavedRestaurantCell.swift */,
+				132B20CF255FB82E00FE65CB /* SavedRestaurantCell.xib */,
 			);
 			path = Rinder;
 			sourceTree = "<group>";
@@ -295,8 +326,10 @@
 			files = (
 				1357C352255E0AB100B1A89A /* LaunchScreen.storyboard in Resources */,
 				1357C37B255E0B8100B1A89A /* HomeVC.xib in Resources */,
+				132B20D1255FB82E00FE65CB /* SavedRestaurantCell.xib in Resources */,
 				1357C34F255E0AB100B1A89A /* Assets.xcassets in Resources */,
 				1357C34A255E0AAD00B1A89A /* Main.storyboard in Resources */,
+				132B20C7255FB76D00FE65CB /* SavedRestaurantsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,8 +491,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132B20C6255FB76D00FE65CB /* SavedRestaurantsVC.swift in Sources */,
 				1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */,
 				1357C37A255E0B8100B1A89A /* HomeVC.swift in Sources */,
+				132B20BD255FB73900FE65CB /* SearchResult.swift in Sources */,
+				132B20D0255FB82E00FE65CB /* SavedRestaurantCell.swift in Sources */,
 				1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */,
 				132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */,
 				1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */,

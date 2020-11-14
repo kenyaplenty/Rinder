@@ -21,6 +21,7 @@
                 <outlet property="menuBtn" destination="LAA-2b-YEn" id="bZ9-96-5bV"/>
                 <outlet property="restaurantImage" destination="fMU-hE-8N2" id="FDt-w2-nrz"/>
                 <outlet property="rightIv" destination="pt3-5u-lrm" id="wmv-PI-BND"/>
+                <outlet property="savedBtn" destination="BmF-lL-nPF" id="Myl-5g-how"/>
                 <outlet property="titleLbl" destination="unz-no-Ovw" id="DhA-yo-gzg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -115,6 +116,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmF-lL-nPF">
+                    <rect key="frame" x="186" y="802" width="42" height="30"/>
+                    <state key="normal" title="Saved"/>
+                    <connections>
+                        <action selector="savedBtnTap:" destination="-1" eventType="touchUpInside" id="q9c-Aa-0qG"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
@@ -127,8 +135,10 @@
                 <constraint firstItem="J5p-uO-mbE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="Hax-qD-y6d"/>
                 <constraint firstItem="TbX-oF-Pk6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="KUx-xE-yQe"/>
                 <constraint firstItem="zqG-jh-Fxd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LX0-Yo-dDn"/>
+                <constraint firstItem="BmF-lL-nPF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ME3-mR-hwf"/>
                 <constraint firstItem="J5p-uO-mbE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QNt-Jr-Fvg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zqG-jh-Fxd" secondAttribute="trailing" constant="12" id="T9s-Fg-Rse"/>
+                <constraint firstItem="BmF-lL-nPF" firstAttribute="centerY" secondItem="TbX-oF-Pk6" secondAttribute="centerY" id="WF0-00-QVY"/>
                 <constraint firstItem="LNt-7y-gAI" firstAttribute="leading" secondItem="TbX-oF-Pk6" secondAttribute="leading" id="aBS-jJ-ewV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e10-Wf-l4G" secondAttribute="trailing" constant="12" id="aLA-Yu-QIx"/>
                 <constraint firstItem="J5p-uO-mbE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="eAP-OR-hEF"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 import CoreLocation
 import SafariServices
 
@@ -28,10 +29,17 @@ class HomeVC: UIViewController {
     //buttons
     @IBOutlet weak var leftIv: UIImageView!
     @IBOutlet weak var rightIv: UIImageView!
-    
+    @IBOutlet weak var savedBtn: UIButton!
     
     
     //MARK: - Variables
+    
+    var context: NSManagedObjectContext? {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate.persistentContainer.viewContext
+        }
+        return nil
+    }
     
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -184,6 +192,10 @@ class HomeVC: UIViewController {
     }
     
     @objc private func acceptTap() {
+        if let restaurant = searchResult?.getCurrentRestaurant() {
+            restaurant.saveToCoreData(context: context)
+        }
+        
         nextRestaurant()
     }
     
@@ -208,6 +220,12 @@ class HomeVC: UIViewController {
         
         let safariVC = SFSafariViewController(url: menuURL)
         present(safariVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func savedBtnTap(_ sender: Any) {
+        let vc = SavedRestaurantsVC()
+        vc.context = context
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

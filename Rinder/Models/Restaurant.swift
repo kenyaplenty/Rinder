@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreLocation
-
+import CoreData
 
 class Restaurant: NSObject {
     var id: String = ""
@@ -17,7 +17,7 @@ class Restaurant: NSObject {
     var address: String = ""
     var location: CLLocation?
     var cuisines: String = ""
-    var price_range: String = ""
+    var priceRange: String = ""
     
     init(from jsonDict: NSDictionary) {
         if let id = jsonDict["id"] as? String {
@@ -56,47 +56,45 @@ class Restaurant: NSObject {
         }
         
         if let price_range = jsonDict["price_range"] as? String {
-            self.price_range = price_range
+            self.priceRange = price_range
         }
     }
-}
-
-
-class SearchResult: NSObject {
-    var successfulFetch: Bool = false
-    var restaurants: [Restaurant] = []
-    var currentIndex: Int = 0
     
-    init (from restaurantsJSONArray: [AnyObject]?) {
-        guard let restaurantsJSONArray = restaurantsJSONArray else { return }
+    //save restaurant
+    func saveToCoreData(context: NSManagedObjectContext?) {
+        guard let context = context, !isItemSaved(context: context) else { return }
         
-        successfulFetch = true
+        let savedRestaurant = SavedRestaurant(context: context)
+        savedRestaurant.cuisines = self.cuisines
+        savedRestaurant.featuredImageURLString = self.featuredImageURL?.absoluteString
+        savedRestaurant.id = self.id
+        savedRestaurant.name = self.name
+        savedRestaurant.priceRange = self.priceRange
         
-        for restaurantJSON in restaurantsJSONArray {
-            if let restaurantDict = restaurantJSON as? NSDictionary,
-               let restaurantDetailsDict = restaurantDict["restaurant"] as? NSDictionary {
-                restaurants.append(Restaurant(from: restaurantDetailsDict))
-            }
+        if let location = self.location {
+            savedRestaurant.latitude = Double(location.coordinate.latitude)
+            savedRestaurant.longitude = Double(location.coordinate.longitude)
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving restaurant: \(error.localizedDescription)")
         }
     }
     
-    //return the next restaurant in the list if we have one
-    func nextRestaurant() -> Restaurant? {
-        if restaurants.count > 0,
-           currentIndex < restaurants.count - 1 {
-            self.currentIndex += 1
-            return restaurants[currentIndex]
-        } else {
-            return nil
-        }
-    }
     
-    func getCurrentRestaurant() -> Restaurant? {
-        if restaurants.count > 0,
-           currentIndex < restaurants.count - 1 {
-            return restaurants[currentIndex]
-        } else {
-             return nil
+    func isItemSaved(context: NSManagedObjectContext) -> Bool {
+        if self.id == "" { return false }
+        
+        let request: NSFetchRequest<SavedRestaurant> = SavedRestaurant.fetchRequest()
+        request.predicate = NSPredicate(format: "id == \(self.id)")
+        
+        do {
+            return try context.count(for: request) > 0
+        } catch {
+            print("Error checking how many times we've saved this restaurant: \(error.localizedDescription)")
+            return false
         }
     }
 }
