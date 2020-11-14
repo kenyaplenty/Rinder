@@ -10,6 +10,7 @@ target 'Rinder' do
   pod 'Alamofire', '~> 5.2'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'SwiftLint'
 
   target 'RinderTests' do
     inherit! :search_paths
