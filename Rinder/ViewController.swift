@@ -24,6 +24,8 @@ class ViewController: UIViewController {
 
     @IBAction func signInBtnTap(_ sender: Any) {
         let vc = HomeVC()
+        vc.modalPresentationStyle = .currentContext
+        vc.modalTransitionStyle = .coverVertical
         self.present(vc, animated: true, completion: nil)
     }
     

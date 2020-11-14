@@ -7,7 +7,6 @@
 
 import Foundation
 import Alamofire
-import CoreLocation
 
 class RestaurantHelper {
     
@@ -43,7 +42,7 @@ class RestaurantHelper {
     
     static func getRestaurants(lat: Double,
                                lon: Double,
-                               completionHandler: @escaping (_ restaurants: [Restaurant]) -> Void) {
+                               completionHandler: @escaping (_ searchResult: SearchResult) -> Void) {
         var urlString = "https://developers.zomato.com/api/v2.1/search?"
         urlString += "lat=\(lat)"
         urlString += "&lon=\(lon)"
@@ -52,7 +51,7 @@ class RestaurantHelper {
         urlString += "&order=desc"
         
         guard let url = URL(string: urlString) else {
-            return completionHandler([])
+            return completionHandler(SearchResult(from: nil))
         }
         
         let headers: HTTPHeaders = [
@@ -63,77 +62,17 @@ class RestaurantHelper {
         AF.request(url, method: .get, headers: headers).responseJSON { response in
             switch response.result {
             case .success(let value):
-                var restaurants = [Restaurant]()
-                
                 guard let dictionary = value as? [String: Any],
                       response.response?.statusCode == 200,
-                      let restaurantsJSON = dictionary["restaurants"] as? [AnyObject] else {
-                    return completionHandler(restaurants)
+                      let restaurantsJSONArray = dictionary["restaurants"] as? [AnyObject] else {
+                    return completionHandler(SearchResult(from: nil))
                 }
                 
-                for restaurantJSON in restaurantsJSON {
-                    if let restaurantDict = restaurantJSON as? NSDictionary,
-                       let restaurantDetailsDict = restaurantDict["restaurant"] as? NSDictionary {
-                        restaurants.append(Restaurant(from: restaurantDetailsDict))
-                    }
-                }
-                
-                return completionHandler(restaurants)
+                return completionHandler(SearchResult(from: restaurantsJSONArray))
                 
             case .failure(let error):
-                return completionHandler([])
+                return completionHandler(SearchResult(from: nil))
             }
-        }
-    }
-}
-
-struct Restaurant {
-    var id: String = ""
-    var name: String = ""
-    var imageURL: URL?
-    var url: String = ""
-    var address: String = ""
-    var location: CLLocation?
-    var cuisines: String = ""
-    var price_range: String = ""
-    
-    init(from jsonDict: NSDictionary) {
-        if let id = jsonDict["id"] as? String {
-            self.id = id
-        }
-        
-        if let name = jsonDict["name"] as? String {
-            self.name = name
-        }
-        
-        if let featuredImageString = jsonDict["featured_image"] as? String,
-           let featuredImageURL = URL(string: featuredImageString){
-            self.imageURL = featuredImageURL
-        }
-        
-        if let url = jsonDict["url"] as? String {
-            self.url = url
-        }
-        
-        if let location = jsonDict["location"] as? NSDictionary {
-            if let address = location["address"] as? String {
-                self.address = address
-            }
-            
-            if let latString = location["latitude"] as? String,
-               let lat = Float(latString),
-               let lonString = location["longitude"] as? String,
-               let lon = Float(lonString) {
-                self.location = CLLocation(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
-            }
-        }
-        
-        if let cuisines = jsonDict["cuisines"] as? String {
-            self.cuisines = cuisines
-        }
-        
-        if let price_range = jsonDict["price_range"] as? String {
-            self.price_range = price_range
         }
     }
 }

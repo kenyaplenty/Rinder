@@ -27,11 +27,12 @@ class HomeVC: UIViewController {
     
     
     //MARK: - Variables
+    
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     
     private var fetchingRestaurants = false
-    private var restaurants = [Restaurant]()
+    private var searchResult: SearchResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,24 @@ class HomeVC: UIViewController {
         locationLbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         
         titleLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        titleLbl.text = ""
+        distanceLbl.text = ""
+        cuisineLbl.text = ""
+        
+        leftIv.image = UIImage(systemName: "xmark.circle.fill")
+        leftIv.tintColor = .systemRed
+        leftIv.isUserInteractionEnabled = true
+        let leftTap = UITapGestureRecognizer(target: self, action: #selector(self.rejectTap))
+        leftIv.addGestureRecognizer(leftTap)
+        
+        rightIv.image = UIImage(systemName: "heart.circle.fill")
+        rightIv.tintColor = .systemBlue
+        rightIv.isUserInteractionEnabled = true
+        let rightTap = UITapGestureRecognizer(target: self, action: #selector(self.acceptTap))
+        rightIv.addGestureRecognizer(rightTap)
     }
+    
+    //MARK: - Getting/Setting the restaurant
     
     private func getUserLocation() {
         locationManager.delegate = self
@@ -61,18 +79,29 @@ class HomeVC: UIViewController {
     private func getRestaurants(lat: CLLocationDegrees, long: CLLocationDegrees) {
         if fetchingRestaurants { return }
         
+        //show loading
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.view.addSubview(activityIndicator)
+        
         fetchingRestaurants = true
         RestaurantHelper.getRestaurants(lat: Double(lat),
-                                        lon: Double(long)) { (restuarantsFound) in
-            self.restaurants = restuarantsFound
+                                        lon: Double(long)) { (searchResultFound) in
+            self.searchResult = searchResultFound
             self.fetchingRestaurants = false
             
-            if let restaurant = self.restaurants.first {
+            if searchResultFound.successfulFetch, let restaurant = searchResultFound.restaurants.first {
                 self.updateViewWithRestaurant(restaurant: restaurant)
             }
+            
+            activityIndicator.stopAnimating()
+            self.view.willRemoveSubview(activityIndicator)
         }
     }
     
+    //fill in restaurant info
     private func updateViewWithRestaurant(restaurant: Restaurant) {
         DispatchQueue.main.async { [self] in
             
@@ -85,22 +114,55 @@ class HomeVC: UIViewController {
             
             self.cuisineLbl.text = "Cuisines: \(restaurant.cuisines)"
             
-            self.setRestaurantImage(url: restaurant.imageURL)
+            if let imageURL = restaurant.featuredImageURL {
+                self.setRestaurantImage(url: imageURL)
+            } else {
+                self.restaurantImage.image = nil
+            }
         }
     }
     
-    private func setRestaurantImage(url: URL?) {
-        guard let url = url else { return }
+    //fetch the image from the internet and put it on
+    private func setRestaurantImage(url: URL) {
+        //show loading indicator
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.center = self.restaurantImage.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.view.addSubview(activityIndicator)
         
         DispatchQueue.global().async { [weak self] in
             guard let data = try? Data(contentsOf: url),
                   let image = UIImage(data: data) else {
+                activityIndicator.stopAnimating()
                 return
             }
             
             DispatchQueue.main.async {
                 self?.restaurantImage.image = image
+                activityIndicator.stopAnimating()
             }
+        }
+    }
+    
+    //MARK: - Actions
+    
+    @objc private func rejectTap() {
+        nextRestaurant()
+    }
+    
+    @objc private func acceptTap() {
+        nextRestaurant()
+    }
+    
+    @objc private func nextRestaurant() {
+        //do not do anything if there's no result yet
+        guard let searchResult = searchResult else { return }
+        
+        if let nextRestaurant = searchResult.nextRestaurant() {
+            updateViewWithRestaurant(restaurant: nextRestaurant)
+        } else {
+            
         }
     }
 }

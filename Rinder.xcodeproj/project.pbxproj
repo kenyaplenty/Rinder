@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20B5255FA52A00FE65CB /* Restaurant.swift */; };
 		1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C342255E0AAD00B1A89A /* AppDelegate.swift */; };
 		1357C345255E0AAD00B1A89A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C344255E0AAD00B1A89A /* SceneDelegate.swift */; };
 		1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C346255E0AAD00B1A89A /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		0D25156DB2A210CCEC78F5FB /* Pods-Rinder-RinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder-RinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		132B20B5255FA52A00FE65CB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		1357C33F255E0AAD00B1A89A /* Rinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1357C342255E0AAD00B1A89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1357C344255E0AAD00B1A89A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				1357C34B255E0AAD00B1A89A /* Rinder.xcdatamodeld */,
 				1357C378255E0B8100B1A89A /* HomeVC.swift */,
 				1357C379255E0B8100B1A89A /* HomeVC.xib */,
+				132B20B5255FA52A00FE65CB /* Restaurant.swift */,
 			);
 			path = Rinder;
 			sourceTree = "<group>";
@@ -177,7 +180,6 @@
 				21C672E98EC87D4FAE5854C6 /* Pods-RinderTests.debug.xcconfig */,
 				84D4439205480FBE266C44EE /* Pods-RinderTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -459,6 +461,7 @@
 				1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */,
 				1357C37A255E0B8100B1A89A /* HomeVC.swift in Sources */,
 				1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */,
+				132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */,
 				1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */,
 				1357C345255E0AAD00B1A89A /* SceneDelegate.swift in Sources */,
 				1357C34D255E0AAD00B1A89A /* Rinder.xcdatamodeld in Sources */,
