@@ -13,7 +13,7 @@ class Restaurant: NSObject {
     var id: String = ""
     var name: String = ""
     var featuredImageURL: URL?
-    var url: String = ""
+    var menuURL: URL?
     var address: String = ""
     var location: CLLocation?
     var cuisines: String = ""
@@ -33,8 +33,9 @@ class Restaurant: NSObject {
             self.featuredImageURL = featuredImageURL
         }
         
-        if let url = jsonDict["url"] as? String {
-            self.url = url
+        if let menuURLString = jsonDict["menu_url"] as? String,
+           let menuURL = URL(string: menuURLString){
+            self.menuURL = menuURL
         }
         
         if let location = jsonDict["location"] as? NSDictionary {
@@ -81,11 +82,21 @@ class SearchResult: NSObject {
     
     //return the next restaurant in the list if we have one
     func nextRestaurant() -> Restaurant? {
-        if currentIndex < restaurants.count - 1 {
+        if restaurants.count > 0,
+           currentIndex < restaurants.count - 1 {
             self.currentIndex += 1
             return restaurants[currentIndex]
         } else {
             return nil
+        }
+    }
+    
+    func getCurrentRestaurant() -> Restaurant? {
+        if restaurants.count > 0,
+           currentIndex < restaurants.count - 1 {
+            return restaurants[currentIndex]
+        } else {
+             return nil
         }
     }
 }
