@@ -77,6 +77,7 @@
 		205E3341B059B67B117F3A9F /* Pods_Rinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C672E98EC87D4FAE5854C6 /* Pods-RinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinderTests.debug.xcconfig"; path = "Target Support Files/Pods-RinderTests/Pods-RinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B248AC196048C2219C996C5 /* Pods-Rinder-RinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder-RinderUITests.release.xcconfig"; path = "Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5B88ECCA25608EE50017F020 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Rinder/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7B8C2B7DC99D15F81F49D0BC /* Pods-Rinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder.release.xcconfig"; path = "Target Support Files/Pods-Rinder/Pods-Rinder.release.xcconfig"; sourceTree = "<group>"; };
 		84D4439205480FBE266C44EE /* Pods-RinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinderTests.release.xcconfig"; path = "Target Support Files/Pods-RinderTests/Pods-RinderTests.release.xcconfig"; sourceTree = "<group>"; };
 		B0E9EF6178197870E23A8B32 /* Pods-Rinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinder.debug.xcconfig"; path = "Target Support Files/Pods-Rinder/Pods-Rinder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		1357C336255E0AAD00B1A89A = {
 			isa = PBXGroup;
 			children = (
+				5B88ECCA25608EE50017F020 /* GoogleService-Info.plist */,
 				1357C341255E0AAD00B1A89A /* Rinder */,
 				1357C35B255E0AB100B1A89A /* RinderTests */,
 				1357C366255E0AB100B1A89A /* RinderUITests */,
@@ -407,7 +409,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" > swift_lint_report.json\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" > ./SwiftLintReports/swift_lint_report.json\n";
 		};
 		6EE7F59438C4C345F61BB25F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
