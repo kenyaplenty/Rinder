@@ -6,23 +6,29 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class ViewController: UIViewController {
 
     //MARK: - Outlets
     
-    @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var signInBtn: GIDSignInButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
 
 
     @IBAction func signInBtnTap(_ sender: Any) {
         let vc = HomeVC()
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+      GIDSignIn.sharedInstance().signOut()
     }
 }
 
