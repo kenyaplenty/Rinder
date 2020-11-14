@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import CoreLocation
 
 class RestaurantHelper {
     
@@ -41,19 +42,22 @@ class RestaurantHelper {
     }
     
     static func getRestaurants(lat: Double,
-                               long: Double,
+                               lon: Double,
                                completionHandler: @escaping (_ restaurants: [Restaurant]) -> Void) {
-        guard let url = URL(string: "https://developers.zomato.com/api/v2.1/search") else {
+        var urlString = "https://developers.zomato.com/api/v2.1/search?"
+        urlString += "lat=\(lat)"
+        urlString += "&lon=\(lon)"
+        urlString += "&radius=3218.69" //radius is in meters (2mi radius)
+        urlString += "&sort=real_distance"
+        urlString += "&order=desc"
+        
+        guard let url = URL(string: urlString) else {
             return completionHandler([])
         }
-
+        
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "user-key": apiKey,
-            "lat": "\(lat)",
-            "lon": "\(long)",
-            "radius": "300", //radius is in meters
-            "sort" : "real_distance"
+            "user-key": apiKey
         ]
         
         AF.request(url, method: .get, headers: headers).responseJSON { response in
@@ -86,11 +90,10 @@ class RestaurantHelper {
 struct Restaurant {
     var id: String = ""
     var name: String = ""
-    var imageURL: String = ""
+    var imageURL: URL?
     var url: String = ""
     var address: String = ""
-    var latitude: String = ""
-    var longitude: String = ""
+    var location: CLLocation?
     var cuisines: String = ""
     var price_range: String = ""
     
@@ -103,8 +106,9 @@ struct Restaurant {
             self.name = name
         }
         
-        if let featured_image = jsonDict["featured_image"] as? String {
-            self.imageURL = featured_image
+        if let featuredImageString = jsonDict["featured_image"] as? String,
+           let featuredImageURL = URL(string: featuredImageString){
+            self.imageURL = featuredImageURL
         }
         
         if let url = jsonDict["url"] as? String {
@@ -116,12 +120,11 @@ struct Restaurant {
                 self.address = address
             }
             
-            if let lat = location["latitude"] as? String {
-                self.latitude = lat
-            }
-            
-            if let lon = location["longitude"] as? String {
-                self.longitude = lon
+            if let latString = location["latitude"] as? String,
+               let lat = Float(latString),
+               let lonString = location["longitude"] as? String,
+               let lon = Float(lonString) {
+                self.location = CLLocation(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
             }
         }
         
