@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import CoreLocation
+
 @testable import Rinder
 
 class RinderTests: XCTestCase {
@@ -18,15 +20,15 @@ class RinderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    //Check to see if we can get restaurants
+    func getRestaurantTest() throws {
+        //Columbia coordinates
+        let location = CLLocation(latitude: CLLocationDegrees(40.8075), longitude: CLLocationDegrees(-73.9626))
+        
+        RestaurantHelper.getRestaurants(lat: location.coordinate.latitude,
+                                        lon: location.coordinate.longitude) { (searchResult) in
+            XCTAssertTrue(searchResult.successfulFetch)
+            XCTAssertTrue(searchResult.restaurants.count > 0)
         }
     }
 

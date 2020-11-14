@@ -102,7 +102,7 @@ class HomeVC: UIViewController {
         locationManager.startUpdatingLocation()
     }
 
-    private func getRestaurants(lat: CLLocationDegrees, long: CLLocationDegrees) {
+    private func getRestaurants(location: CLLocation) {
         if fetchingRestaurants { return }
         
         //show loading
@@ -113,8 +113,8 @@ class HomeVC: UIViewController {
         self.view.addSubview(activityIndicator)
         
         fetchingRestaurants = true
-        RestaurantHelper.getRestaurants(lat: Double(lat),
-                                        lon: Double(long)) { (searchResultFound) in
+        RestaurantHelper.getRestaurants(lat: Double(location.coordinate.latitude),
+                                        lon: Double(location.coordinate.longitude)) { (searchResultFound) in
             self.searchResult = searchResultFound
             self.fetchingRestaurants = false
             
@@ -243,7 +243,6 @@ extension HomeVC: CLLocationManagerDelegate {
             return
         }
         
-        getRestaurants(lat: location.coordinate.latitude,
-                       long: location.coordinate.longitude)
+        getRestaurants(location: location)
     }
 }

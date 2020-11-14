@@ -44,7 +44,7 @@ class RestaurantHelper {
                 
                 return completionHandler(SearchResult(from: restaurantsJSONArray))
                 
-            case .failure(let error):
+            case .failure:
                 return completionHandler(SearchResult(from: nil))
             }
         }
