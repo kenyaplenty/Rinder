@@ -71,4 +71,24 @@ extension SavedRestaurantsVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            if let context = self.context {
+                let restaurantToDelete = self.savedRestaurants[indexPath.row]
+                self.savedRestaurants.remove(at: indexPath.row)
+                context.delete(restaurantToDelete)
+                do {
+                    try context.save()
+                    tableView.reloadData()
+                } catch {
+                    print("Error deleting saved restaurant: \(error.localizedDescription)")
+                }
+            }
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
