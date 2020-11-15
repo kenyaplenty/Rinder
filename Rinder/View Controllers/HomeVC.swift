@@ -57,6 +57,7 @@ class HomeVC: UIViewController {
     private func setupView() {
         fromLbl.text = "Restaurants near"
         fromLbl.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        fromLbl.textColor = UIColor.white
         fromLbl.textAlignment = .center
         
         backView.layer.cornerRadius = 16
@@ -69,6 +70,7 @@ class HomeVC: UIViewController {
         locationLbl.textAlignment = .center
         locationLbl.text = "Current Location"
         locationLbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        locationLbl.textColor = UIColor.white
         
         titleLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         titleLbl.text = ""
@@ -78,6 +80,10 @@ class HomeVC: UIViewController {
         errorLbl.text = "No more restaurants"
         errorLbl.textAlignment = .center
         errorLbl.isHidden = true
+        
+        menuBtn.layer.cornerRadius = 16
+        savedBtn.layer.cornerRadius = 16
+
         
         leftIv.image = UIImage(systemName: "xmark.circle.fill")
         leftIv.tintColor = .systemRed
@@ -150,12 +156,12 @@ class HomeVC: UIViewController {
                 self.distanceLbl.text = "\(distanceInMiles) mi away"
             }
             
-            self.cuisineLbl.text = "Cuisines: \(restaurant.cuisines)"
+            self.cuisineLbl.text = "Cuisine(s): \(restaurant.cuisines)"
             
             if let imageURL = restaurant.featuredImageURL {
                 self.setRestaurantImage(url: imageURL)
             } else {
-                self.restaurantImage.image = nil
+                self.restaurantImage.image = #imageLiteral(resourceName: "Screen Shot 2020-11-14 at 10.33.28 PM")
             }
             
             self.menuBtn.isHidden = restaurant.menuURL == nil
