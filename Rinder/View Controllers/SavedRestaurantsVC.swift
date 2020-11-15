@@ -27,6 +27,8 @@ class SavedRestaurantsVC: UIViewController {
     
     private func setupView() {
         titleLbl.text = "Saved Restaurants"
+        titleLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        titleLbl.textColor = UIColor.white
     }
     
     private func setupTableView() {

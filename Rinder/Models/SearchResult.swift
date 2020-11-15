@@ -16,7 +16,6 @@ class SearchResult: NSObject {
         guard let restaurantsJSONArray = restaurantsJSONArray else { return }
         
         successfulFetch = true
-        
         for restaurantJSON in restaurantsJSONArray {
             if let restaurantDict = restaurantJSON as? NSDictionary,
                let restaurantDetailsDict = restaurantDict["restaurant"] as? NSDictionary {
@@ -35,7 +34,6 @@ class SearchResult: NSObject {
             return nil
         }
     }
-    
     func getCurrentRestaurant() -> Restaurant? {
         if restaurants.count > 0,
            currentIndex < restaurants.count - 1 {
