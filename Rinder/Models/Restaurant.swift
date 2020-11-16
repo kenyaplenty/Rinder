@@ -39,10 +39,10 @@ class Restaurant: NSObject {
                 self.address = address
             }
             if let latString = location["latitude"] as? String,
-               let lat = Float(latString),
+               let latitudeFloat = Float(latString),
                let lonString = location["longitude"] as? String,
-               let lon = Float(lonString) {
-                self.location = CLLocation(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon))
+               let longitudeFloat = Float(lonString) {
+                self.location = CLLocation(latitude: CLLocationDegrees(latitudeFloat), longitude: CLLocationDegrees(longitudeFloat))
             }
         }
         if let cuisines = jsonDict["cuisines"] as? String {

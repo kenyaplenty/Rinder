@@ -26,7 +26,7 @@ class SearchResult: NSObject {
     
     //return the next restaurant in the list if we have one
     func nextRestaurant() -> Restaurant? {
-        if restaurants.count > 0,
+        if !restaurants.isEmpty,
            currentIndex < restaurants.count - 1 {
             self.currentIndex += 1
             return restaurants[currentIndex]
@@ -35,7 +35,7 @@ class SearchResult: NSObject {
         }
     }
     func getCurrentRestaurant() -> Restaurant? {
-        if restaurants.count > 0,
+        if !restaurants.isEmpty,
            currentIndex < restaurants.count - 1 {
             return restaurants[currentIndex]
         } else {

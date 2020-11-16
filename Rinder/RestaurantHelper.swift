@@ -14,17 +14,17 @@ class RestaurantHelper {
     
     //MARK: - Getters
     
-    static func getRestaurants(lat: Double,
-                               lon: Double,
+    static func getRestaurants(latitude: Double,
+                               longitude: Double,
                                completionHandler: @escaping (_ searchResult: SearchResult) -> Void) {
         var urlString = "https://developers.zomato.com/api/v2.1/search?"
-        urlString += "lat=\(lat)"
-        urlString += "&lon=\(lon)"
+        urlString += "lat=\(latitude)"
+        urlString += "&lon=\(longitude)"
         urlString += "&radius=3218.69" //radius is in meters (2mi radius)
         urlString += "&sort=real_distance"
         urlString += "&order=desc"
         
-        guard let url = URL(string: urlString) else {
+        guard let restaurantUrl = URL(string: urlString) else {
             return completionHandler(SearchResult(from: nil))
         }
         
@@ -33,7 +33,7 @@ class RestaurantHelper {
             "user-key": apiKey
         ]
         
-        AF.request(url, method: .get, headers: headers).responseJSON { response in
+        AF.request(restaurantUrl, method: .get, headers: headers).responseJSON { response in
             switch response.result {
             case .success(let value):
                 guard let dictionary = value as? [String: Any],
