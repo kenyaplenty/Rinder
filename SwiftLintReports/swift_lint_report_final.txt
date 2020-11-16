@@ -1,0 +1,25 @@
+Loading configuration from '/Users/kenyataplenty/Documents/Rinder/.swiftlint.yml'
+Linting Swift files at paths 
+Linting 'SavedRestaurantCell.swift' (1/9)
+Linting 'ViewController.swift' (2/9)
+Linting 'HomeVC.swift' (3/9)
+Linting 'SearchResult.swift' (4/9)
+Linting 'AppDelegate.swift' (5/9)
+Linting 'Restaurant.swift' (6/9)
+Linting 'RestaurantHelper.swift' (7/9)
+Linting 'SavedRestaurantsVC.swift' (8/9)
+Linting 'SceneDelegate.swift' (9/9)
+[
+  {
+    "character" : 19,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/SceneDelegate.swift",
+    "line" : 18,
+    "reason" : "Prefer `!= nil` over `let _ =`",
+    "rule_id" : "unused_optional_binding",
+    "severity" : "Warning",
+    "type" : "Unused Optional Binding"
+  }
+]
+Done linting! Found 1 violation, 0 serious in 9 files.
+
+

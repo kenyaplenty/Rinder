@@ -31,7 +31,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var rightIv: UIImageView!
     @IBOutlet weak var savedBtn: UIButton!
     
-    
     //MARK: - Variables
     
     var context: NSManagedObjectContext? {
@@ -84,7 +83,6 @@ class HomeVC: UIViewController {
         menuBtn.layer.cornerRadius = 16
         savedBtn.layer.cornerRadius = 16
 
-        
         leftIv.image = UIImage(systemName: "xmark.circle.fill")
         leftIv.tintColor = .systemRed
         leftIv.isUserInteractionEnabled = true
@@ -108,7 +106,7 @@ class HomeVC: UIViewController {
         locationManager.startUpdatingLocation()
     }
 
-    private func getRestaurants(lat: CLLocationDegrees, long: CLLocationDegrees) {
+    private func getRestaurants(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         if fetchingRestaurants { return }
         
         //show loading
@@ -119,8 +117,8 @@ class HomeVC: UIViewController {
         self.view.addSubview(activityIndicator)
         
         fetchingRestaurants = true
-        RestaurantHelper.getRestaurants(lat: Double(lat),
-                                        lon: Double(long)) { (searchResultFound) in
+        RestaurantHelper.getRestaurants(latitude: Double(latitude),
+                                        longitude: Double(longitude)) { (searchResultFound) in
             self.searchResult = searchResultFound
             self.fetchingRestaurants = false
             
@@ -159,7 +157,7 @@ class HomeVC: UIViewController {
             self.cuisineLbl.text = "Cuisine(s): \(restaurant.cuisines)"
             
             if let imageURL = restaurant.featuredImageURL {
-                self.setRestaurantImage(url: imageURL)
+                self.setRestaurantImage(imageUrl: imageURL)
             } else {
                 self.restaurantImage.image = #imageLiteral(resourceName: "Screen Shot 2020-11-14 at 10.33.28 PM")
             }
@@ -169,7 +167,7 @@ class HomeVC: UIViewController {
     }
     
     //fetch the image from the internet and put it on
-    private func setRestaurantImage(url: URL) {
+    private func setRestaurantImage(imageUrl: URL) {
         //show loading indicator
         let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.center = self.restaurantImage.center
@@ -178,7 +176,7 @@ class HomeVC: UIViewController {
         self.view.addSubview(activityIndicator)
         
         DispatchQueue.global().async { [weak self] in
-            guard let data = try? Data(contentsOf: url),
+            guard let data = try? Data(contentsOf: imageUrl),
                   let image = UIImage(data: data) else {
                 activityIndicator.stopAnimating()
                 return
@@ -229,9 +227,9 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func savedBtnTap(_ sender: Any) {
-        let vc = SavedRestaurantsVC()
-        vc.context = context
-        self.present(vc, animated: true, completion: nil)
+        let viewController = SavedRestaurantsVC()
+        viewController.context = context
+        self.present(viewController, animated: true, completion: nil)
     }
 }
 
@@ -249,7 +247,7 @@ extension HomeVC: CLLocationManagerDelegate {
             return
         }
         
-        getRestaurants(lat: location.coordinate.latitude,
-                       long: location.coordinate.longitude)
+        getRestaurants(latitude: location.coordinate.latitude,
+                       longitude: location.coordinate.longitude)
     }
 }

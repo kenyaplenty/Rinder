@@ -14,21 +14,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var signInBtn: GIDSignInButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
-
-
+    
     @IBAction func signInBtnTap(_ sender: Any) {
-        let vc = HomeVC()
+        let viewController = HomeVC()
         
-        vc.modalPresentationStyle = .currentContext
-        vc.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .currentContext
+        viewController.modalTransitionStyle = .coverVertical
         
-        self.present(vc, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {

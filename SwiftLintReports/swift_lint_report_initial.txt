@@ -1,0 +1,1123 @@
+Loading configuration from '/Users/kenyataplenty/Documents/Rinder/.swiftlint.yml'
+Linting Swift files at paths 
+Linting 'SavedRestaurantCell.swift' (1/9)
+Linting 'Restaurant.swift' (2/9)
+Linting 'RestaurantHelper.swift' (3/9)
+Linting 'SearchResult.swift' (4/9)
+Linting 'ViewController.swift' (5/9)
+Linting 'SavedRestaurantsVC.swift' (6/9)
+Linting 'HomeVC.swift' (7/9)
+Linting 'AppDelegate.swift' (8/9)
+Linting 'SceneDelegate.swift' (9/9)
+[
+  {
+    "character" : 24,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/SearchResult.swift",
+    "line" : 29,
+    "reason" : "Prefer checking `isEmpty` over comparing `count` to zero.",
+    "rule_id" : "empty_count",
+    "severity" : "Error",
+    "type" : "Empty Count"
+  },
+  {
+    "character" : 24,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/SearchResult.swift",
+    "line" : 38,
+    "reason" : "Prefer checking `isEmpty` over comparing `count` to zero.",
+    "rule_id" : "empty_count",
+    "severity" : "Error",
+    "type" : "Empty Count"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/SearchResult.swift",
+    "line" : 14,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/SearchResult.swift",
+    "line" : 17,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/SearchResult.swift",
+    "line" : 26,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : 9,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 26,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'vc'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 5,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 13,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 38,
+    "reason" : "Files should have a single trailing newline.",
+    "rule_id" : "trailing_newline",
+    "severity" : "Warning",
+    "type" : "Trailing Newline"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 14,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 16,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 17,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 27,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 30,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 33,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 17,
+    "reason" : "Limit vertical whitespace to a single empty line. Currently 2.",
+    "rule_id" : "vertical_whitespace",
+    "severity" : "Warning",
+    "type" : "Vertical Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/ViewController.swift",
+    "line" : 24,
+    "reason" : "Limit vertical whitespace to a single empty line. Currently 2.",
+    "rule_id" : "vertical_whitespace",
+    "severity" : "Warning",
+    "type" : "Vertical Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/SavedRestaurantCell.swift",
+    "line" : 24,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : 32,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 17,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'lat'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 32,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 18,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'lon'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 19,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 27,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'url'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 5,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 15,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 12,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 14,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 16,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 26,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 30,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 35,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 44,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/RestaurantHelper.swift",
+    "line" : 46,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : 5,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 13,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : 1,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 60,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 16,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 19,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 22,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 27,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 33,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 37,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 39,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 42,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 48,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 66,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 71,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 73,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 76,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 78,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 93,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : 88,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 79,
+    "reason" : "Unused parameter \"action\" in a closure should be replaced with _.",
+    "rule_id" : "unused_closure_parameter",
+    "severity" : "Warning",
+    "type" : "Unused Closure Parameter"
+  },
+  {
+    "character" : 96,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/SavedRestaurantsVC.swift",
+    "line" : 79,
+    "reason" : "Unused parameter \"view\" in a closure should be replaced with _.",
+    "rule_id" : "unused_closure_parameter",
+    "severity" : "Warning",
+    "type" : "Unused Closure Parameter"
+  },
+  {
+    "character" : 22,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 84,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'url'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 22,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 89,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'app'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 44,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 89,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'url'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 123,
+    "reason" : "Files should have a single trailing newline.",
+    "rule_id" : "trailing_newline",
+    "severity" : "Warning",
+    "type" : "Trailing Newline"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 52,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 87,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 92,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 100,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 104,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 107,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 121,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : 62,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/AppDelegate.swift",
+    "line" : 48,
+    "reason" : "Unused parameter \"storeDescription\" in a closure should be replaced with _.",
+    "rule_id" : "unused_closure_parameter",
+    "severity" : "Warning",
+    "type" : "Unused Closure Parameter"
+  },
+  {
+    "character" : 20,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/Restaurant.swift",
+    "line" : 42,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'lat'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 20,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/Restaurant.swift",
+    "line" : 44,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'lon'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/Models\/Restaurant.swift",
+    "line" : 28,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/SceneDelegate.swift",
+    "line" : 55,
+    "reason" : "Files should have a single trailing newline.",
+    "rule_id" : "trailing_newline",
+    "severity" : "Warning",
+    "type" : "Trailing Newline"
+  },
+  {
+    "character" : 19,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/SceneDelegate.swift",
+    "line" : 19,
+    "reason" : "Prefer `!= nil` over `let _ =`",
+    "rule_id" : "unused_optional_binding",
+    "severity" : "Warning",
+    "type" : "Unused Optional Binding"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/SceneDelegate.swift",
+    "line" : 14,
+    "reason" : "Limit vertical whitespace to a single empty line. Currently 2.",
+    "rule_id" : "vertical_whitespace",
+    "severity" : "Warning",
+    "type" : "Vertical Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/SceneDelegate.swift",
+    "line" : 53,
+    "reason" : "Limit vertical whitespace to a single empty line. Currently 2.",
+    "rule_id" : "vertical_whitespace",
+    "severity" : "Warning",
+    "type" : "Vertical Whitespace"
+  },
+  {
+    "character" : 33,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 111,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'lat'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 37,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 172,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'url'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 9,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 232,
+    "reason" : "Variable name should be between 4 and 40 characters long: 'vc'",
+    "rule_id" : "identifier_name",
+    "severity" : "Error",
+    "type" : "Identifier Name"
+  },
+  {
+    "character" : 5,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 15,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : 5,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 35,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : 5,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 103,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : 5,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 194,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : 1,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 238,
+    "reason" : "MARK comment should be in valid format. e.g. '\/\/ MARK: ...' or '\/\/ MARK: - ...'",
+    "rule_id" : "mark",
+    "severity" : "Warning",
+    "type" : "Mark"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 18,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 20,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 28,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 33,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 34,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 36,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 43,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 46,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 49,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 56,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 62,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 65,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 69,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 74,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 79,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 83,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 87,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 93,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 99,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 102,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 104,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 113,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 120,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 126,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 132,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 139,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 144,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 149,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 151,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 153,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 158,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 160,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 166,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 170,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 179,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 186,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 193,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 195,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 199,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 204,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 207,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 211,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 222,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 226,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 230,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 251,
+    "reason" : "Lines should not have trailing whitespace.",
+    "rule_id" : "trailing_whitespace",
+    "severity" : "Warning",
+    "type" : "Trailing Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 34,
+    "reason" : "Limit vertical whitespace to a single empty line. Currently 2.",
+    "rule_id" : "vertical_whitespace",
+    "severity" : "Warning",
+    "type" : "Vertical Whitespace"
+  },
+  {
+    "character" : null,
+    "file" : "\/Users\/kenyataplenty\/Documents\/Rinder\/Rinder\/View Controllers\/HomeVC.swift",
+    "line" : 87,
+    "reason" : "Limit vertical whitespace to a single empty line. Currently 2.",
+    "rule_id" : "vertical_whitespace",
+    "severity" : "Warning",
+    "type" : "Vertical Whitespace"
+  }
+]
+Done linting! Found 123 violations, 14 serious in 9 files.
+Command PhaseScriptExecution failed with a nonzero exit code
+
