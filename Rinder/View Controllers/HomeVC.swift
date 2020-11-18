@@ -46,6 +46,10 @@ class HomeVC: UIViewController {
     var fetchingRestaurants = false
     var searchResult: SearchResult?
     
+    // Variables for unit tests
+    var savedToCoreData = false
+    var nextRestaurantCalled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -191,21 +195,24 @@ class HomeVC: UIViewController {
     
     //MARK: - Actions
     
-    @objc private func rejectTap() {
+    @objc func rejectTap() {
         nextRestaurant()
     }
     
-    @objc private func acceptTap() {
+    @objc func acceptTap() {
         if let restaurant = searchResult?.getCurrentRestaurant() {
             restaurant.saveToCoreData(context: context)
+            savedToCoreData = true
         }
         
         nextRestaurant()
     }
     
-    @objc private func nextRestaurant() {
+    @objc func nextRestaurant() {
+        nextRestaurantCalled = true
         //do not do anything if there's no result yet
         guard let searchResult = searchResult else { return }
+        
         
         if let nextRestaurant = searchResult.nextRestaurant() {
             updateViewWithRestaurant(restaurant: nextRestaurant)

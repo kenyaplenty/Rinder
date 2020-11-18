@@ -26,6 +26,24 @@ class RinderTests: XCTestCase {
         XCTAssertTrue(vc.fetchingRestaurants)
     }
     
+    func testAcceptTap() throws {
+        let vc = HomeVC()
+        vc.getRestaurants(latitude: 40.7128, longitude: 74.0060)
+        XCTAssertTrue(vc.fetchingRestaurants)
+        
+        vc.acceptTap()
+        XCTAssertEqual(vc.nextRestaurantCalled, true)
+    }
+    
+    func testRejectTap() throws {
+        let vc = HomeVC()
+        vc.getRestaurants(latitude: 40.7128, longitude: 74.0060)
+        XCTAssertTrue(vc.fetchingRestaurants)
+        
+        vc.rejectTap()
+        XCTAssertTrue(vc.nextRestaurantCalled)
+    }
+    
     // Test updateViewWithRestaurant
     //func testUpdateViewWithRestaurant() throws {
     //    let vc = HomeVC()
