@@ -43,8 +43,8 @@ class HomeVC: UIViewController {
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     
-    private var fetchingRestaurants = false
-    private var searchResult: SearchResult?
+    var fetchingRestaurants = false
+    var searchResult: SearchResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +106,7 @@ class HomeVC: UIViewController {
         locationManager.startUpdatingLocation()
     }
 
-    private func getRestaurants(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+    func getRestaurants(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         if fetchingRestaurants { return }
         
         //show loading
