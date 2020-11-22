@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,6 +18,7 @@
                 <outlet property="fromLbl" destination="J5p-uO-mbE" id="gxT-6O-B6Q"/>
                 <outlet property="leftIv" destination="TbX-oF-Pk6" id="7Fy-c6-WMr"/>
                 <outlet property="locationLbl" destination="zqG-jh-Fxd" id="6cw-kG-gAN"/>
+                <outlet property="logOutBtn" destination="aC1-Mr-bVf" id="Egi-tu-Eus"/>
                 <outlet property="menuBtn" destination="LAA-2b-YEn" id="bZ9-96-5bV"/>
                 <outlet property="restaurantImage" destination="fMU-hE-8N2" id="FDt-w2-nrz"/>
                 <outlet property="rightIv" destination="pt3-5u-lrm" id="wmv-PI-BND"/>
@@ -125,7 +126,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmF-lL-nPF">
                     <rect key="frame" x="134.5" y="796" width="145" height="42"/>
-                    <color key="backgroundColor" red="1" green="0.72409796709999996" blue="0.7255019546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.99607843137254903" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                     <state key="normal" title="My Restaurants">
@@ -136,9 +137,19 @@
                         <action selector="savedBtnTap:" destination="-1" eventType="touchUpInside" id="q9c-Aa-0qG"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC1-Mr-bVf">
+                    <rect key="frame" x="181.5" y="843" width="51" height="32"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="logOutBtnTap:" destination="-1" eventType="touchUpInside" id="zHZ-rH-xjM"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.69411764705882351" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J5p-uO-mbE" secondAttribute="trailing" constant="12" id="2q1-kz-3xo"/>
                 <constraint firstItem="TbX-oF-Pk6" firstAttribute="top" secondItem="LNt-7y-gAI" secondAttribute="bottom" constant="24" id="72k-Rb-7DE"/>
@@ -152,6 +163,7 @@
                 <constraint firstItem="J5p-uO-mbE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QNt-Jr-Fvg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zqG-jh-Fxd" secondAttribute="trailing" constant="12" id="T9s-Fg-Rse"/>
                 <constraint firstItem="BmF-lL-nPF" firstAttribute="centerY" secondItem="TbX-oF-Pk6" secondAttribute="centerY" id="WF0-00-QVY"/>
+                <constraint firstItem="aC1-Mr-bVf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="X4z-nk-vRu"/>
                 <constraint firstItem="LNt-7y-gAI" firstAttribute="leading" secondItem="TbX-oF-Pk6" secondAttribute="leading" id="aBS-jJ-ewV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e10-Wf-l4G" secondAttribute="trailing" constant="12" id="aLA-Yu-QIx"/>
                 <constraint firstItem="J5p-uO-mbE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="eAP-OR-hEF"/>
@@ -162,6 +174,7 @@
                 <constraint firstItem="LNt-7y-gAI" firstAttribute="trailing" secondItem="pt3-5u-lrm" secondAttribute="trailing" id="lYB-LA-gXY"/>
                 <constraint firstItem="e10-Wf-l4G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="z4w-P4-mEY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pt3-5u-lrm" secondAttribute="bottom" constant="20" id="zFo-2j-efW"/>
+                <constraint firstItem="aC1-Mr-bVf" firstAttribute="top" secondItem="BmF-lL-nPF" secondAttribute="bottom" constant="5" id="zN1-kn-aXJ"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
         </view>

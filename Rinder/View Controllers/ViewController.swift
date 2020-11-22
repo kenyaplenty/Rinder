@@ -17,20 +17,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToHome), name: Notification.Name("UserLoggedIn"), object: nil)
     }
     
-    @IBAction func signInBtnTap(_ sender: Any) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        autoSignIn()
+    }
+    
+    private func autoSignIn() {
+        if (GIDSignIn.sharedInstance().hasPreviousSignIn()){
+            GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+            goToHome()
+        }
+    }
+    
+    @objc private func goToHome() {
         let viewController = HomeVC()
-        
         viewController.modalPresentationStyle = .currentContext
         viewController.modalTransitionStyle = .coverVertical
-        
         self.present(viewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func didTapSignOut(_ sender: AnyObject) {
-      GIDSignIn.sharedInstance().signOut()
     }
 }
 

@@ -31,6 +31,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To find restaurants near you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To find restaurants near you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To find restaurants near you</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -56,12 +62,6 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>To find restaurants near you</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To find restaurants near you</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>To find restaurants near you</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

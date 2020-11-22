@@ -7,8 +7,10 @@
 
 import UIKit
 import CoreData
+import GoogleSignIn
 import CoreLocation
 import SafariServices
+
 
 class HomeVC: UIViewController {
 
@@ -30,6 +32,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var leftIv: UIImageView!
     @IBOutlet weak var rightIv: UIImageView!
     @IBOutlet weak var savedBtn: UIButton!
+    @IBOutlet weak var logOutBtn: UIButton!
     
     //MARK: - Variables
     
@@ -119,6 +122,8 @@ class HomeVC: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.view.addSubview(activityIndicator)
+        
+        print("here")
         
         fetchingRestaurants = true
         RestaurantHelper.getRestaurants(latitude: Double(latitude),
@@ -238,6 +243,17 @@ class HomeVC: UIViewController {
         viewController.context = context
         self.present(viewController, animated: true, completion: nil)
     }
+    
+    @IBAction func logOutBtnTap(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
+        viewController.modalPresentationStyle = .currentContext
+        viewController.modalTransitionStyle = .coverVertical
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: - CLLocationManagerDelegate
