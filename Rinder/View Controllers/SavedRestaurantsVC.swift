@@ -41,19 +41,18 @@ class SavedRestaurantsVC: UIViewController {
     }
     
     private func getSavedData() {
-        guard let context = context else {
-            self.dismiss(animated: true, completion: nil)
-            return
+        guard let user = signedInUser else { return }
+        
+        var restaurants = [SavedRestaurant]()
+        if let restaurantsSet = user.savedRestaurants {
+            for savedRestaurant in restaurantsSet {
+                if let restaurant = savedRestaurant as? SavedRestaurant {
+                    restaurants.append(restaurant)
+                }
+            }
         }
         
-        let request: NSFetchRequest<SavedRestaurant> = SavedRestaurant.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        do {
-            savedRestaurants = try context.fetch(request)
-            tableView.reloadData()
-        } catch {
-            print("Error getting saved restaurants: \(error.localizedDescription)")
-        }
+        self.savedRestaurants = restaurants
     }
 }
 
@@ -80,8 +79,14 @@ extension SavedRestaurantsVC: UITableViewDelegate, UITableViewDataSource {
             if let context = self.context {
                 let restaurantToDelete = self.savedRestaurants[indexPath.row]
                 self.savedRestaurants.remove(at: indexPath.row)
-                context.delete(restaurantToDelete)
                 do {
+
+                    if let user = signedInUser {
+                        user.removeFromSavedRestaurants(restaurantToDelete)
+                    }
+                    
+                    context.delete(restaurantToDelete)
+                    
                     try context.save()
                     tableView.reloadData()
                 } catch {

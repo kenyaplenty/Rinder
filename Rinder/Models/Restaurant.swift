@@ -65,7 +65,12 @@ class Restaurant: NSObject {
             savedRestaurant.latitude = Double(location.coordinate.latitude)
             savedRestaurant.longitude = Double(location.coordinate.longitude)
         }
+        
         do {
+            if let user = signedInUser {
+                user.addToSavedRestaurants(savedRestaurant)
+            }
+            
             try context.save()
         } catch {
             print("Error saving restaurant: \(error.localizedDescription)")

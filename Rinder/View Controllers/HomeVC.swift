@@ -246,6 +246,7 @@ class HomeVC: UIViewController {
     
     @IBAction func logOutBtnTap(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
+        signedInUser = nil
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")

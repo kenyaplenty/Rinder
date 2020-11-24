@@ -10,6 +10,9 @@ import CoreData
 import Firebase
 import GoogleSignIn
 
+//global value of the signed in User
+var signedInUser: User?
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
@@ -107,12 +110,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
-        // Perform any operations on signed in user here.
-        let userId = user.userID                  // For client-side use only!
-        let idToken = user.authentication.idToken // Safe to send to the server
-        let fullName = user.profile.name
-        let givenName = user.profile.givenName
-        let email = user.profile.email
+        //Signin user or register them
+        let viewContext = self.persistentContainer.viewContext
+        UserHelper.userSignedIn(viewContext: viewContext,
+                                userId: user.userID,
+                                name: user.profile.name,
+                                email: user.profile.email)
         
         let nc = NotificationCenter.default
         nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
