@@ -166,6 +166,8 @@ class HomeVC: UIViewController {
             
             activityIndicator.stopAnimating()
             self.view.willRemoveSubview(activityIndicator)
+            
+            searchResultFound.addFavoritesToExampleUsers()
         }
     }
     
@@ -317,6 +319,9 @@ class HomeVC: UIViewController {
                 restaurant.removeFromFavorites(context: context)
             }
             self.favoritesBtn.setTitle("Add to favorites", for: .normal)
+        } else if signedInUser?.favRestaurants?.count ?? 0 >= 5 {
+            self.createAlert(title: "Favorite limit reached", message: "You can only have 5 favorites. Remove a favorite restaurant from your profile to add this one.")
+            return
         } else {
             if let restaurant = searchResult?.getCurrentRestaurant() {
                 restaurant.saveToCoreData(context: context, saveToFavorites: true)
@@ -387,5 +392,17 @@ extension HomeVC: CLLocationManagerDelegate {
         
         getRestaurants(latitude: location.coordinate.latitude,
                        longitude: location.coordinate.longitude)
+    }
+}
+
+
+extension UIViewController {
+    func createAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

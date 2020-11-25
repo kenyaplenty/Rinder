@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 class SearchResult: NSObject {
     var successfulFetch: Bool = false
@@ -41,5 +43,44 @@ class SearchResult: NSObject {
         } else {
              return nil
         }
+    }
+    
+    //MARK: Make fake users that favorited some of the search results
+    func addFavoritesToExampleUsers() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, restaurants.count > 0 else { return }
+        
+        appDelegate.persistentContainer.performBackgroundTask { (context) in
+            //get example users
+            
+            let request : NSFetchRequest<User> = User.fetchRequest()
+            request.predicate = NSPredicate(format: "isExampleUser = true")
+            
+            do {
+                let exampleUsers = try context.fetch(request)
+                
+                if exampleUsers.count == 0 { return }
+                
+                for exampleUser in exampleUsers {
+                    if let favs = exampleUser.favRestaurants {
+                        exampleUser.removeFromFavRestaurants(favs)
+                    }
+                    
+                    //have example user favorite 3 random restaurants
+                    for _ in 0..<5 {
+                        if let restaurant = self.restaurants.randomElement(),
+                           !restaurant.isItemSaved(isCheckingFavorites: true, user: exampleUser) {
+                            let savedRestaurant = restaurant.convertToSavedRestaurantModel(context: context)
+                            exampleUser.addToFavRestaurants(savedRestaurant)
+                        }
+                    }
+                }
+                
+                try context.save()
+            } catch {
+                print("Hey Listen! Error adding favs to example users: \(error.localizedDescription)")
+            }
+            
+        }
+        
     }
 }
