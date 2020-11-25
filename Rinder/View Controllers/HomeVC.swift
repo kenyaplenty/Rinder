@@ -290,7 +290,7 @@ extension HomeVC: CLLocationManagerDelegate {
             return
         }
         
-        getRestaurants(latitude: location.coordinate.latitude,
-                       longitude: location.coordinate.longitude)
+//        getRestaurants(latitude: location.coordinate.latitude,
+//                       longitude: location.coordinate.longitude)
     }
 }

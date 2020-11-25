@@ -172,10 +172,10 @@
 		1357C341255E0AAD00B1A89A /* Rinder */ = {
 			isa = PBXGroup;
 			children = (
+				13505AB7256DE3F600EE1815 /* Tableview Cells */,
 				132B20BB255FB71700FE65CB /* Models */,
 				132B20BA255FB6FB00FE65CB /* View Controllers */,
-				1385DAF6256DCA62004440B1 /* UserHelper.swift */,
-				1357C382255E138600B1A89A /* RestaurantHelper.swift */,
+				13505ABB256DE41000EE1815 /* Helpers */,
 				1357C342255E0AAD00B1A89A /* AppDelegate.swift */,
 				1357C344255E0AAD00B1A89A /* SceneDelegate.swift */,
 				1357C348255E0AAD00B1A89A /* Main.storyboard */,
@@ -521,6 +521,7 @@
 				132B20BD255FB73900FE65CB /* SearchResult.swift in Sources */,
 				1385DAF7256DCA62004440B1 /* UserHelper.swift in Sources */,
 				132B20D0255FB82E00FE65CB /* SavedRestaurantCell.swift in Sources */,
+				13505ABE256DE44C00EE1815 /* UserSearchResultCell.swift in Sources */,
 				1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */,
 				13505AAF256DDCE400EE1815 /* SearchUserVC.swift in Sources */,
 				132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */,

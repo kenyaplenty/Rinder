@@ -36,6 +36,7 @@ class SearchUserVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
+        tableView.register(UINib(nibName: "UserSearchResultCell", bundle: nil), forCellReuseIdentifier: "UserSearchResultCell")
         
         searchBar.placeholder = "Email"
         searchBar.delegate = self
@@ -72,9 +73,12 @@ extension SearchUserVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let user = usersFound[indexPath.row]
-        cell.textLabel?.text = user.name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserSearchResultCell") as? UserSearchResultCell else {
+            return UITableViewCell()
+        }
+        
+        cell.populate(user: usersFound[indexPath.row])
+        
         return cell
     }
 }
