@@ -54,18 +54,9 @@ class Restaurant: NSObject {
     }
     //save restaurant
     func saveToCoreData(context: NSManagedObjectContext?, saveToFavorites: Bool) {
-        guard let context = context, !isItemSaved(restaurantId: self.id, isCheckingFavorites: saveToFavorites) else { return }
+        guard let context = context, !isItemSaved(isCheckingFavorites: saveToFavorites, user: signedInUser) else { return }
         
-        let savedRestaurant = SavedRestaurant(context: context)
-        savedRestaurant.cuisines = self.cuisines
-        savedRestaurant.featuredImageURLString = self.featuredImageURL?.absoluteString
-        savedRestaurant.id = self.id
-        savedRestaurant.name = self.name
-        savedRestaurant.priceRange = self.priceRange
-        if let location = self.location {
-            savedRestaurant.latitude = Double(location.coordinate.latitude)
-            savedRestaurant.longitude = Double(location.coordinate.longitude)
-        }
+        let savedRestaurant = convertToSavedRestaurantModel(context: context)
         
         do {
             if let user = signedInUser {
@@ -82,15 +73,15 @@ class Restaurant: NSObject {
         }
     }
     
-    func isItemSaved(restaurantId: String, isCheckingFavorites: Bool) -> Bool {
+    func isItemSaved(isCheckingFavorites: Bool, user: User?) -> Bool {
         //don't save if we don't have a user
-        guard let user = signedInUser else { return true }
+        guard let user = (user == nil ? signedInUser : user) else { return true }
         
         if let restaurantsSet = isCheckingFavorites ? user.favRestaurants : user.savedRestaurants {
             for savedRestaurant in restaurantsSet {
                 if let restaurant = savedRestaurant as? SavedRestaurant,
                    let currentId = restaurant.id,
-                   currentId == restaurantId {
+                   currentId == self.id {
                     return true
                 }
             }
@@ -119,5 +110,20 @@ class Restaurant: NSObject {
                 return
             }
         }
+    }
+    
+    func convertToSavedRestaurantModel(context: NSManagedObjectContext) -> SavedRestaurant {
+        let savedRestaurant = SavedRestaurant(context: context)
+        savedRestaurant.cuisines = self.cuisines
+        savedRestaurant.featuredImageURLString = self.featuredImageURL?.absoluteString
+        savedRestaurant.id = self.id
+        savedRestaurant.name = self.name
+        savedRestaurant.priceRange = self.priceRange
+        if let location = self.location {
+            savedRestaurant.latitude = Double(location.coordinate.latitude)
+            savedRestaurant.longitude = Double(location.coordinate.longitude)
+        }
+        
+        return savedRestaurant
     }
 }

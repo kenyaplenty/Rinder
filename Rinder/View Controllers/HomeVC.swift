@@ -166,6 +166,8 @@ class HomeVC: UIViewController {
             
             activityIndicator.stopAnimating()
             self.view.willRemoveSubview(activityIndicator)
+            
+            searchResultFound.addFavoritesToExampleUsers()
         }
     }
     
