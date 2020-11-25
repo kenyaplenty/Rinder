@@ -28,6 +28,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var cuisineLbl: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var decisionIv: UIImageView!
     
     //buttons
     @IBOutlet weak var leftIv: UIImageView!
@@ -109,6 +110,9 @@ class HomeVC: UIViewController {
         rightIv.addGestureRecognizer(rightTap)
         
         backView.isHidden = true
+        
+        decisionIv.alpha = 0
+        decisionIv.isHidden = true
     }
     
     //MARK: - Getting/Setting the restaurant
@@ -219,11 +223,31 @@ class HomeVC: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    func moveCard(card: UIView, moveLeft: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            card.center = CGPoint(x: moveLeft ? card.center.x + 500 : card.center.x - 500,
+                                  y: card.center.y)
+            self.decisionIv.alpha = 0
+            self.decisionIv.isHidden = true
+        }
+    }
+    
     @objc func rejectTap() {
+        rejectRestaurant(card: self.backView)
+    }
+    
+    func rejectRestaurant(card: UIView) {
+        moveCard(card: card, moveLeft: true)
         nextRestaurant()
     }
     
     @objc func acceptTap() {
+        acceptRestaurant(card: self.backView)
+    }
+    
+    func acceptRestaurant(card: UIView) {
+        moveCard(card: self.backView, moveLeft: false)
+        
         if let restaurant = searchResult?.getCurrentRestaurant() {
             restaurant.saveToCoreData(context: context)
             savedToCoreData = true
@@ -236,7 +260,6 @@ class HomeVC: UIViewController {
         nextRestaurantCalled = true
         //do not do anything if there's no result yet
         guard let searchResult = searchResult else { return }
-        
         
         if let nextRestaurant = searchResult.nextRestaurant() {
             updateViewWithRestaurant(restaurant: nextRestaurant)
@@ -274,6 +297,48 @@ class HomeVC: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    
+    //MARK: - Swipe
+    @IBAction func RestaurantCardSwipe(_ sender: UIPanGestureRecognizer) {
+        guard let card = sender.view else { return }
+        
+        let point = sender.translation(in: self.view)
+        let xFromCenter = card.center.x - view.center.x
+        
+        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        
+        if xFromCenter == 0 {
+            decisionIv.alpha = 0
+            decisionIv.isHidden = true
+        } else if xFromCenter > 0 {
+            decisionIv.isHidden = false
+            decisionIv.image = UIImage(systemName: "heart.circle.fill")
+            decisionIv.tintColor = .systemBlue
+        } else {
+            decisionIv.isHidden = false
+            decisionIv.image = UIImage(systemName: "xmark.circle.fill")
+            decisionIv.tintColor = .systemRed
+        }
+        decisionIv.alpha = abs(xFromCenter) / view.center.x
+        
+        //done dragging
+        if sender.state == .ended {
+            
+            //move off to the left
+            if card.center.x < 75 {
+                rejectRestaurant(card: card)
+            } else if card.center.x > (view.frame.width - 75) {
+                acceptRestaurant(card: card)
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    card.center = self.view.center
+                    self.decisionIv.alpha = 0
+                    self.decisionIv.isHidden = true
+                }
+            }
+        }
+    }
 }
 
 //MARK: - CLLocationManagerDelegate
@@ -290,7 +355,7 @@ extension HomeVC: CLLocationManagerDelegate {
             return
         }
         
-//        getRestaurants(latitude: location.coordinate.latitude,
-//                       longitude: location.coordinate.longitude)
+        getRestaurants(latitude: location.coordinate.latitude,
+                       longitude: location.coordinate.longitude)
     }
 }

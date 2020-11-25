@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="backView" destination="LNt-7y-gAI" id="96E-4W-ize"/>
                 <outlet property="cuisineLbl" destination="EvB-dd-x43" id="cr2-zU-Nf4"/>
+                <outlet property="decisionIv" destination="Kxm-pJ-jRC" id="19F-yk-HmR"/>
                 <outlet property="distanceLbl" destination="Nbd-sb-iSd" id="38N-cK-BIQ"/>
                 <outlet property="errorLbl" destination="e10-Wf-l4G" id="4Gn-2k-msa"/>
                 <outlet property="fromLbl" destination="J5p-uO-mbE" id="gxT-6O-B6Q"/>
@@ -79,14 +80,23 @@
                                 <action selector="menuButtonTap:" destination="-1" eventType="touchUpInside" id="jB0-mR-KXj"/>
                             </connections>
                         </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kxm-pJ-jRC">
+                            <rect key="frame" x="16" y="156.5" width="342" height="342"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Kxm-pJ-jRC" secondAttribute="height" multiplier="1:1" id="3km-an-tjc"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <gestureRecognizers/>
                     <constraints>
+                        <constraint firstItem="Kxm-pJ-jRC" firstAttribute="leading" secondItem="LNt-7y-gAI" secondAttribute="leading" constant="16" id="6D5-aC-YEy"/>
                         <constraint firstItem="Nbd-sb-iSd" firstAttribute="leading" secondItem="unz-no-Ovw" secondAttribute="leading" id="6Wt-aM-OZe"/>
                         <constraint firstItem="EvB-dd-x43" firstAttribute="top" secondItem="Nbd-sb-iSd" secondAttribute="bottom" constant="8" id="7VH-1F-qJs"/>
                         <constraint firstItem="Nbd-sb-iSd" firstAttribute="trailing" secondItem="unz-no-Ovw" secondAttribute="trailing" id="7Xn-cz-K2l"/>
                         <constraint firstAttribute="trailing" secondItem="fMU-hE-8N2" secondAttribute="trailing" id="Gru-Gc-VS9"/>
                         <constraint firstItem="EvB-dd-x43" firstAttribute="leading" secondItem="Nbd-sb-iSd" secondAttribute="leading" id="Q5K-oJ-yjY"/>
+                        <constraint firstAttribute="trailing" secondItem="Kxm-pJ-jRC" secondAttribute="trailing" constant="16" id="Uqa-O6-uWT"/>
                         <constraint firstItem="Nbd-sb-iSd" firstAttribute="top" secondItem="unz-no-Ovw" secondAttribute="bottom" constant="8" id="Xbv-he-hVZ"/>
                         <constraint firstAttribute="trailing" secondItem="unz-no-Ovw" secondAttribute="trailing" constant="12" id="ZJF-gL-KN9"/>
                         <constraint firstItem="unz-no-Ovw" firstAttribute="leading" secondItem="LNt-7y-gAI" secondAttribute="leading" constant="12" id="a2P-VG-0Yw"/>
@@ -95,8 +105,12 @@
                         <constraint firstItem="fMU-hE-8N2" firstAttribute="top" secondItem="LNt-7y-gAI" secondAttribute="top" id="cj5-Wl-VRG"/>
                         <constraint firstItem="LAA-2b-YEn" firstAttribute="top" secondItem="EvB-dd-x43" secondAttribute="bottom" constant="12" id="cuP-Ki-Q8h"/>
                         <constraint firstItem="EvB-dd-x43" firstAttribute="trailing" secondItem="Nbd-sb-iSd" secondAttribute="trailing" id="jhx-Xh-loB"/>
+                        <constraint firstItem="Kxm-pJ-jRC" firstAttribute="centerY" secondItem="LNt-7y-gAI" secondAttribute="centerY" id="kKR-wQ-RY9"/>
                         <constraint firstItem="fMU-hE-8N2" firstAttribute="leading" secondItem="LNt-7y-gAI" secondAttribute="leading" id="uoR-6a-RWR"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Vu8-zp-UuW" appends="YES" id="ayj-hh-rOh"/>
+                    </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5p-uO-mbE">
                     <rect key="frame" x="186.5" y="52" width="41.5" height="21"/>
@@ -186,6 +200,11 @@
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
         </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="Vu8-zp-UuW">
+            <connections>
+                <action selector="RestaurantCardSwipe:" destination="-1" id="iWU-f0-i35"/>
+            </connections>
+        </panGestureRecognizer>
     </objects>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
