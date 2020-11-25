@@ -18,6 +18,7 @@ class UserSearchResultCell: UITableViewCell {
         super.awakeFromNib()
         
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
 
     func populate(user: User) {

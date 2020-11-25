@@ -7,7 +7,6 @@
 
 import UIKit
 import CoreData
-import GoogleSignIn
 import CoreLocation
 import SafariServices
 
@@ -18,6 +17,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var fromLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var seachBtn: UIButton!
+    @IBOutlet weak var profileBtn: UIButton!
     
     @IBOutlet weak var errorLbl: UILabel!
     
@@ -35,7 +35,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var leftIv: UIImageView!
     @IBOutlet weak var rightIv: UIImageView!
     @IBOutlet weak var savedBtn: UIButton!
-    @IBOutlet weak var logOutBtn: UIButton!
     
     //MARK: - Variables
     
@@ -242,6 +241,13 @@ class HomeVC: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    @IBAction func profileBtnTap(_ sender: Any) {
+        let viewController = ProfileVC()
+        viewController.context = context
+        viewController.user = signedInUser
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
     func moveCard(card: UIView, moveLeft: Bool) {
         UIView.animate(withDuration: 0.2) {
             card.center = CGPoint(x: moveLeft ? card.center.x + 500 : card.center.x - 500,
@@ -319,17 +325,6 @@ class HomeVC: UIViewController {
         }
         
         isRestaurantInFavorites.toggle()
-    }
-    
-    @IBAction func logOutBtnTap(_ sender: Any) {
-        GIDSignIn.sharedInstance().signOut()
-        signedInUser = nil
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
-        viewController.modalPresentationStyle = .currentContext
-        viewController.modalTransitionStyle = .coverVertical
-        self.present(viewController, animated: true, completion: nil)
     }
     
     
