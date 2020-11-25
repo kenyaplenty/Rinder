@@ -32,6 +32,7 @@
 		1357C37B255E0B8100B1A89A /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1357C379255E0B8100B1A89A /* HomeVC.xib */; };
 		1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C382255E138600B1A89A /* RestaurantHelper.swift */; };
 		1385DAF7256DCA62004440B1 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1385DAF6256DCA62004440B1 /* UserHelper.swift */; };
+		13B32AB8256F129E00232CBE /* SavedRestaurantHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B32AB7256F129E00232CBE /* SavedRestaurantHelper.swift */; };
 		172A2FCCA4AFBFD6CCE3B9BE /* Pods_RinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D505362DDDD81B4A0EE743EB /* Pods_RinderTests.framework */; };
 		2C594F5F5A1FA2696752C0E3 /* Pods_Rinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205E3341B059B67B117F3A9F /* Pods_Rinder.framework */; };
 		6B032A6E45A30CF1B14AED9E /* Pods_Rinder_RinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176DC0567E35D7E358A5C0D4 /* Pods_Rinder_RinderUITests.framework */; };
@@ -87,6 +88,7 @@
 		1357C379255E0B8100B1A89A /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		1357C382255E138600B1A89A /* RestaurantHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHelper.swift; sourceTree = "<group>"; };
 		1385DAF6256DCA62004440B1 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
+		13B32AB7256F129E00232CBE /* SavedRestaurantHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRestaurantHelper.swift; sourceTree = "<group>"; };
 		176DC0567E35D7E358A5C0D4 /* Pods_Rinder_RinderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinder_RinderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		205E3341B059B67B117F3A9F /* Pods_Rinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C672E98EC87D4FAE5854C6 /* Pods-RinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinderTests.debug.xcconfig"; path = "Target Support Files/Pods-RinderTests/Pods-RinderTests.debug.xcconfig"; sourceTree = "<group>"; };
