@@ -53,8 +53,9 @@ class Restaurant: NSObject {
         }
     }
     //save restaurant
-    func saveToCoreData(context: NSManagedObjectContext?) {
-        guard let context = context, !isItemSaved(context: context) else { return }
+    func saveToCoreData(context: NSManagedObjectContext?, saveToFavorites: Bool) {
+        guard let context = context, !isItemSaved(restaurantId: self.id, isCheckingFavorites: saveToFavorites) else { return }
+        
         let savedRestaurant = SavedRestaurant(context: context)
         savedRestaurant.cuisines = self.cuisines
         savedRestaurant.featuredImageURLString = self.featuredImageURL?.absoluteString
@@ -65,21 +66,58 @@ class Restaurant: NSObject {
             savedRestaurant.latitude = Double(location.coordinate.latitude)
             savedRestaurant.longitude = Double(location.coordinate.longitude)
         }
+        
         do {
+            if let user = signedInUser {
+                if saveToFavorites {
+                    user.addToFavRestaurants(savedRestaurant)
+                } else {
+                    user.addToSavedRestaurants(savedRestaurant)
+                }
+            }
+            
             try context.save()
         } catch {
             print("Error saving restaurant: \(error.localizedDescription)")
         }
     }
-    func isItemSaved(context: NSManagedObjectContext) -> Bool {
-        if self.id == "" { return false }
-        let request: NSFetchRequest<SavedRestaurant> = SavedRestaurant.fetchRequest()
-        request.predicate = NSPredicate(format: "id == \(self.id)")
-        do {
-            return try context.count(for: request) > 0
-        } catch {
-            print("Error checking how many times we've saved this restaurant: \(error.localizedDescription)")
-            return false
+    
+    func isItemSaved(restaurantId: String, isCheckingFavorites: Bool) -> Bool {
+        //don't save if we don't have a user
+        guard let user = signedInUser else { return true }
+        
+        if let restaurantsSet = isCheckingFavorites ? user.favRestaurants : user.savedRestaurants {
+            for savedRestaurant in restaurantsSet {
+                if let restaurant = savedRestaurant as? SavedRestaurant,
+                   let currentId = restaurant.id,
+                   currentId == restaurantId {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    //remove restaurant from favorites
+    func removeFromFavorites(context: NSManagedObjectContext?) {
+        guard let context = context,
+              let user = signedInUser,
+              let favRestaurants = user.favRestaurants else { return }
+        
+        for fav in favRestaurants {
+            if let favRestaurant = fav as? SavedRestaurant,
+               let favId = favRestaurant.id,
+               self.id == favId {
+                
+                do {
+                    context.delete(favRestaurant)
+                    try context.save()
+                } catch {
+                    print("Error deleting fav restaurant: \(error.localizedDescription)")
+                }
+                
+                return
+            }
         }
     }
 }

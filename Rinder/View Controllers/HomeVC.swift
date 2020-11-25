@@ -7,7 +7,6 @@
 
 import UIKit
 import CoreData
-import GoogleSignIn
 import CoreLocation
 import SafariServices
 
@@ -17,6 +16,8 @@ class HomeVC: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var fromLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var seachBtn: UIButton!
+    @IBOutlet weak var profileBtn: UIButton!
     
     @IBOutlet weak var errorLbl: UILabel!
     
@@ -27,12 +28,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var cuisineLbl: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var decisionIv: UIImageView!
+    @IBOutlet weak var favoritesBtn: UIButton!
     
     //buttons
     @IBOutlet weak var leftIv: UIImageView!
     @IBOutlet weak var rightIv: UIImageView!
     @IBOutlet weak var savedBtn: UIButton!
-    @IBOutlet weak var logOutBtn: UIButton!
     
     //MARK: - Variables
     
@@ -48,6 +50,7 @@ class HomeVC: UIViewController {
     
     var fetchingRestaurants = false
     var searchResult: SearchResult?
+    var isRestaurantInFavorites = false
     
     // Variables for unit tests
     var savedToCoreData = false
@@ -58,6 +61,8 @@ class HomeVC: UIViewController {
 
         setupView()
         getUserLocation()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserLocation), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     private func setupView() {
@@ -83,8 +88,13 @@ class HomeVC: UIViewController {
         distanceLbl.text = ""
         cuisineLbl.text = ""
         
+        favoritesBtn.setTitle("Add to favorites", for: .normal)
+        
         errorLbl.text = "No more restaurants"
         errorLbl.textAlignment = .center
+        errorLbl.numberOfLines = 0
+        errorLbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        errorLbl.textColor = .white
         errorLbl.isHidden = true
         
         menuBtn.layer.cornerRadius = 16
@@ -103,14 +113,26 @@ class HomeVC: UIViewController {
         rightIv.addGestureRecognizer(rightTap)
         
         backView.isHidden = true
+        
+        decisionIv.alpha = 0
+        decisionIv.isHidden = true
     }
     
     //MARK: - Getting/Setting the restaurant
     
-    private func getUserLocation() {
+    @objc private func getUserLocation() {
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+        
+        switch locationManager.authorizationStatus {
+        case CLAuthorizationStatus.denied, CLAuthorizationStatus.restricted:
+            errorLbl.text = "Location needed. Please enable access to your location by going to your device's Settings -> \"Privacy\" -> \"Location Services\" -> \"Rinder\""
+            errorLbl.isHidden = false
+            backView.isHidden = true
+        default:
+            errorLbl.isHidden = true
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
     }
 
     func getRestaurants(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
@@ -122,8 +144,6 @@ class HomeVC: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.view.addSubview(activityIndicator)
-        
-        print("here")
         
         fetchingRestaurants = true
         RestaurantHelper.getRestaurants(latitude: Double(latitude),
@@ -172,6 +192,21 @@ class HomeVC: UIViewController {
             }
             
             self.menuBtn.isHidden = restaurant.menuURL == nil
+            
+            if let user = signedInUser, let favRestaurants = user.favRestaurants {
+                for fav in favRestaurants {
+                    if let favRestaurant = fav as? SavedRestaurant,
+                       let favId = favRestaurant.id,
+                       restaurant.id == favId {
+                        self.favoritesBtn.setTitle("In favorites", for: .normal)
+                        self.isRestaurantInFavorites = true
+                        return
+                    }
+                }
+            }
+            
+            self.isRestaurantInFavorites = false
+            self.favoritesBtn.setTitle("Add to favorites", for: .normal)
         }
     }
     
@@ -200,13 +235,46 @@ class HomeVC: UIViewController {
     
     //MARK: - Actions
     
+    @IBAction func searchBtnTap(_ sender: Any) {
+        let viewController = SearchUserVC()
+        viewController.context = context
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func profileBtnTap(_ sender: Any) {
+        let viewController = ProfileVC()
+        viewController.context = context
+        viewController.user = signedInUser
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func moveCard(card: UIView, moveLeft: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            card.center = CGPoint(x: moveLeft ? card.center.x + 500 : card.center.x - 500,
+                                  y: card.center.y)
+            self.decisionIv.alpha = 0
+            self.decisionIv.isHidden = true
+        }
+    }
+    
     @objc func rejectTap() {
+        rejectRestaurant(card: self.backView)
+    }
+    
+    func rejectRestaurant(card: UIView) {
+        moveCard(card: card, moveLeft: true)
         nextRestaurant()
     }
     
     @objc func acceptTap() {
+        acceptRestaurant(card: self.backView)
+    }
+    
+    func acceptRestaurant(card: UIView) {
+        moveCard(card: self.backView, moveLeft: false)
+        
         if let restaurant = searchResult?.getCurrentRestaurant() {
-            restaurant.saveToCoreData(context: context)
+            restaurant.saveToCoreData(context: context, saveToFavorites: false)
             savedToCoreData = true
         }
         
@@ -217,7 +285,6 @@ class HomeVC: UIViewController {
         nextRestaurantCalled = true
         //do not do anything if there's no result yet
         guard let searchResult = searchResult else { return }
-        
         
         if let nextRestaurant = searchResult.nextRestaurant() {
             updateViewWithRestaurant(restaurant: nextRestaurant)
@@ -244,16 +311,64 @@ class HomeVC: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
-    @IBAction func logOutBtnTap(_ sender: Any) {
-        GIDSignIn.sharedInstance().signOut()
+    @IBAction func favoritesBtnTap(_ sender: Any) {
+        if self.isRestaurantInFavorites {
+            if let restaurant = searchResult?.getCurrentRestaurant() {
+                restaurant.removeFromFavorites(context: context)
+            }
+            self.favoritesBtn.setTitle("Add to favorites", for: .normal)
+        } else {
+            if let restaurant = searchResult?.getCurrentRestaurant() {
+                restaurant.saveToCoreData(context: context, saveToFavorites: true)
+            }
+            self.favoritesBtn.setTitle("In favorites", for: .normal)
+        }
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
-        viewController.modalPresentationStyle = .currentContext
-        viewController.modalTransitionStyle = .coverVertical
-        self.present(viewController, animated: true, completion: nil)
+        isRestaurantInFavorites.toggle()
     }
     
+    
+    //MARK: - Swipe
+    @IBAction func RestaurantCardSwipe(_ sender: UIPanGestureRecognizer) {
+        guard let card = sender.view else { return }
+        
+        let point = sender.translation(in: self.view)
+        let xFromCenter = card.center.x - view.center.x
+        
+        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        
+        if xFromCenter == 0 {
+            decisionIv.alpha = 0
+            decisionIv.isHidden = true
+        } else if xFromCenter > 0 {
+            decisionIv.isHidden = false
+            decisionIv.image = UIImage(systemName: "heart.circle.fill")
+            decisionIv.tintColor = .systemBlue
+        } else {
+            decisionIv.isHidden = false
+            decisionIv.image = UIImage(systemName: "xmark.circle.fill")
+            decisionIv.tintColor = .systemRed
+        }
+        decisionIv.alpha = abs(xFromCenter) / view.center.x
+        
+        //done dragging
+        if sender.state == .ended {
+            
+            //move off to the left
+            if card.center.x < 75 {
+                rejectRestaurant(card: card)
+            } else if card.center.x > (view.frame.width - 75) {
+                acceptRestaurant(card: card)
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    card.center = self.view.center
+                    self.decisionIv.alpha = 0
+                    self.decisionIv.isHidden = true
+                }
+            }
+        }
+    }
 }
 
 //MARK: - CLLocationManagerDelegate

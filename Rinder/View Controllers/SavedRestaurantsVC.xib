@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavedRestaurantsVC" customModule="Rinder" customModuleProvider="target">
             <connections>
+                <outlet property="backBtn" destination="5Vr-YX-Xf5" id="w1M-kh-pyz"/>
                 <outlet property="tableView" destination="z17-0F-s1x" id="Sh4-ax-pUm"/>
                 <outlet property="titleLbl" destination="FdQ-LC-aes" id="crH-8P-RXe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,11 +31,23 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Vr-YX-Xf5">
+                    <rect key="frame" x="16" y="55.5" width="22" height="22.5"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="medium"/>
+                    </state>
+                    <connections>
+                        <action selector="backBtnTap:" destination="-1" eventType="touchUpInside" id="Uye-8K-uAe"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="0.72409796709999996" blue="0.7255019546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="z17-0F-s1x" firstAttribute="top" secondItem="FdQ-LC-aes" secondAttribute="bottom" constant="12" id="CG4-rV-Kyc"/>
+                <constraint firstItem="5Vr-YX-Xf5" firstAttribute="centerY" secondItem="FdQ-LC-aes" secondAttribute="centerY" id="DsV-h1-ehp"/>
+                <constraint firstItem="5Vr-YX-Xf5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Zn6-tu-dxJ"/>
                 <constraint firstAttribute="bottom" secondItem="z17-0F-s1x" secondAttribute="bottom" id="kOr-7n-18j"/>
                 <constraint firstItem="FdQ-LC-aes" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ksi-Qf-9UT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z17-0F-s1x" secondAttribute="trailing" id="qRd-87-KD2"/>
@@ -46,6 +58,7 @@
         </view>
     </objects>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

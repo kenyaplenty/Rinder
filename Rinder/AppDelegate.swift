@@ -10,8 +10,15 @@ import CoreData
 import Firebase
 import GoogleSignIn
 
+//global value of the signed in User
+var signedInUser: User?
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    //for adding example users
+    struct ExampleUser {
+        var id, name, email: String
+    }
 
     var window: UIWindow?
     
@@ -82,6 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
 
+    
+    // MARK: - Google Sign-In
     func application(_ application: UIApplication,
                      open googleUrl: URL, sourceApplication: String?, annotation: Any) -> Bool {
       return GIDSignIn.sharedInstance().handle(googleUrl)
@@ -107,15 +116,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
-        // Perform any operations on signed in user here.
-        let userId = user.userID                  // For client-side use only!
-        let idToken = user.authentication.idToken // Safe to send to the server
-        let fullName = user.profile.name
-        let givenName = user.profile.givenName
-        let email = user.profile.email
+        //Signin user or register them
+        let viewContext = self.persistentContainer.viewContext
+        UserHelper.userSignedIn(viewContext: viewContext,
+                                googleUser: user)
         
         let nc = NotificationCenter.default
         nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
+        
+        addExampleUsers()
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
@@ -124,5 +133,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       // ...
     }
     
+    // MARK: - Example users
+    func addExampleUsers() {
+        let testUserId = "testUserId1"
+        
+        persistentContainer.performBackgroundTask { (context) in
+            let request : NSFetchRequest<User> = User.fetchRequest()
+            request.predicate = NSPredicate(format: "userId == %@", testUserId)
+            do {
+                let count = try context.count(for: request)
+                //Check example users need to be added
+                if count > 0 { return }
+                
+                let exampleArray: [ExampleUser] = [
+                    ExampleUser(id: "testUserId1", name: "Tom John", email: "tom@gmail.com"),
+                    ExampleUser(id: "testUserId2", name: "Addison Ra", email: "add@gmail.com"),
+                    ExampleUser(id: "testUserId3", name: "Bond Jame", email: "bond@gmail.com"),
+                    ExampleUser(id: "testUserId4", name: "Cam Com", email: "cam@gmail.com"),
+                    ExampleUser(id: "testUserId5", name: "Daniel Damn", email: "damn@gmail.com"),
+                    ExampleUser(id: "testUserId6", name: "Ester Chest", email: "ester@gmail.com")]
+                
+                for example in exampleArray {
+                    let user = User(context: context)
+                    user.userId = example.id
+                    user.name = example.name
+                    user.email = example.email
+                    user.isExampleUser = true
+                }
+                
+                try context.save()
+            } catch {
+                print("Hey Listen! Error checking if a test user exits: \(error.localizedDescription)")
+            }
+            
+            
+        }
+        
+    }
 }
 
