@@ -54,7 +54,7 @@ class Restaurant: NSObject {
     }
     //save restaurant
     func saveToCoreData(context: NSManagedObjectContext?) {
-        guard let context = context, !isItemSaved(context: context) else { return }
+        guard let context = context, !isItemSaved(context: context, restaurantId: self.id) else { return }
         let savedRestaurant = SavedRestaurant(context: context)
         savedRestaurant.cuisines = self.cuisines
         savedRestaurant.featuredImageURLString = self.featuredImageURL?.absoluteString
@@ -76,15 +76,19 @@ class Restaurant: NSObject {
             print("Error saving restaurant: \(error.localizedDescription)")
         }
     }
-    func isItemSaved(context: NSManagedObjectContext) -> Bool {
-        if self.id == "" { return false }
-        let request: NSFetchRequest<SavedRestaurant> = SavedRestaurant.fetchRequest()
-        request.predicate = NSPredicate(format: "id == \(self.id)")
-        do {
-            return try context.count(for: request) > 0
-        } catch {
-            print("Error checking how many times we've saved this restaurant: \(error.localizedDescription)")
-            return false
+    func isItemSaved(context: NSManagedObjectContext, restaurantId: String) -> Bool {
+        //don't save if we don't have a user
+        guard let user = signedInUser else { return true }
+        
+        if let savedRestaurantsSet = user.savedRestaurants {
+            for savedRestaurant in savedRestaurantsSet {
+                if let restaurant = savedRestaurant as? SavedRestaurant,
+                   let currentId = restaurant.id,
+                   currentId == restaurantId {
+                    return true
+                }
+            }
         }
+        return false
     }
 }

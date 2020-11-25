@@ -58,6 +58,8 @@ class HomeVC: UIViewController {
 
         setupView()
         getUserLocation()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUserLocation), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     private func setupView() {
@@ -85,6 +87,9 @@ class HomeVC: UIViewController {
         
         errorLbl.text = "No more restaurants"
         errorLbl.textAlignment = .center
+        errorLbl.numberOfLines = 0
+        errorLbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        errorLbl.textColor = .white
         errorLbl.isHidden = true
         
         menuBtn.layer.cornerRadius = 16
@@ -107,10 +112,19 @@ class HomeVC: UIViewController {
     
     //MARK: - Getting/Setting the restaurant
     
-    private func getUserLocation() {
+    @objc private func getUserLocation() {
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+        
+        switch locationManager.authorizationStatus {
+        case CLAuthorizationStatus.denied, CLAuthorizationStatus.restricted:
+            errorLbl.text = "Location needed. Please enable access to your location by going to your device's Settings -> \"Privacy\" -> \"Location Services\" -> \"Rinder\""
+            errorLbl.isHidden = false
+            backView.isHidden = true
+        default:
+            errorLbl.isHidden = true
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
     }
 
     func getRestaurants(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
@@ -122,8 +136,6 @@ class HomeVC: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.view.addSubview(activityIndicator)
-        
-        print("here")
         
         fetchingRestaurants = true
         RestaurantHelper.getRestaurants(latitude: Double(latitude),
