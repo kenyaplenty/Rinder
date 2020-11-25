@@ -89,8 +89,12 @@ extension SavedRestaurantsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let favAction = UIContextualAction(style: .normal, title: "Favorite") { (_, _, completionHandler) in
             if indexPath.row < self.savedRestaurants.count, let cell = tableView.cellForRow(at: indexPath) as? SavedRestaurantCell {
-                let savedRestaurant = self.savedRestaurants[indexPath.row]
-                cell.toggleFavorite(context: self.context, savedRestaurant: savedRestaurant)
+                if cell.favStarIv.image == UIImage(systemName: "star"), signedInUser?.favRestaurants?.count ?? 0 >= 5 {
+                    self.createAlert(title: "Favorite limit reached", message: "You can only have 5 favorites. Remove a favorite restaurant to add this one.")
+                } else {
+                    let savedRestaurant = self.savedRestaurants[indexPath.row]
+                    cell.toggleFavorite(context: self.context, savedRestaurant: savedRestaurant)
+                }
             }
             completionHandler(true)
         }
