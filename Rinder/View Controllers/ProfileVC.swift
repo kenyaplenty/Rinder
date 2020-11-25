@@ -186,6 +186,8 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                 } catch {
                     print("Error deleting saved restaurant: \(error.localizedDescription)")
                 }
+                
+                NotificationCenter.default.post(name: Notification.Name("favoriteStatusChanged"), object: nil)
             }
             completionHandler(true)
         }

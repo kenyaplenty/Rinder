@@ -63,6 +63,7 @@ class HomeVC: UIViewController {
         getUserLocation()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUserLocation), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setFavoriteStatus), name: NSNotification.Name(rawValue: "favoriteStatusChanged"), object: nil)
     }
     
     private func setupView() {
@@ -195,20 +196,7 @@ class HomeVC: UIViewController {
             
             self.menuBtn.isHidden = restaurant.menuURL == nil
             
-            if let user = signedInUser, let favRestaurants = user.favRestaurants {
-                for fav in favRestaurants {
-                    if let favRestaurant = fav as? SavedRestaurant,
-                       let favId = favRestaurant.id,
-                       restaurant.id == favId {
-                        self.favoritesBtn.setTitle("In favorites", for: .normal)
-                        self.isRestaurantInFavorites = true
-                        return
-                    }
-                }
-            }
-            
-            self.isRestaurantInFavorites = false
-            self.favoritesBtn.setTitle("Add to favorites", for: .normal)
+            setFavoriteStatus()
         }
     }
     
@@ -233,6 +221,25 @@ class HomeVC: UIViewController {
                 activityIndicator.stopAnimating()
             }
         }
+    }
+    
+    @objc func setFavoriteStatus() {
+        if let user = signedInUser,
+           let favRestaurants = user.favRestaurants,
+           let restaurant = searchResult?.getCurrentRestaurant() {
+            for fav in favRestaurants {
+                if let favRestaurant = fav as? SavedRestaurant,
+                   let favId = favRestaurant.id,
+                   restaurant.id == favId {
+                    self.favoritesBtn.setTitle("In favorites", for: .normal)
+                    self.isRestaurantInFavorites = true
+                    return
+                }
+            }
+        }
+        
+        self.isRestaurantInFavorites = false
+        self.favoritesBtn.setTitle("Add to favorites", for: .normal)
     }
     
     //MARK: - Actions

@@ -121,8 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         UserHelper.userSignedIn(viewContext: viewContext,
                                 googleUser: user)
         
-        let nc = NotificationCenter.default
-        nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
         
         addExampleUsers()
     }
