@@ -19,8 +19,8 @@
                 <outlet property="fromLbl" destination="J5p-uO-mbE" id="gxT-6O-B6Q"/>
                 <outlet property="leftIv" destination="TbX-oF-Pk6" id="7Fy-c6-WMr"/>
                 <outlet property="locationLbl" destination="zqG-jh-Fxd" id="6cw-kG-gAN"/>
-                <outlet property="logOutBtn" destination="aC1-Mr-bVf" id="Egi-tu-Eus"/>
                 <outlet property="menuBtn" destination="LAA-2b-YEn" id="bZ9-96-5bV"/>
+                <outlet property="profileBtn" destination="pJU-b7-O7S" id="cXY-x5-2ob"/>
                 <outlet property="restaurantImage" destination="fMU-hE-8N2" id="FDt-w2-nrz"/>
                 <outlet property="rightIv" destination="pt3-5u-lrm" id="wmv-PI-BND"/>
                 <outlet property="savedBtn" destination="BmF-lL-nPF" id="Myl-5g-how"/>
@@ -164,16 +164,6 @@
                         <action selector="savedBtnTap:" destination="-1" eventType="touchUpInside" id="q9c-Aa-0qG"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC1-Mr-bVf">
-                    <rect key="frame" x="181.5" y="843" width="51" height="32"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Logout">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="logOutBtnTap:" destination="-1" eventType="touchUpInside" id="zHZ-rH-xjM"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0x-kw-SWq">
                     <rect key="frame" x="369" y="50.5" width="25" height="24"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,12 +174,23 @@
                         <action selector="searchBtnTap:" destination="-1" eventType="touchUpInside" id="xZK-Mz-zS1"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJU-b7-O7S">
+                    <rect key="frame" x="20" y="50.5" width="25" height="24"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="person.circle" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="medium"/>
+                    </state>
+                    <connections>
+                        <action selector="profileBtnTap:" destination="-1" eventType="touchUpInside" id="Auy-cC-gYy"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="0.69411764705882351" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="TbX-oF-Pk6" firstAttribute="top" secondItem="LNt-7y-gAI" secondAttribute="bottom" constant="24" id="72k-Rb-7DE"/>
                 <constraint firstItem="e10-Wf-l4G" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="8mG-nJ-qMX"/>
+                <constraint firstItem="pJU-b7-O7S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="B5h-xF-PuX"/>
                 <constraint firstItem="LNt-7y-gAI" firstAttribute="top" secondItem="zqG-jh-Fxd" secondAttribute="bottom" constant="16" id="Dx4-f0-XKJ"/>
                 <constraint firstItem="TbX-oF-Pk6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="KUx-xE-yQe"/>
                 <constraint firstItem="zqG-jh-Fxd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LX0-Yo-dDn"/>
@@ -197,19 +198,18 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e0x-kw-SWq" secondAttribute="trailing" constant="20" id="MZ2-kq-L4n"/>
                 <constraint firstItem="J5p-uO-mbE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QNt-Jr-Fvg"/>
                 <constraint firstItem="BmF-lL-nPF" firstAttribute="centerY" secondItem="TbX-oF-Pk6" secondAttribute="centerY" id="WF0-00-QVY"/>
-                <constraint firstItem="aC1-Mr-bVf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="X4z-nk-vRu"/>
                 <constraint firstItem="LNt-7y-gAI" firstAttribute="leading" secondItem="TbX-oF-Pk6" secondAttribute="leading" id="aBS-jJ-ewV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e10-Wf-l4G" secondAttribute="trailing" constant="12" id="aLA-Yu-QIx"/>
                 <constraint firstItem="J5p-uO-mbE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="eAP-OR-hEF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TbX-oF-Pk6" secondAttribute="bottom" constant="20" id="eCS-3y-ql1"/>
                 <constraint firstItem="e10-Wf-l4G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gdC-dA-2dM"/>
                 <constraint firstItem="zqG-jh-Fxd" firstAttribute="top" secondItem="J5p-uO-mbE" secondAttribute="bottom" constant="3" id="ghe-tJ-Fa0"/>
+                <constraint firstItem="pJU-b7-O7S" firstAttribute="centerY" secondItem="J5p-uO-mbE" secondAttribute="centerY" id="iew-1H-s9G"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pt3-5u-lrm" secondAttribute="trailing" constant="20" id="lPF-0f-9Wk"/>
                 <constraint firstItem="LNt-7y-gAI" firstAttribute="trailing" secondItem="pt3-5u-lrm" secondAttribute="trailing" id="lYB-LA-gXY"/>
                 <constraint firstItem="e0x-kw-SWq" firstAttribute="centerY" secondItem="J5p-uO-mbE" secondAttribute="centerY" id="uhO-7x-eK8"/>
                 <constraint firstItem="e10-Wf-l4G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="z4w-P4-mEY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pt3-5u-lrm" secondAttribute="bottom" constant="20" id="zFo-2j-efW"/>
-                <constraint firstItem="aC1-Mr-bVf" firstAttribute="top" secondItem="BmF-lL-nPF" secondAttribute="bottom" constant="5" id="zN1-kn-aXJ"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
         </view>
@@ -221,6 +221,7 @@
     </objects>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

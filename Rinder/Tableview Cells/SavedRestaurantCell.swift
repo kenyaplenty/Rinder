@@ -14,7 +14,8 @@ class SavedRestaurantCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.selectionStyle = .none
     }
 
     func populate(savedResaurant: SavedRestaurant) {

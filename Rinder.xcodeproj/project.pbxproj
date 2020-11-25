@@ -133,6 +133,8 @@
 				132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */,
 				13505AAD256DDCE400EE1815 /* SearchUserVC.swift */,
 				13505AAE256DDCE400EE1815 /* SearchUserVC.xib */,
+				13505ACD256DF4C300EE1815 /* ProfileVC.swift */,
+				13505ACE256DF4C300EE1815 /* ProfileVC.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -334,6 +336,7 @@
 				1357C37B255E0B8100B1A89A /* HomeVC.xib in Resources */,
 				132B20D1255FB82E00FE65CB /* SavedRestaurantCell.xib in Resources */,
 				1357C34F255E0AB100B1A89A /* Assets.xcassets in Resources */,
+				13505AD0256DF4C300EE1815 /* ProfileVC.xib in Resources */,
 				1357C34A255E0AAD00B1A89A /* Main.storyboard in Resources */,
 				132B20C7255FB76D00FE65CB /* SavedRestaurantsVC.xib in Resources */,
 			);
@@ -517,6 +520,7 @@
 			files = (
 				132B20C6255FB76D00FE65CB /* SavedRestaurantsVC.swift in Sources */,
 				1357C347255E0AAD00B1A89A /* ViewController.swift in Sources */,
+				13505ACF256DF4C300EE1815 /* ProfileVC.swift in Sources */,
 				1357C37A255E0B8100B1A89A /* HomeVC.swift in Sources */,
 				132B20BD255FB73900FE65CB /* SearchResult.swift in Sources */,
 				1385DAF7256DCA62004440B1 /* UserHelper.swift in Sources */,
