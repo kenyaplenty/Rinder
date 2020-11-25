@@ -34,7 +34,12 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        getFavs()
+        
+        if isCurrentUser {
+            getFavs()
+        } else {
+            getFaceOffResult()
+        }
     }
 
     func setupView() {
@@ -78,7 +83,7 @@ class ProfileVC: UIViewController {
     }
     
     func getFavs() {
-        favLbl.text = isCurrentUser ? "Favorites" : "Face-off Results"
+        favLbl.text = "Favorites"
         
         guard let user = user else { return }
         
@@ -91,6 +96,26 @@ class ProfileVC: UIViewController {
             }
         }
         favRestuarants = restuarants
+        tableView.reloadData()
+    }
+    
+    func getFaceOffResult() {
+        favLbl.text = "Face-off Results"
+        
+        guard let user = user,
+              let myFavs = signedInUser?.favRestaurants?.allObjects as? [SavedRestaurant],
+              let friendFavs = user.favRestaurants?.allObjects as? [SavedRestaurant] else { return }
+        
+        var similarFavs = [SavedRestaurant]()
+        for myFav in myFavs {
+            for friendFav in friendFavs {
+                if myFav.id == friendFav.id {
+                    similarFavs.append(friendFav)
+                }
+            }
+        }
+        
+        favRestuarants = similarFavs
         tableView.reloadData()
     }
     
