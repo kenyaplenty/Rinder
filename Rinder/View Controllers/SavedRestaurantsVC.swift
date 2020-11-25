@@ -14,8 +14,12 @@ class SavedRestaurantsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLbl: UILabel!
     
+    //MARK: - Variables
+    
     var context: NSManagedObjectContext?
     private var savedRestaurants = [SavedRestaurant]()
+    
+    //MARK: - Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,8 @@ class SavedRestaurantsVC: UIViewController {
         
         tableView.register(UINib(nibName: "SavedRestaurantCell", bundle: nil), forCellReuseIdentifier: "SavedRestaurantCell")
     }
+    
+    //MARK: - Data
     
     private func getSavedData() {
         guard let user = signedInUser else { return }

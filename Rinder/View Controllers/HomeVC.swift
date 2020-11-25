@@ -17,6 +17,7 @@ class HomeVC: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var fromLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var seachBtn: UIButton!
     
     @IBOutlet weak var errorLbl: UILabel!
     
@@ -211,6 +212,12 @@ class HomeVC: UIViewController {
     }
     
     //MARK: - Actions
+    
+    @IBAction func searchBtnTap(_ sender: Any) {
+        let viewController = SearchUserVC()
+        viewController.context = context
+        self.present(viewController, animated: true, completion: nil)
+    }
     
     @objc func rejectTap() {
         nextRestaurant()

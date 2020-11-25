@@ -131,6 +131,8 @@
 				1357C379255E0B8100B1A89A /* HomeVC.xib */,
 				132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */,
 				132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */,
+				13505AAD256DDCE400EE1815 /* SearchUserVC.swift */,
+				13505AAE256DDCE400EE1815 /* SearchUserVC.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -520,6 +522,7 @@
 				1385DAF7256DCA62004440B1 /* UserHelper.swift in Sources */,
 				132B20D0255FB82E00FE65CB /* SavedRestaurantCell.swift in Sources */,
 				1357C383255E138600B1A89A /* RestaurantHelper.swift in Sources */,
+				13505AAF256DDCE400EE1815 /* SearchUserVC.swift in Sources */,
 				132B20B6255FA52A00FE65CB /* Restaurant.swift in Sources */,
 				1357C343255E0AAD00B1A89A /* AppDelegate.swift in Sources */,
 				1357C345255E0AAD00B1A89A /* SceneDelegate.swift in Sources */,
