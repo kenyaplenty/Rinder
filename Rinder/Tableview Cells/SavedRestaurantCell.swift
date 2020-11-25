@@ -16,6 +16,7 @@ class SavedRestaurantCell: UITableViewCell {
         super.awakeFromNib()
         
         self.selectionStyle = .none
+        self.backgroundColor = .clear
     }
 
     func populate(savedResaurant: SavedRestaurant) {

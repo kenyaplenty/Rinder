@@ -13,6 +13,8 @@ class ProfileVC: UIViewController {
 
     //MARK: - Outlets
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var initialLbl: UILabel!
+    @IBOutlet weak var initialBackground: UIView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var favLbl: UILabel!
@@ -39,6 +41,16 @@ class ProfileVC: UIViewController {
         titleLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         titleLbl.textColor = UIColor.white
         
+        nameLbl.textColor = .white
+        emailLbl.textColor = .white
+        
+        favLbl.text = "Favorites"
+        favLbl.textColor = .white
+        favLbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        
+        initialBackground.layer.cornerRadius = initialBackground.frame.size.width/2
+        initialBackground.clipsToBounds = true
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -47,8 +59,16 @@ class ProfileVC: UIViewController {
         logoutBtn.isHidden = true
         
         guard let user = user else { return }
-        nameLbl.text = user.name ?? ""
+        let name = user.name?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        nameLbl.text = name
         emailLbl.text = user.email ?? ""
+
+        let nameArray = name.components(separatedBy: " ")
+        if nameArray.count > 1, let firstLetter = nameArray.first?.first, let lastLetter = nameArray.last?.first {
+            initialLbl.text = "\(firstLetter)\(lastLetter)"
+        } else if nameArray.count == 1, let firstLetter = nameArray.first?.first {
+            initialLbl.text = "\(firstLetter)"
+        }
         
         //show logout if user is looking at their own profile
         if let currentUser = signedInUser, currentUser == user {
@@ -113,5 +133,32 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        if !isCurrentUser { return nil }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, completionHandler) in
+            if let context = self.context {
+                
+                let restaurantToDelete = self.favRestuarants[indexPath.row]
+                self.favRestuarants.remove(at: indexPath.row)
+                do {
+
+                    if let user = signedInUser {
+                        user.removeFromFavRestaurants(restaurantToDelete)
+                    }
+                    
+                    context.delete(restaurantToDelete)
+                    
+                    try context.save()
+                    tableView.reloadData()
+                } catch {
+                    print("Error deleting saved restaurant: \(error.localizedDescription)")
+                }
+            }
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
