@@ -61,5 +61,6 @@ class SavedRestaurantCell: UITableViewCell {
         }
         
         favStarIv.image = becameFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        NotificationCenter.default.post(name: Notification.Name("favoriteStatusChanged"), object: nil)
     }
 }
