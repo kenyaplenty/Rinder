@@ -29,6 +29,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var cuisineLbl: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var decisionIv: UIImageView!
+    @IBOutlet weak var favoritesBtn: UIButton!
     
     //buttons
     @IBOutlet weak var leftIv: UIImageView!
@@ -50,6 +51,7 @@ class HomeVC: UIViewController {
     
     var fetchingRestaurants = false
     var searchResult: SearchResult?
+    var isRestaurantInFavorites = false
     
     // Variables for unit tests
     var savedToCoreData = false
@@ -86,6 +88,8 @@ class HomeVC: UIViewController {
         titleLbl.text = ""
         distanceLbl.text = ""
         cuisineLbl.text = ""
+        
+        favoritesBtn.setTitle("Add to favorites", for: .normal)
         
         errorLbl.text = "No more restaurants"
         errorLbl.textAlignment = .center
@@ -189,6 +193,21 @@ class HomeVC: UIViewController {
             }
             
             self.menuBtn.isHidden = restaurant.menuURL == nil
+            
+            if let user = signedInUser, let favRestaurants = user.favRestaurants {
+                for fav in favRestaurants {
+                    if let favRestaurant = fav as? SavedRestaurant,
+                       let favId = favRestaurant.id,
+                       restaurant.id == favId {
+                        self.favoritesBtn.setTitle("In favorites", for: .normal)
+                        self.isRestaurantInFavorites = true
+                        return
+                    }
+                }
+            }
+            
+            self.isRestaurantInFavorites = false
+            self.favoritesBtn.setTitle("Add to favorites", for: .normal)
         }
     }
     
@@ -249,7 +268,7 @@ class HomeVC: UIViewController {
         moveCard(card: self.backView, moveLeft: false)
         
         if let restaurant = searchResult?.getCurrentRestaurant() {
-            restaurant.saveToCoreData(context: context)
+            restaurant.saveToCoreData(context: context, saveToFavorites: false)
             savedToCoreData = true
         }
         
@@ -284,6 +303,22 @@ class HomeVC: UIViewController {
         let viewController = SavedRestaurantsVC()
         viewController.context = context
         self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func favoritesBtnTap(_ sender: Any) {
+        if self.isRestaurantInFavorites {
+            if let restaurant = searchResult?.getCurrentRestaurant() {
+                restaurant.removeFromFavorites(context: context)
+            }
+            self.favoritesBtn.setTitle("Add to favorites", for: .normal)
+        } else {
+            if let restaurant = searchResult?.getCurrentRestaurant() {
+                restaurant.saveToCoreData(context: context, saveToFavorites: true)
+            }
+            self.favoritesBtn.setTitle("In favorites", for: .normal)
+        }
+        
+        isRestaurantInFavorites.toggle()
     }
     
     @IBAction func logOutBtnTap(_ sender: Any) {

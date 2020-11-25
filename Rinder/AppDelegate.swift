@@ -113,9 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //Signin user or register them
         let viewContext = self.persistentContainer.viewContext
         UserHelper.userSignedIn(viewContext: viewContext,
-                                userId: user.userID,
-                                name: user.profile.name,
-                                email: user.profile.email)
+                                googleUser: user)
         
         let nc = NotificationCenter.default
         nc.post(name: Notification.Name("UserLoggedIn"), object: nil)

@@ -6,17 +6,16 @@
 //
 
 import Foundation
+import GoogleSignIn
 import CoreData
 
 class UserHelper {
     
     static func userSignedIn(viewContext: NSManagedObjectContext,
-                             userId: String,
-                             name: String,
-                             email: String) {
+                             googleUser: GIDGoogleUser) {
         
         let request: NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "userId = %@", userId)
+        request.predicate = NSPredicate(format: "userId = %@", googleUser.userID)
         do {
             if let user = try viewContext.fetch(request).first {
                 signedInUser = user
@@ -25,9 +24,9 @@ class UserHelper {
             else {
                 let user = User(context: viewContext)
                 
-                user.userId = userId
-                user.name = name
-                user.email = email
+                user.userId = googleUser.userID
+                user.name = googleUser.profile.name
+                user.email = googleUser.profile.email
                 
                 do {
                     try viewContext.save()

@@ -13,10 +13,11 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="userId" optional="YES" attributeType="String"/>
+        <relationship name="favRestaurants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavedRestaurant"/>
         <relationship name="savedRestaurants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavedRestaurant"/>
     </entity>
     <elements>
         <element name="SavedRestaurant" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="User" positionX="-261.547119140625" positionY="-24.07196044921875" width="128" height="89"/>
+        <element name="User" positionX="-261.547119140625" positionY="-24.07196044921875" width="128" height="104"/>
     </elements>
 </model>
