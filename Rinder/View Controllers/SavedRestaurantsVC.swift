@@ -85,10 +85,27 @@ extension SavedRestaurantsVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //swipe right to favorite
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favAction = UIContextualAction(style: .normal, title: "Favorite") { (_, _, completionHandler) in
+            if indexPath.row < self.savedRestaurants.count, let cell = tableView.cellForRow(at: indexPath) as? SavedRestaurantCell {
+                let savedRestaurant = self.savedRestaurants[indexPath.row]
+                cell.toggleFavorite(context: self.context, savedRestaurant: savedRestaurant)
+            }
+            completionHandler(true)
+        }
+        
+        favAction.backgroundColor = .systemBlue
+        
+        return UISwipeActionsConfiguration(actions: [favAction])
+    }
+    
+    
+    //swipe left to delete
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, completionHandler) in
-            if let context = self.context {
+            if let context = self.context, indexPath.row < self.savedRestaurants.count {
                 let restaurantToDelete = self.savedRestaurants[indexPath.row]
                 self.savedRestaurants.remove(at: indexPath.row)
                 do {

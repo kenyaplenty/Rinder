@@ -177,6 +177,7 @@
 			children = (
 				1385DAF6256DCA62004440B1 /* UserHelper.swift */,
 				1357C382255E138600B1A89A /* RestaurantHelper.swift */,
+				13B32AB7256F129E00232CBE /* SavedRestaurantHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -555,6 +556,7 @@
 				13505ACF256DF4C300EE1815 /* ProfileVC.swift in Sources */,
 				1357C37A255E0B8100B1A89A /* HomeVC.swift in Sources */,
 				132B20BD255FB73900FE65CB /* SearchResult.swift in Sources */,
+				13B32AB8256F129E00232CBE /* SavedRestaurantHelper.swift in Sources */,
 				1385DAF7256DCA62004440B1 /* UserHelper.swift in Sources */,
 				132B20D0255FB82E00FE65CB /* SavedRestaurantCell.swift in Sources */,
 				13505ABE256DE44C00EE1815 /* UserSearchResultCell.swift in Sources */,

@@ -52,7 +52,8 @@ class Restaurant: NSObject {
             self.priceRange = price_range
         }
     }
-    //save restaurant
+    
+    //put restaurant in saved or favorites
     func saveToCoreData(context: NSManagedObjectContext?, saveToFavorites: Bool) {
         guard let context = context, !isItemSaved(isCheckingFavorites: saveToFavorites, user: signedInUser) else { return }
         
@@ -73,6 +74,7 @@ class Restaurant: NSObject {
         }
     }
     
+    //check if restuarant is saved or favorited
     func isItemSaved(isCheckingFavorites: Bool, user: User?) -> Bool {
         //don't save if we don't have a user
         guard let user = (user == nil ? signedInUser : user) else { return true }
@@ -112,6 +114,7 @@ class Restaurant: NSObject {
         }
     }
     
+    //converts the restaurant into a core data model to save it on the phone
     func convertToSavedRestaurantModel(context: NSManagedObjectContext) -> SavedRestaurant {
         let savedRestaurant = SavedRestaurant(context: context)
         savedRestaurant.cuisines = self.cuisines

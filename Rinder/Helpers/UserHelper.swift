@@ -11,6 +11,7 @@ import CoreData
 
 class UserHelper {
     
+    //Make a user model in the database if it's the first time the user signed in
     static func userSignedIn(viewContext: NSManagedObjectContext,
                              googleUser: GIDGoogleUser) {
         
@@ -38,5 +39,21 @@ class UserHelper {
         } catch {
             print("Hey Listen! Error getting user: \(error.localizedDescription)")
         }
+    }
+    
+    //Checks user's favorite restaurants and returns the instance of it
+    static func getSavedRestaurantInstance(restaurantId: String?) -> SavedRestaurant? {
+        guard let user = signedInUser, let restaurantId = restaurantId else { return nil }
+        
+        if let favs = user.favRestaurants {
+            for fav in favs {
+                if let restaurant = fav as? SavedRestaurant,
+                   restaurant.id == restaurantId {
+                    return restaurant
+                }
+            }
+        }
+        
+        return nil
     }
 }
