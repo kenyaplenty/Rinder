@@ -44,7 +44,6 @@ class ProfileVC: UIViewController {
         nameLbl.textColor = .white
         emailLbl.textColor = .white
         
-        favLbl.text = "Favorites"
         favLbl.textColor = .white
         favLbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         
@@ -78,6 +77,8 @@ class ProfileVC: UIViewController {
     }
     
     func getFavs() {
+        favLbl.text = isCurrentUser ? "Favorites" : "Face-off Results"
+        
         guard let user = user else { return }
         
         var restuarants = [SavedRestaurant]()

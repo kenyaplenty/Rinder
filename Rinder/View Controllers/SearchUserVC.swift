@@ -81,4 +81,13 @@ extension SearchUserVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row >= usersFound.count { return }
+        
+        let viewController = ProfileVC()
+        viewController.context = context
+        viewController.user = usersFound[indexPath.row]
+        self.present(viewController, animated: true, completion: nil)
+    }
 }
