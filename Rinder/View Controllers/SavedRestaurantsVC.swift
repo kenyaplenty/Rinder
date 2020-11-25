@@ -13,6 +13,7 @@ class SavedRestaurantsVC: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var backBtn: UIButton!
     
     //MARK: - Variables
     
@@ -59,6 +60,11 @@ class SavedRestaurantsVC: UIViewController {
         }
         
         self.savedRestaurants = restaurants
+    }
+    
+    //MARK: - Actions
+    @IBAction func backBtnTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

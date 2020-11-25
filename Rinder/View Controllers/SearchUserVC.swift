@@ -14,6 +14,7 @@ class SearchUserVC: UIViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backBtn: UIButton!
     
     //MARK: - Variables
     
@@ -40,6 +41,10 @@ class SearchUserVC: UIViewController {
         
         searchBar.placeholder = "Email"
         searchBar.delegate = self
+    }
+    
+    @IBAction func backBtnTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -20,6 +20,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var favLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logoutBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
     
     //MARK: - Variables
     var context: NSManagedObjectContext?
@@ -115,6 +116,10 @@ class ProfileVC: UIViewController {
             viewController.modalTransitionStyle = .coverVertical
             self.present(viewController, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func backBtnTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

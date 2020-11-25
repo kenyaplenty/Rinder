@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Rinder" customModuleProvider="target">
             <connections>
+                <outlet property="backBtn" destination="x0s-DN-Asb" id="hRh-oB-8xb"/>
                 <outlet property="emailLbl" destination="0Uo-58-ply" id="zfo-KD-NTI"/>
                 <outlet property="favLbl" destination="UZ6-rs-nZF" id="BCs-AG-Mmi"/>
                 <outlet property="initialBackground" destination="0qF-0f-0dV" id="Jpr-xy-saO"/>
@@ -85,6 +86,16 @@
                         <constraint firstItem="F9c-SG-PJS" firstAttribute="top" secondItem="0qF-0f-0dV" secondAttribute="top" id="zR1-7C-y0q"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0s-DN-Asb">
+                    <rect key="frame" x="16" y="55.5" width="22" height="22.5"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="medium"/>
+                    </state>
+                    <connections>
+                        <action selector="backBtnTap:" destination="-1" eventType="touchUpInside" id="ncj-XF-cWy"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.9882352941176471" green="0.71918767689999996" blue="0.73480206729999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,6 +104,7 @@
                 <constraint firstItem="fk3-uU-NAk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Vf-yV-POI"/>
                 <constraint firstItem="0Uo-58-ply" firstAttribute="top" secondItem="4H0-hf-oHw" secondAttribute="bottom" constant="4" id="7qo-0c-0gC"/>
                 <constraint firstItem="0Uo-58-ply" firstAttribute="trailing" secondItem="4H0-hf-oHw" secondAttribute="trailing" id="82x-P6-TGl"/>
+                <constraint firstItem="x0s-DN-Asb" firstAttribute="leading" secondItem="F9c-SG-PJS" secondAttribute="leading" id="EM7-Fz-1aZ"/>
                 <constraint firstItem="30U-jM-trq" firstAttribute="top" secondItem="UZ6-rs-nZF" secondAttribute="bottom" constant="4" id="KBg-rb-EF6"/>
                 <constraint firstItem="fk3-uU-NAk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="PuY-g7-aqV"/>
                 <constraint firstItem="UZ6-rs-nZF" firstAttribute="top" secondItem="0Uo-58-ply" secondAttribute="bottom" constant="20" id="UhM-rT-teV"/>
@@ -103,6 +115,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4H0-hf-oHw" secondAttribute="trailing" constant="16" id="cg6-gE-aSI"/>
                 <constraint firstItem="UZ6-rs-nZF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e3l-xx-kEg"/>
                 <constraint firstItem="0Uo-58-ply" firstAttribute="leading" secondItem="4H0-hf-oHw" secondAttribute="leading" id="eOm-Uv-1qf"/>
+                <constraint firstItem="x0s-DN-Asb" firstAttribute="centerY" secondItem="fk3-uU-NAk" secondAttribute="centerY" id="kpX-HK-5k0"/>
                 <constraint firstItem="30U-jM-trq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pRj-Cn-npS"/>
                 <constraint firstItem="4H0-hf-oHw" firstAttribute="top" secondItem="fk3-uU-NAk" secondAttribute="bottom" constant="24" id="rvf-7f-H4l"/>
                 <constraint firstAttribute="bottom" secondItem="30U-jM-trq" secondAttribute="bottom" id="srg-p1-PfT"/>
@@ -112,6 +125,7 @@
         </view>
     </objects>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

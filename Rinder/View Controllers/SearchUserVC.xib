@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchUserVC" customModule="Rinder" customModuleProvider="target">
             <connections>
+                <outlet property="backBtn" destination="PPG-p7-KDf" id="dFk-1y-0Z0"/>
                 <outlet property="searchBar" destination="3sb-HH-VFi" id="qua-0f-3hX"/>
                 <outlet property="tableView" destination="GoM-Yd-ZQs" id="fjI-Xf-Ggt"/>
                 <outlet property="titleLbl" destination="Rcd-xJ-NBE" id="Smv-Sz-VVl"/>
@@ -36,24 +37,37 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPG-p7-KDf">
+                    <rect key="frame" x="12" y="55" width="22" height="22.5"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="medium"/>
+                    </state>
+                    <connections>
+                        <action selector="backBtnTap:" destination="-1" eventType="touchUpInside" id="iHn-PN-Hu2"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.99215686274509807" green="0.76078431372549016" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Rcd-xJ-NBE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1ft-5P-IY0"/>
                 <constraint firstAttribute="bottom" secondItem="GoM-Yd-ZQs" secondAttribute="bottom" id="5Sy-BN-HRv"/>
+                <constraint firstItem="PPG-p7-KDf" firstAttribute="centerY" secondItem="Rcd-xJ-NBE" secondAttribute="centerY" id="MTA-Ad-bAf"/>
                 <constraint firstItem="Rcd-xJ-NBE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="TlD-mA-eXl"/>
                 <constraint firstItem="GoM-Yd-ZQs" firstAttribute="top" secondItem="3sb-HH-VFi" secondAttribute="bottom" id="XU2-Z9-Ale"/>
                 <constraint firstItem="3sb-HH-VFi" firstAttribute="top" secondItem="Rcd-xJ-NBE" secondAttribute="bottom" constant="12" id="cn4-4N-wSv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3sb-HH-VFi" secondAttribute="trailing" id="cwl-gI-gHM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GoM-Yd-ZQs" secondAttribute="trailing" id="gfE-eq-grJ"/>
                 <constraint firstItem="GoM-Yd-ZQs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kOp-Cq-9Ng"/>
+                <constraint firstItem="PPG-p7-KDf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="nJe-5b-nal"/>
                 <constraint firstItem="3sb-HH-VFi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="piW-WK-Snt"/>
             </constraints>
             <point key="canvasLocation" x="132" y="131"/>
         </view>
     </objects>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
