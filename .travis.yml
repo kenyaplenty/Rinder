@@ -1,0 +1,4 @@
+language: osx
+osx_image: xcode12.2
+xcode_project: Rinder.xcodeproj
+xcode_destination: platform=iOS Simulator,OS=14.4,name=iPhone12
