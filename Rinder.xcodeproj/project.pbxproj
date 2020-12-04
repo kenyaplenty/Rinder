@@ -267,7 +267,6 @@
 				1357C33D255E0AAD00B1A89A /* Resources */,
 				A2DAD4CA17CFD6786DC1BE81 /* [CP] Embed Pods Frameworks */,
 				F4487DF8EE4B334CCEF0A534 /* [CP] Copy Pods Resources */,
-				5BFC2D382561CF450046E4E9 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -432,24 +431,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rinder-RinderUITests/Pods-Rinder-RinderUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		5BFC2D382561CF450046E4E9 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint --config ${SRCROOT}/.swiftlint.yml\nelse \n    echo \"Please install Swiftlint from https://github.com/realm/swiftlint\"\nfi\n";
 		};
 		6EE7F59438C4C345F61BB25F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
