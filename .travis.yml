@@ -7,7 +7,7 @@ language: swift
 xcode_project: Rinder.xcodeproj
 osx_image: xcode12
 xcode_scheme: Rinder
-xcode_destination: platform=iOS Simulator,OS=14.4,name=iPhone 12
+xcode_destination: platform=iOS Simulator,OS=14.1,name=iPhone 12
 script:
    - swiftlint 
-   - xcodebuild test -workspace 'Rinder.xcworkspace' -scheme 'Rinder' -destination 'platform=iOS Simulator,OS=14.0,name=iPhone 11'
+   - xcodebuild test -workspace 'Rinder.xcworkspace' -scheme 'Rinder' -destination 'platform=iOS Simulator,OS=14.1,name=iPhone 12'
