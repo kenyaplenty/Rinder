@@ -10,4 +10,4 @@ xcode_scheme: Rinder
 xcode_destination: platform=iOS Simulator,OS=14.4,name=iPhone 12
 script:
    - swiftlint 
-   - xcodebuild test -workspace 'Rinder.xcworkspace' -scheme 'Rinder' -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12'
+   - xcodebuild test -workspace 'Rinder.xcworkspace' -scheme 'Rinder' -destination 'platform=iOS Simulator,OS=14.0,name=iPhone 11'
