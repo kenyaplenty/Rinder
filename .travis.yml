@@ -11,3 +11,5 @@ xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11
 script:
    - swiftlint 
    - xcodebuild test -workspace 'Rinder.xcworkspace' -scheme 'Rinder' -destination 'platform=iOS Simulator,OS=14.0,name=iPhone 11'
+after_success:
+   - bash <(curl -s https://codecov.io/bash) 
