@@ -140,9 +140,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let request : NSFetchRequest<User> = User.fetchRequest()
             request.predicate = NSPredicate(format: "userId == %@", testUserId)
             do {
-                let count = try context.count(for: request)
+                let countRequests = try context.count(for: request)
                 //Check example users need to be added
-                if count > 0 { return }
+                if countRequests > 0 { return }
                 
                 let exampleArray: [ExampleUser] = [
                     ExampleUser(id: "testUserId1", name: "Tom John", email: "tom@gmail.com"),
