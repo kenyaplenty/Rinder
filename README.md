@@ -1,5 +1,6 @@
 # Rinder
 ![Travis (.org)](https://img.shields.io/travis/kenyaplenty/Rinder)
+[![codecov](https://codecov.io/gh/kenyaplenty/Rinder/branch/main/graph/badge.svg?token=XSIM29Q8ZX)](https://codecov.io/gh/kenyaplenty/Rinder)
 ## To run it:
 
 - In your terminal `cd` into the project Repo
