@@ -171,7 +171,7 @@ class HomeVC: UIViewController {
     }
     
     //fill in restaurant info
-    private func updateViewWithRestaurant(restaurant: Restaurant) {
+    func updateViewWithRestaurant(restaurant: Restaurant) {
         backView.isHidden = false
         self.errorLbl.isHidden = true
         
