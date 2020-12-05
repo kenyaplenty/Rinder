@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     private func autoSignIn() {
-        if (GIDSignIn.sharedInstance().hasPreviousSignIn()){
+        if (GIDSignIn.sharedInstance().hasPreviousSignIn()) {
             GIDSignIn.sharedInstance()?.restorePreviousSignIn()
             goToHome()
         }

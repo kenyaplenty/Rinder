@@ -46,8 +46,8 @@ class UserHelper {
         guard let user = signedInUser, let restaurantId = restaurantId else { return nil }
         
         if let favs = user.favRestaurants {
-            for fav in favs {
-                if let restaurant = fav as? SavedRestaurant,
+            for favoriteRest in favs {
+                if let restaurant = favoriteRest as? SavedRestaurant,
                    restaurant.id == restaurantId {
                     return restaurant
                 }
