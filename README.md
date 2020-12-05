@@ -1,5 +1,5 @@
 # Rinder
-![Travis (.org)] (https://img.shields.io/travis/kenyaplenty/Rinder)
+![Travis (.org)](https://img.shields.io/travis/kenyaplenty/Rinder)
 ## To run it:
 
 - In your terminal `cd` into the project Repo
