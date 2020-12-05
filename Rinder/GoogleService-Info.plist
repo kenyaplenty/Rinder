@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>90675211943-rl1g8r4ln38b5gfrltbt81r8vjdeb3ui.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.90675211943-rl1g8r4ln38b5gfrltbt81r8vjdeb3ui</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAdsYZSA-ZXRSQ_eJ0xa57Men8ml0KygCk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>90675211943</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.2KFTJ.Rinder</string>
+	<key>PROJECT_ID</key>
+	<string>rinder-2cb16</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rinder-2cb16.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:90675211943:ios:f4904082954e8d48c27582</string>
+</dict>
+</plist>
