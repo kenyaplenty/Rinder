@@ -332,7 +332,7 @@ class HomeVC: UIViewController {
     }
     
     //MARK: - Swipe
-    @IBAction func RestaurantCardSwipe(_ sender: UIPanGestureRecognizer) {
+    @IBAction func restaurantCardSwipe(_ sender: UIPanGestureRecognizer) {
         guard let card = sender.view else { return }
         
         let point = sender.translation(in: self.view)
