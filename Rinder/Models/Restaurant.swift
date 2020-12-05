@@ -97,8 +97,8 @@ class Restaurant: NSObject {
               let user = signedInUser,
               let favRestaurants = user.favRestaurants else { return }
         
-        for fav in favRestaurants {
-            if let favRestaurant = fav as? SavedRestaurant,
+        for favoriteRest in favRestaurants {
+            if let favRestaurant = favoriteRest as? SavedRestaurant,
                let favId = favRestaurant.id,
                self.id == favId {
                 

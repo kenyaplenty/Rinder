@@ -104,7 +104,6 @@ extension SavedRestaurantsVC: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [favAction])
     }
     
-    
     //swipe left to delete
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         

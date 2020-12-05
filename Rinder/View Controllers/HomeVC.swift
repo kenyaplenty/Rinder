@@ -10,7 +10,6 @@ import CoreData
 import CoreLocation
 import SafariServices
 
-
 class HomeVC: UIViewController {
 
     //MARK: - Outlets
@@ -196,8 +195,8 @@ class HomeVC: UIViewController {
             self.menuBtn.isHidden = restaurant.menuURL == nil
             
             if let user = signedInUser, let favRestaurants = user.favRestaurants {
-                for fav in favRestaurants {
-                    if let favRestaurant = fav as? SavedRestaurant,
+                for favoriteRest in favRestaurants {
+                    if let favRestaurant = favoriteRest as? SavedRestaurant,
                        let favId = favRestaurant.id,
                        restaurant.id == favId {
                         self.favoritesBtn.setTitle("In favorites", for: .normal)
@@ -332,7 +331,6 @@ class HomeVC: UIViewController {
         isRestaurantInFavorites.toggle()
     }
     
-    
     //MARK: - Swipe
     @IBAction func RestaurantCardSwipe(_ sender: UIPanGestureRecognizer) {
         guard let card = sender.view else { return }
@@ -341,7 +339,6 @@ class HomeVC: UIViewController {
         let xFromCenter = card.center.x - view.center.x
         
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
-        
         
         if xFromCenter == 0 {
             decisionIv.alpha = 0
@@ -400,8 +397,8 @@ extension UIViewController {
     func createAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(ok)
+        let okay = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okay)
         
         self.present(alert, animated: true, completion: nil)
     }

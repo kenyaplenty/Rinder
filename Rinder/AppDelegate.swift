@@ -88,7 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
         }
     }
-
     
     // MARK: - Google Sign-In
     func application(_ application: UIApplication,
@@ -121,8 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         UserHelper.userSignedIn(viewContext: viewContext,
                                 googleUser: user)
         
-        let nc = NotificationCenter.default
-        nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
+        let notification = NotificationCenter.default
+        notification.post(name: Notification.Name("UserLoggedIn"), object: nil)
         
         addExampleUsers()
     }
@@ -165,7 +164,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             } catch {
                 print("Hey Listen! Error checking if a test user exits: \(error.localizedDescription)")
             }
-            
             
         }
         
