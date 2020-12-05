@@ -21,7 +21,7 @@ class Restaurant: NSObject {
     
     init(id: String, name: String, featuredImageURL: URL?, menuURL: URL?, address: String, location: CLLocation?, cuisines: String, priceRange: String) {
         self.id = id
-        self.name = id
+        self.name = name
         self.featuredImageURL = featuredImageURL
         self.menuURL = menuURL
         self.address = address
