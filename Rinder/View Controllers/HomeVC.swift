@@ -239,6 +239,10 @@ class HomeVC: UIViewController {
     //MARK: - Actions
     
     @IBAction func searchBtnTap(_ sender: Any) {
+        toSearch()
+    }
+    
+    func toSearch() {
         let viewController = SearchUserVC()
         viewController.context = context
         self.present(viewController, animated: true, completion: nil)

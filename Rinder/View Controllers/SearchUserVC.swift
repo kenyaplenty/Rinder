@@ -21,6 +21,13 @@ class SearchUserVC: UIViewController {
     var context: NSManagedObjectContext?
     var usersFound = [User]()
     
+    var testContext: NSManagedObjectContext? {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate.persistentContainer.viewContext
+        }
+        return nil
+    }
+    
     //MARK: - Setup
     
     override func viewDidLoad() {
@@ -55,7 +62,11 @@ extension SearchUserVC: UISearchBarDelegate {
         guard let context = self.context,
               let currentUserId = signedInUser?.userId,
               let searchText = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() else { return }
-        
+        findUser(searchText: searchText, currentUserId: currentUserId, context: context)
+    }
+    
+    func findUser(searchText: String, currentUserId: String, context: NSManagedObjectContext) {
+        guard let context = self.context else { return }
         let request : NSFetchRequest<User> = User.fetchRequest()
         request.predicate = NSPredicate(format: "name CONTAINS[cd] %@ && userId != %@",
                                         argumentArray: [searchText, currentUserId])
