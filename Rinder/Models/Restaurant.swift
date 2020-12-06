@@ -18,6 +18,18 @@ class Restaurant: NSObject {
     var location: CLLocation?
     var cuisines: String = ""
     var priceRange: String = ""
+    
+    init(id: String, name: String, featuredImageURL: URL?, menuURL: URL?, address: String, location: CLLocation?, cuisines: String, priceRange: String) {
+        self.id = id
+        self.name = name
+        self.featuredImageURL = featuredImageURL
+        self.menuURL = menuURL
+        self.address = address
+        self.location = location
+        self.cuisines = cuisines
+        self.priceRange = priceRange
+    }
+    
     init(from jsonDict: NSDictionary) {
         if let id = jsonDict["id"] as? String {
             self.id = id
