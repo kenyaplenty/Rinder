@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var errorLbl: UILabel!
     
     //restaurant details
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet var backView: UIView!
     @IBOutlet weak var restaurantImage: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var distanceLbl: UILabel!
@@ -171,9 +171,11 @@ class HomeVC: UIViewController {
     }
     
     //fill in restaurant info
-    func updateViewWithRestaurant(restaurant: Restaurant) {
-        backView.isHidden = false
-        self.errorLbl.isHidden = true
+    func updateViewWithRestaurant(restaurant: Restaurant, isUnitTesting: Bool = false) {
+        if !isUnitTesting {
+            self.backView.isHidden = false
+            self.errorLbl.isHidden = true
+        }
         
         DispatchQueue.main.async { [self] in
             
@@ -268,11 +270,13 @@ class HomeVC: UIViewController {
     }
     
     @objc func acceptTap() {
-        acceptRestaurant(card: self.backView)
+        acceptRestaurant()
     }
     
-    func acceptRestaurant(card: UIView) {
-        moveCard(card: self.backView, moveLeft: false)
+    func acceptRestaurant(isUnitTesting: Bool = false) {
+        if !isUnitTesting {
+            moveCard(card: self.backView, moveLeft: false)
+        }
         
         if let restaurant = searchResult?.getCurrentRestaurant() {
             restaurant.saveToCoreData(context: context, saveToFavorites: false)
@@ -361,7 +365,7 @@ class HomeVC: UIViewController {
             if card.center.x < 75 {
                 rejectRestaurant(card: card)
             } else if card.center.x > (view.frame.width - 75) {
-                acceptRestaurant(card: card)
+                acceptRestaurant()
             } else {
                 UIView.animate(withDuration: 0.2) {
                     card.center = self.view.center

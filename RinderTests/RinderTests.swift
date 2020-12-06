@@ -45,25 +45,27 @@ class RinderTests: XCTestCase {
         XCTAssertTrue(vc.nextRestaurantCalled)
     }
     
-    func addRestaurant() throws {
-        let vc = HomeVC()
-        let restaurant = Restaurant.init(id: "1", name: "IDK", featuredImageURL: nil, menuURL: nil, address: "IDK", location: nil, cuisines: "IDK", priceRange: "IDK")
-        vc.updateViewWithRestaurant(restaurant: restaurant)
-        
-        vc.acceptRestaurant(card: vc.backView)
-        
-        guard let context = vc.context else{
-            return
-        }
-                
-        let request : NSFetchRequest<SavedRestaurant> = SavedRestaurant.fetchRequest()
-        request.predicate = NSPredicate(format: "id = 1")
-        
-        do {
-            let count = try context.count(for: request)
-            XCTAssertGreaterThanOrEqual(count, 0)
-        } catch {
-            print("Hey Listen! Error finding users: \(error.localizedDescription)")
+    func testAddRestaurant() throws {
+        let vc = HomeVC(nibName: "HomeVC", bundle: nil)
+        DispatchQueue.main.async {
+            let restaurant = Restaurant.init(id: "1", name: "NAME", featuredImageURL: nil, menuURL: nil, address: "IDK", location: nil, cuisines: "IDK", priceRange: "IDK")
+            vc.updateViewWithRestaurant(restaurant: restaurant, isUnitTesting: true)
+            
+            vc.acceptRestaurant(isUnitTesting: true)
+            
+            guard let context = vc.context else{
+                return
+            }
+                    
+            let request : NSFetchRequest<SavedRestaurant> = SavedRestaurant.fetchRequest()
+            request.predicate = NSPredicate(format: "id = 1")
+            
+            do {
+                let count = try context.count(for: request)
+                XCTAssertGreaterThanOrEqual(count, 0)
+            } catch {
+                print("Hey Listen! Error finding users: \(error.localizedDescription)")
+            }
         }
     }
     

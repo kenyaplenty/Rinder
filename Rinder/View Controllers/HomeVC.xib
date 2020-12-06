@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Rinder" customModuleProvider="target">
             <connections>
-                <outlet property="backView" destination="LNt-7y-gAI" id="96E-4W-ize"/>
+                <outlet property="backView" destination="LNt-7y-gAI" id="vaU-gG-U3K"/>
                 <outlet property="cuisineLbl" destination="EvB-dd-x43" id="cr2-zU-Nf4"/>
                 <outlet property="decisionIv" destination="Kxm-pJ-jRC" id="19F-yk-HmR"/>
                 <outlet property="distanceLbl" destination="Nbd-sb-iSd" id="38N-cK-BIQ"/>
@@ -215,7 +215,7 @@
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="Vu8-zp-UuW">
             <connections>
-                <action selector="RestaurantCardSwipe:" destination="-1" id="iWU-f0-i35"/>
+                <action selector="restaurantCardSwipe:" destination="-1" id="CMn-zU-2zA"/>
             </connections>
         </panGestureRecognizer>
     </objects>
