@@ -215,7 +215,7 @@
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="Vu8-zp-UuW">
             <connections>
-                <action selector="restaurantCardSwipe:" destination="-1" id="CMn-zU-2zA"/>
+                <action selector="restaurantCardSwipe:" destination="-1" id="Ttu-1g-hQ2"/>
             </connections>
         </panGestureRecognizer>
     </objects>
