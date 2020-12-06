@@ -45,7 +45,7 @@ class RinderTests: XCTestCase {
         XCTAssertTrue(vc.nextRestaurantCalled)
     }
     
-    func testAddRestaurantSwipe() throws {
+    func testAddRestaurantTap() throws {
         let vc = HomeVC(nibName: "HomeVC", bundle: nil)
         DispatchQueue.main.async {
             let restaurant = Restaurant.init(id: "1", name: "NAME", featuredImageURL: nil, menuURL: nil, address: "IDK", location: nil, cuisines: "IDK", priceRange: "IDK")
@@ -69,7 +69,7 @@ class RinderTests: XCTestCase {
         }
     }
     
-    func testRemoveRestaurantSwipe() throws {
+    func testRemoveRestaurantTap() throws {
         let vc = HomeVC(nibName: "HomeVC", bundle: nil)
         DispatchQueue.main.async {
             let restaurant = Restaurant.init(id: "1", name: "NAME", featuredImageURL: nil, menuURL: nil, address: "IDK", location: nil, cuisines: "IDK", priceRange: "IDK")
