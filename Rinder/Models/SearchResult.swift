@@ -47,7 +47,7 @@ class SearchResult: NSObject {
     
     //MARK: Make fake users that favorited some of the search results
     func addFavoritesToExampleUsers() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, restaurants.isEmpty else { return }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, !restaurants.isEmpty else { return }
         
         appDelegate.persistentContainer.performBackgroundTask { (context) in
             //get example users
@@ -67,7 +67,16 @@ class SearchResult: NSObject {
                     
                     //have example user favorite 3 random restaurants
                     for _ in 0..<5 {
-                        if let restaurant = self.restaurants.randomElement(),
+                        
+                        var restaurant : Restaurant?
+                        if self.restaurants.count >= 10 {
+                            let index = Int.random(in: 0..<10)
+                            restaurant = self.restaurants[index]
+                        } else {
+                            restaurant = self.restaurants.randomElement()
+                        }
+                        
+                        if let restaurant = restaurant,
                            !restaurant.isItemSaved(isCheckingFavorites: true, user: exampleUser) {
                             let savedRestaurant = restaurant.convertToSavedRestaurantModel(context: context)
                             exampleUser.addToFavRestaurants(savedRestaurant)
