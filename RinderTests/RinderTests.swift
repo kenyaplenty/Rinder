@@ -45,15 +45,39 @@ class RinderTests: XCTestCase {
         XCTAssertTrue(vc.nextRestaurantCalled)
     }
     
-    func testAddRestaurant() throws {
+    func testAddRestaurantSwipe() throws {
         let vc = HomeVC(nibName: "HomeVC", bundle: nil)
         DispatchQueue.main.async {
             let restaurant = Restaurant.init(id: "1", name: "NAME", featuredImageURL: nil, menuURL: nil, address: "IDK", location: nil, cuisines: "IDK", priceRange: "IDK")
             vc.updateViewWithRestaurant(restaurant: restaurant, isUnitTesting: true)
             
-            vc.acceptRestaurant(isUnitTesting: true)
+            vc.acceptTap(isUnitTesting: true)
             
-            guard let context = vc.context else{
+            guard let context = vc.context else {
+                return
+            }
+                    
+            let request : NSFetchRequest<SavedRestaurant> = SavedRestaurant.fetchRequest()
+            request.predicate = NSPredicate(format: "id = 1")
+            
+            do {
+                let count = try context.count(for: request)
+                XCTAssertEqual(count, 0)
+            } catch {
+                print("Hey Listen! Error finding users: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func testRemoveRestaurantSwipe() throws {
+        let vc = HomeVC(nibName: "HomeVC", bundle: nil)
+        DispatchQueue.main.async {
+            let restaurant = Restaurant.init(id: "1", name: "NAME", featuredImageURL: nil, menuURL: nil, address: "IDK", location: nil, cuisines: "IDK", priceRange: "IDK")
+            vc.updateViewWithRestaurant(restaurant: restaurant, isUnitTesting: true)
+            
+            vc.rejectTap(isUnitTesting: true)
+            
+            guard let context = vc.context else {
                 return
             }
                     

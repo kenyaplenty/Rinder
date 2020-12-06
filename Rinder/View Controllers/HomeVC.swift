@@ -260,17 +260,27 @@ class HomeVC: UIViewController {
         }
     }
     
-    @objc func rejectTap() {
-        rejectRestaurant(card: self.backView)
+    @objc func rejectTap(isUnitTesting: Bool = false) {
+        if isUnitTesting {
+            rejectRestaurant(isUnitTesting: true)
+        } else {
+            rejectRestaurant()
+        }
     }
     
-    func rejectRestaurant(card: UIView) {
-        moveCard(card: card, moveLeft: true)
+    func rejectRestaurant(isUnitTesting: Bool = false) {
+        if !isUnitTesting {
+            moveCard(card: self.backView, moveLeft: true)
+        }
         nextRestaurant()
     }
     
-    @objc func acceptTap() {
-        acceptRestaurant()
+    @objc func acceptTap(isUnitTesting: Bool = false) {
+        if isUnitTesting {
+            acceptRestaurant(isUnitTesting: true)
+        } else {
+            acceptRestaurant()
+        }
     }
     
     func acceptRestaurant(isUnitTesting: Bool = false) {
@@ -363,7 +373,7 @@ class HomeVC: UIViewController {
             
             //move off to the left
             if card.center.x < 75 {
-                rejectRestaurant(card: card)
+                rejectRestaurant()
             } else if card.center.x > (view.frame.width - 75) {
                 acceptRestaurant()
             } else {
