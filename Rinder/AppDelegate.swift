@@ -150,7 +150,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     ExampleUser(id: "testUserId3", name: "Bond Jame", email: "bond@gmail.com"),
                     ExampleUser(id: "testUserId4", name: "Cam Com", email: "cam@gmail.com"),
                     ExampleUser(id: "testUserId5", name: "Daniel Damn", email: "damn@gmail.com"),
-                    ExampleUser(id: "testUserId6", name: "Ester Chest", email: "ester@gmail.com")]
+                    ExampleUser(id: "testUserId6", name: "Ester Chest", email: "ester@gmail.com"),
+                    ExampleUser(id: "testUserId7", name: "adam aaron", email: "adam@gmail.com"),
+                    ExampleUser(id: "testUserId8", name: "aaron johnson", email: "aaron@gmail.com")]
                 
                 for example in exampleArray {
                     let user = User(context: context)
