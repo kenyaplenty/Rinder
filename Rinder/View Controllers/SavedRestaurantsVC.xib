@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavedRestaurantsVC" customModule="Rinder" customModuleProvider="target">
             <connections>
                 <outlet property="backBtn" destination="5Vr-YX-Xf5" id="w1M-kh-pyz"/>
+                <outlet property="noteLbl" destination="3cm-dp-2xY" id="3Fw-6T-q05"/>
                 <outlet property="tableView" destination="z17-0F-s1x" id="Sh4-ax-pUm"/>
                 <outlet property="titleLbl" destination="FdQ-LC-aes" id="crH-8P-RXe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,13 +27,13 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdQ-LC-aes">
-                    <rect key="frame" x="186" y="56" width="42" height="21"/>
+                    <rect key="frame" x="186" y="54" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Vr-YX-Xf5">
-                    <rect key="frame" x="16" y="55.5" width="22" height="22.5"/>
+                    <rect key="frame" x="16" y="53.5" width="22" height="22.5"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="xmark" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="medium" weight="medium"/>
@@ -41,18 +42,26 @@
                         <action selector="backBtnTap:" destination="-1" eventType="touchUpInside" id="Uye-8K-uAe"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cm-dp-2xY">
+                    <rect key="frame" x="186" y="79" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="0.72409796709999996" blue="0.7255019546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="z17-0F-s1x" firstAttribute="top" secondItem="FdQ-LC-aes" secondAttribute="bottom" constant="12" id="CG4-rV-Kyc"/>
                 <constraint firstItem="5Vr-YX-Xf5" firstAttribute="centerY" secondItem="FdQ-LC-aes" secondAttribute="centerY" id="DsV-h1-ehp"/>
+                <constraint firstItem="3cm-dp-2xY" firstAttribute="centerX" secondItem="FdQ-LC-aes" secondAttribute="centerX" id="NPq-xA-pS2"/>
                 <constraint firstItem="5Vr-YX-Xf5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Zn6-tu-dxJ"/>
+                <constraint firstItem="3cm-dp-2xY" firstAttribute="top" secondItem="FdQ-LC-aes" secondAttribute="bottom" constant="4" id="ic9-0p-E1B"/>
                 <constraint firstAttribute="bottom" secondItem="z17-0F-s1x" secondAttribute="bottom" id="kOr-7n-18j"/>
                 <constraint firstItem="FdQ-LC-aes" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ksi-Qf-9UT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z17-0F-s1x" secondAttribute="trailing" id="qRd-87-KD2"/>
-                <constraint firstItem="FdQ-LC-aes" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="vv9-7f-VCg"/>
+                <constraint firstItem="FdQ-LC-aes" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="vv9-7f-VCg"/>
                 <constraint firstItem="z17-0F-s1x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wDG-fc-vZ1"/>
+                <constraint firstItem="z17-0F-s1x" firstAttribute="top" secondItem="FdQ-LC-aes" secondAttribute="bottom" constant="14" id="wXG-wb-clV"/>
             </constraints>
             <point key="canvasLocation" x="82.608695652173921" y="130.58035714285714"/>
         </view>

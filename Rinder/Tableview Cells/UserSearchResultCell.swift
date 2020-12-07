@@ -23,6 +23,11 @@ class UserSearchResultCell: UITableViewCell {
 
     func populate(user: User) {
         titleLbl.text = user.name
+        titleLbl.textColor = UIColor.white
+        titleLbl.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         detailsLbl.text = user.email
+        detailsLbl.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        detailsLbl.textColor = UIColor.darkGray
+        
     }
 }
