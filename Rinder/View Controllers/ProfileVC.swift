@@ -51,7 +51,7 @@ class ProfileVC: UIViewController {
         emailLbl.textColor = .white
         
         favLbl.textColor = .white
-        favLbl.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        favLbl.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
         
         initialBackground.layer.cornerRadius = initialBackground.frame.size.width/2
         initialBackground.clipsToBounds = true
@@ -83,7 +83,7 @@ class ProfileVC: UIViewController {
     }
     
     func getFavs() {
-        favLbl.text = "Favorites"
+        favLbl.text = "Your Favorites"
         
         guard let user = user else { return }
         
@@ -115,7 +115,12 @@ class ProfileVC: UIViewController {
             }
         }
         
+        if similarFavs.isEmpty {
+            favLbl.text = "No restaurants in common."
+        }
+        
         favRestuarants = similarFavs
+        
         tableView.reloadData()
     }
     
@@ -159,7 +164,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.populate(savedResaurant: favRestuarants[indexPath.row])
+        cell.populate(savedResaurant: favRestuarants[indexPath.row], shouldHideStars : true)
         
         return cell
     }

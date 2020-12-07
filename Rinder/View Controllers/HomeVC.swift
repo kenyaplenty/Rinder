@@ -87,7 +87,8 @@ class HomeVC: UIViewController {
         distanceLbl.text = ""
         cuisineLbl.text = ""
         
-        favoritesBtn.setTitle("Add to favorites", for: .normal)
+        favoritesBtn.setTitle("Add to Favorites", for: .normal)
+        favoritesBtn.setTitleColor(.systemBlue, for: .normal)
         
         errorLbl.text = "No more restaurants"
         errorLbl.textAlignment = .center
@@ -199,7 +200,7 @@ class HomeVC: UIViewController {
                     if let favRestaurant = favoriteRest as? SavedRestaurant,
                        let favId = favRestaurant.id,
                        restaurant.id == favId {
-                        self.favoritesBtn.setTitle("In favorites", for: .normal)
+                        self.favoritesBtn.setTitle("In Favorites", for: .normal)
                         self.isRestaurantInFavorites = true
                         return
                     }
@@ -207,7 +208,7 @@ class HomeVC: UIViewController {
             }
             
             self.isRestaurantInFavorites = false
-            self.favoritesBtn.setTitle("Add to favorites", for: .normal)
+            self.favoritesBtn.setTitle("Add to Favorites", for: .normal)
         }
     }
     

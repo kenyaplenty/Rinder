@@ -13,6 +13,7 @@ class SavedRestaurantsVC: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var noteLbl: UILabel!
     @IBOutlet weak var backBtn: UIButton!
     
     //MARK: - Variables
@@ -34,6 +35,10 @@ class SavedRestaurantsVC: UIViewController {
         titleLbl.text = "Saved Restaurants"
         titleLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         titleLbl.textColor = UIColor.white
+        
+        noteLbl.text = "Swipe right to add to Favorites"
+        noteLbl.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        noteLbl.textColor = UIColor.darkGray
     }
     
     private func setupTableView() {

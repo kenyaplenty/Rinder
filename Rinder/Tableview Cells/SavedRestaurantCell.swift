@@ -24,7 +24,7 @@ class SavedRestaurantCell: UITableViewCell {
         favStarIv.tintColor = .white
     }
 
-    func populate(savedResaurant: SavedRestaurant) {
+    func populate(savedResaurant: SavedRestaurant, shouldHideStars: Bool = false) {
         titleLbl.text = savedResaurant.name ?? ""
         titleLbl.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         titleLbl.textColor = UIColor.white
@@ -33,11 +33,8 @@ class SavedRestaurantCell: UITableViewCell {
         cuisineLbl.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         cuisineLbl.textColor = UIColor.darkGray
         
-        if let _ = UserHelper.getSavedRestaurantInstance(restaurantId: savedResaurant.id) {
-            favStarIv.image = UIImage(systemName: "star.fill")
-        } else {
-            favStarIv.image = UIImage(systemName: "star")
-        }
+        favStarIv.isHidden = UserHelper.getSavedRestaurantInstance(restaurantId: savedResaurant.id) == nil || shouldHideStars
+        favStarIv.image = UIImage(systemName: "star.fill")
     }
     
     //toggle favorite and remove
