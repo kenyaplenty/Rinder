@@ -22,13 +22,31 @@ class RinderUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testLogout() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        let profileButton = app.buttons["person.circle"]
+        profileButton.tap()
+        let logoutButton = app.buttons["Logout"]
+        logoutButton.tap()
+        XCTAssert(logoutButton.exists == false)
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testUserSearch() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let searchButton = app.buttons["Search"]
+        searchButton.tap()
+        let search = app.searchFields["Email"]
+        search.tap()
+        app.typeText("Cam")
+        app.keyboards.buttons["Search"].tap()
+        let profileName = app.cells.staticTexts["Cam Com"]
+        XCTAssert(profileName.exists)
     }
 
     func testLaunchPerformance() throws {
