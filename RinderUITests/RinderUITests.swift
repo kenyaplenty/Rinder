@@ -43,10 +43,34 @@ class RinderUITests: XCTestCase {
         searchButton.tap()
         let search = app.searchFields["Email"]
         search.tap()
-        app.typeText("Cam")
+        app.typeText("cam@gmail.com")
         app.keyboards.buttons["Search"].tap()
         let profileName = app.cells.staticTexts["Cam Com"]
         XCTAssert(profileName.exists)
+    }
+    
+    func testNonUserSearch() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let searchButton = app.buttons["Search"]
+        searchButton.tap()
+        let search = app.searchFields["Email"]
+        search.tap()
+        app.typeText("kgp2111@columbia.edu")
+        app.keyboards.buttons["Search"].tap()
+        XCTAssert(app.cells.count == 0)
+    }
+    
+    func testInvalidEmail() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let searchButton = app.buttons["Search"]
+        searchButton.tap()
+        let search = app.searchFields["Email"]
+        search.tap()
+        app.typeText("***1**4@gmail.com")
+        app.keyboards.buttons["Search"].tap()
+        XCTAssert(app.cells.count == 0)
     }
 
     func testLaunchPerformance() throws {
