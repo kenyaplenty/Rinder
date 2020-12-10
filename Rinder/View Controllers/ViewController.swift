@@ -16,10 +16,18 @@ class ViewController: UIViewController {
     }
 
     //MARK: - Outlets
-    
     @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var signInBtn: GIDSignInButton!
     
+    //MARK: - Variables
+    var context: NSManagedObjectContext? {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate.persistentContainer.viewContext
+        }
+        return nil
+    }
+    
+    //MARK: - Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -46,59 +54,14 @@ class ViewController: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "Rinder")
-        container.loadPersistentStores(completionHandler: { (_, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    
     @IBAction func testBtnPressed(_ sender: Any) {
-        let testUserId = "testUserId1"
+        guard let context = context else { return }
+        UserHelper.userSignedIn(viewContext: context,
+                                userId: "fakeUserId",
+                                name: "Fake User",
+                                email: "fake@gmail.com")
         
-        persistentContainer.performBackgroundTask { (context) in
-            let request : NSFetchRequest<User> = User.fetchRequest()
-            request.predicate = NSPredicate(format: "userId == %@", testUserId)
-            do {
-                let countRequests = try context.count(for: request)
-                //Check example users need to be added
-                if countRequests > 0 { return }
-                
-                let example = ExampleUser(id: "testUserId1", name: "ASE TEAM", email: "ase@gmail.com")
-                let user = User(context: context)
-                user.userId = example.id
-                user.name = example.name
-                user.email = example.email
-                user.isExampleUser = true
-                
-                try context.save()
-            } catch {
-                print("Hey Listen! Error checking if a test user exits: \(error.localizedDescription)")
-            }
-            
-        }
-        
-        goToHome()
+        NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
     }
 }
 

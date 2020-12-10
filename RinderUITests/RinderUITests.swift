@@ -26,6 +26,8 @@ class RinderUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        let fakeSignInBtn = app.buttons["TestSignin"]
+        fakeSignInBtn.tap()
         let profileButton = app.buttons["person.circle"]
         profileButton.tap()
         let logoutButton = app.buttons["Logout"]
@@ -39,6 +41,9 @@ class RinderUITests: XCTestCase {
     func testUserSearch() throws {
         let app = XCUIApplication()
         app.launch()
+        let fakeSignInBtn = app.buttons["TestSignin"]
+        fakeSignInBtn.tap()
+        
         let searchButton = app.buttons["Search"]
         searchButton.tap()
         let search = app.searchFields["Email"]
@@ -52,6 +57,8 @@ class RinderUITests: XCTestCase {
     func testNonUserSearch() throws {
         let app = XCUIApplication()
         app.launch()
+        let fakeSignInBtn = app.buttons["TestSignin"]
+        fakeSignInBtn.tap()
         let searchButton = app.buttons["Search"]
         searchButton.tap()
         let search = app.searchFields["Email"]
@@ -64,6 +71,8 @@ class RinderUITests: XCTestCase {
     func testInvalidEmail() throws {
         let app = XCUIApplication()
         app.launch()
+        let fakeSignInBtn = app.buttons["TestSignin"]
+        fakeSignInBtn.tap()
         let searchButton = app.buttons["Search"]
         searchButton.tap()
         let search = app.searchFields["Email"]

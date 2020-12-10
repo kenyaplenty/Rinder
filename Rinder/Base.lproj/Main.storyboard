@@ -44,25 +44,28 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59a-8G-RNh">
-                                <rect key="frame" x="0.0" y="0.0" width="2" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="testButton"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzf-z5-OR1">
+                                <rect key="frame" x="322" y="812" width="72" height="30"/>
+                                <state key="normal" title="TestSignin">
+                                    <color key="titleColor" red="0.98954588170000002" green="0.71918767689999996" blue="0.73480206729999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="testBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7jf-xX-pF8"/>
+                                    <action selector="testBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2SS-IM-rbF"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.69411764705882351" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xzf-z5-OR1" secondAttribute="bottom" constant="20" id="6IM-gO-JWa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xzf-z5-OR1" secondAttribute="trailing" constant="20" id="JkJ-b1-0xL"/>
                             <constraint firstItem="3dc-Yz-dhd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LKK-ec-rZl"/>
                             <constraint firstItem="3dc-Yz-dhd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oz4-nd-2eU"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="signInBtn" destination="KIA-fP-hvD" id="zgg-dU-cIV"/>
-                        <outlet property="testButton" destination="59a-8G-RNh" id="WpF-Og-RWf"/>
+                        <outlet property="testButton" destination="xzf-z5-OR1" id="v9i-Cm-HNT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

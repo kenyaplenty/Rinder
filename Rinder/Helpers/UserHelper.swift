@@ -13,10 +13,12 @@ class UserHelper {
     
     //Make a user model in the database if it's the first time the user signed in
     static func userSignedIn(viewContext: NSManagedObjectContext,
-                             googleUser: GIDGoogleUser) {
+                             userId: String,
+                             name: String,
+                             email: String) {
         
         let request: NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "userId = %@", googleUser.userID)
+        request.predicate = NSPredicate(format: "userId = %@", userId)
         do {
             if let user = try viewContext.fetch(request).first {
                 signedInUser = user
@@ -25,9 +27,9 @@ class UserHelper {
             else {
                 let user = User(context: viewContext)
                 
-                user.userId = googleUser.userID
-                user.name = googleUser.profile.name
-                user.email = googleUser.profile.email
+                user.userId = userId
+                user.name = name
+                user.email = email
                 
                 do {
                     try viewContext.save()
