@@ -47,6 +47,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59a-8G-RNh">
                                 <rect key="frame" x="0.0" y="0.0" width="2" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="testButton"/>
                                 <connections>
                                     <action selector="testBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7jf-xX-pF8"/>
                                 </connections>
