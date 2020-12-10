@@ -115,4 +115,10 @@ class RinderTests: XCTestCase {
 //            XCTAssertGreaterThan(vc.usersFound.count, 0)
 //        }
 //    }
+    
+//    func testGetLocation() throws {
+//        let vc = HomeVC()
+//
+//
+//    }
 }
