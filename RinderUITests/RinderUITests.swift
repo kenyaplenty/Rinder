@@ -79,6 +79,7 @@ class RinderUITests: XCTestCase {
         app.keyboards.buttons["Search"].tap()
         XCTAssert(app.cells.count == 0)
     }
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
