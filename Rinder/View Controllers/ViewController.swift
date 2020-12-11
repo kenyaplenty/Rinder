@@ -10,19 +10,15 @@ import CoreData
 import GoogleSignIn
 
 class ViewController: UIViewController {
-    
-    struct ExampleUser {
-        var id, name, email: String
-    }
 
     //MARK: - Outlets
     @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var signInBtn: GIDSignInButton!
     
     //MARK: - Variables
-    var context: NSManagedObjectContext? {
+    var persistentContainer: NSPersistentContainer? {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            return appDelegate.persistentContainer.viewContext
+            return appDelegate.persistentContainer
         }
         return nil
     }
@@ -55,13 +51,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func testBtnPressed(_ sender: Any) {
-        guard let context = context else { return }
-        UserHelper.userSignedIn(viewContext: context,
+        guard let persistentContainer = persistentContainer else { return }
+        UserHelper.userSignedIn(viewContext: persistentContainer.viewContext,
                                 userId: "fakeUserId",
                                 name: "Fake User",
                                 email: "fake@gmail.com")
         
         NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
+        
+        UserHelper.addExampleUsers(idToCheck: "fakeUserId", container: persistentContainer)
     }
 }
 

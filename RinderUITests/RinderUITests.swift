@@ -11,6 +11,11 @@ class RinderUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let app = XCUIApplication()
+        app.launch()
+        let signInBtn = app.buttons[".i"]
+        signInBtn.tap()
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -25,9 +30,6 @@ class RinderUITests: XCTestCase {
     func testLogout() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
-        app.launch()
-        let fakeSignInBtn = app.buttons["TestSignin"]
-        fakeSignInBtn.tap()
         let profileButton = app.buttons["person.circle"]
         profileButton.tap()
         let logoutButton = app.buttons["Logout"]
@@ -40,10 +42,6 @@ class RinderUITests: XCTestCase {
     
     func testUserSearch() throws {
         let app = XCUIApplication()
-        app.launch()
-        let fakeSignInBtn = app.buttons["TestSignin"]
-        fakeSignInBtn.tap()
-        
         let searchButton = app.buttons["Search"]
         searchButton.tap()
         let search = app.searchFields["Email"]
@@ -56,9 +54,6 @@ class RinderUITests: XCTestCase {
     
     func testNonUserSearch() throws {
         let app = XCUIApplication()
-        app.launch()
-        let fakeSignInBtn = app.buttons["TestSignin"]
-        fakeSignInBtn.tap()
         let searchButton = app.buttons["Search"]
         searchButton.tap()
         let search = app.searchFields["Email"]
@@ -70,9 +65,6 @@ class RinderUITests: XCTestCase {
     
     func testInvalidEmail() throws {
         let app = XCUIApplication()
-        app.launch()
-        let fakeSignInBtn = app.buttons["TestSignin"]
-        fakeSignInBtn.tap()
         let searchButton = app.buttons["Search"]
         searchButton.tap()
         let search = app.searchFields["Email"]

@@ -15,10 +15,6 @@ var signedInUser: User?
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-    //for adding example users
-    struct ExampleUser {
-        var id, name, email: String
-    }
 
     var window: UIWindow?
     
@@ -124,52 +120,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
         
-        addExampleUsers()
+        UserHelper.addExampleUsers(idToCheck: "testUserId1", container: persistentContainer)
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
               withError error: Error!) {
       // Perform any operations when the user disconnects from app here.
       // ...
-    }
-    
-    // MARK: - Example users
-    func addExampleUsers() {
-        let testUserId = "testUserId1"
-        
-        persistentContainer.performBackgroundTask { (context) in
-            let request : NSFetchRequest<User> = User.fetchRequest()
-            request.predicate = NSPredicate(format: "userId == %@", testUserId)
-            do {
-                let countRequests = try context.count(for: request)
-                //Check example users need to be added
-                if countRequests > 0 { return }
-                
-                let exampleArray: [ExampleUser] = [
-                    ExampleUser(id: "testUserId1", name: "Tom John", email: "tom@gmail.com"),
-                    ExampleUser(id: "testUserId2", name: "Addison Ra", email: "add@gmail.com"),
-                    ExampleUser(id: "testUserId3", name: "Bond Jame", email: "bond@gmail.com"),
-                    ExampleUser(id: "testUserId4", name: "Cam Com", email: "cam@gmail.com"),
-                    ExampleUser(id: "testUserId5", name: "Daniel Damn", email: "damn@gmail.com"),
-                    ExampleUser(id: "testUserId6", name: "Ester Chest", email: "ester@gmail.com"),
-                    ExampleUser(id: "testUserId7", name: "adam aaron", email: "adam@gmail.com"),
-                    ExampleUser(id: "testUserId8", name: "aaron johnson", email: "aaron@gmail.com")]
-                
-                for example in exampleArray {
-                    let user = User(context: context)
-                    user.userId = example.id
-                    user.name = example.name
-                    user.email = example.email
-                    user.isExampleUser = true
-                }
-                
-                try context.save()
-            } catch {
-                print("Hey Listen! Error checking if a test user exits: \(error.localizedDescription)")
-            }
-            
-        }
-        
     }
 }
 
