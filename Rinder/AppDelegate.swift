@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        UserHelper.addExampleUsers(container: persistentContainer)
+        
         return true
     }
 
@@ -119,8 +122,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                 email: user.profile.email)
         
         NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
-        
-        UserHelper.addExampleUsers(idToCheck: "testUserId1", container: persistentContainer)
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,

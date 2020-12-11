@@ -16,9 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var signInBtn: GIDSignInButton!
     
     //MARK: - Variables
-    var persistentContainer: NSPersistentContainer? {
+    var context: NSManagedObjectContext? {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            return appDelegate.persistentContainer
+            return appDelegate.persistentContainer.viewContext
         }
         return nil
     }
@@ -51,15 +51,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func testBtnPressed(_ sender: Any) {
-        guard let persistentContainer = persistentContainer else { return }
-        UserHelper.userSignedIn(viewContext: persistentContainer.viewContext,
+        guard let context = context else { return }
+        UserHelper.userSignedIn(viewContext: context,
                                 userId: "fakeUserId",
                                 name: "Fake User",
                                 email: "fake@gmail.com")
         
         NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
-        
-        UserHelper.addExampleUsers(idToCheck: "fakeUserId", container: persistentContainer)
     }
 }
 

@@ -63,8 +63,8 @@ class UserHelper {
         return nil
     }
     
-    static func addExampleUsers(idToCheck: String, container: NSPersistentContainer) {
-        
+    static func addExampleUsers(container: NSPersistentContainer) {
+        let idToCheck = "testUserId1"
         container.performBackgroundTask { (context) in
             let request : NSFetchRequest<User> = User.fetchRequest()
             request.predicate = NSPredicate(format: "userId == %@", idToCheck)
