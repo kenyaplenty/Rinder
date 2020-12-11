@@ -56,7 +56,7 @@ class RinderUITests: XCTestCase {
         //app.keyboards.buttons["Search"].tap()
         //let profileName = app.cells.staticTexts["Cam Com"]
         //XCTAssert(profileName.exists)
-    }
+    //}
     
     func testNonUserSearch() throws {
         let app = XCUIApplication()
