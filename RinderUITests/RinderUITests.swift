@@ -10,13 +10,19 @@ import XCTest
 class RinderUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
+        //sign in
         let app = XCUIApplication()
         app.launch()
         let signInBtn = app.buttons[".i"]
         signInBtn.tap()
 
+        //click allow for location tracking
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let allowBtn = springboard.buttons["Allow While Using App"]
+        if allowBtn.exists {
+            allowBtn.tap()
+        }
+        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
