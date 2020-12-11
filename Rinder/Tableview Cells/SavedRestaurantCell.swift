@@ -20,7 +20,8 @@ class SavedRestaurantCell: UITableViewCell {
         self.selectionStyle = .none
         self.backgroundColor = .clear
         
-        favStarIv.image = UIImage(systemName: "star")
+        favStarIv.image = UIImage(systemName: "star.fill")
+        favStarIv.isHidden = true
         favStarIv.tintColor = .white
     }
 
@@ -57,6 +58,6 @@ class SavedRestaurantCell: UITableViewCell {
             print("Error favoriting saved restaurant: \(error.localizedDescription)")
         }
         
-        favStarIv.image = becameFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        favStarIv.isHidden = !becameFavorite
     }
 }

@@ -10,8 +10,19 @@ import XCTest
 class RinderUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
+        //sign in
+        let app = XCUIApplication()
+        app.launch()
+        let signInBtn = app.buttons[".i"]
+        signInBtn.tap()
+        
+        //click allow for location tracking
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let allowBtn = springboard.buttons["Allow While Using App"]
+        if allowBtn.exists {
+            allowBtn.tap()
+        }
+        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
@@ -22,14 +33,31 @@ class RinderUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testLogout() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
-        app.launch()
+        let profileButton = app.buttons["person.circle"]
+        profileButton.tap()
+        let logoutButton = app.buttons["Logout"]
+        logoutButton.tap()
+        XCTAssert(logoutButton.exists == false)
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func testSwipeLeft() throws{
+        let app = XCUIApplication()
+        app.swipeLeft()
+        XCTAssertFalse(app.staticTexts["BJ\'s"].exists)
+    }
+    
+    func testSwipeRight() throws {
+        let app = XCUIApplication()
+        app.swipeRight()
+        XCTAssertFalse(app.staticTexts["BJ\'s"].exists)
+    }
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

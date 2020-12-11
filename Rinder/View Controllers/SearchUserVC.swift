@@ -57,7 +57,7 @@ extension SearchUserVC: UISearchBarDelegate {
               let searchText = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() else { return }
         
         let request : NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@ && userId != %@",
+        request.predicate = NSPredicate(format: "email CONTAINS[cd] %@ && userId != %@",
                                         argumentArray: [searchText, currentUserId])
         request.sortDescriptors = [NSSortDescriptor(key: "email", ascending: true)]
         
