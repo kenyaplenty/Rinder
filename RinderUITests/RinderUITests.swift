@@ -46,17 +46,6 @@ class RinderUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testNonUserSearch() throws {
-        let app = XCUIApplication()
-        let searchButton = app.buttons["Search"]
-        searchButton.tap()
-        let search = app.searchFields["Email"]
-        search.tap()
-        app.typeText("kgp2111@columbia.edu")
-        app.keyboards.buttons["Search"].tap()
-        XCTAssert(app.cells.count == 0)
-    }
-    
     func testSwipeLeft() throws{
         let app = XCUIApplication()
         app.swipeLeft()
