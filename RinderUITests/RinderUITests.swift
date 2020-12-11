@@ -69,16 +69,16 @@ class RinderUITests: XCTestCase {
         XCTAssert(app.cells.count == 0)
     }
     
-    func testInvalidEmail() throws {
-        let app = XCUIApplication()
-        let searchButton = app.buttons["Search"]
-        searchButton.tap()
-        let search = app.searchFields["Email"]
-        search.tap()
-        app.typeText("***1**4@gmail.com")
-        app.keyboards.buttons["Search"].tap()
-        XCTAssert(app.cells.count == 0)
-    }
+    //func testInvalidEmail() throws {
+        //let app = XCUIApplication()
+        //let searchButton = app.buttons["Search"]
+        //searchButton.tap()
+        //let search = app.searchFields["Email"]
+        //search.tap()
+        //app.typeText("***1**4@gmail.com")
+        //app.keyboards.buttons["Search"].tap()
+        //XCTAssert(app.cells.count == 0)
+    //}
     
     func testSwipeLeft() throws{
         let app = XCUIApplication()
@@ -92,20 +92,20 @@ class RinderUITests: XCTestCase {
         XCTAssertFalse(app.staticTexts["BJ\'s"].exists)
     }
     
-    func testSaveRestaurant() throws {
-        let app = XCUIApplication()
-        app.swipeRight()
-        app.buttons["My Restaurants"].tap()
-        XCTAssert(app.staticTexts["BJ\'s"].exists)
-    }
+    //func testSaveRestaurant() throws {
+        //let app = XCUIApplication()
+        //app.swipeRight()
+        //app.buttons["My Restaurants"].tap()
+        //XCTAssert(app.staticTexts["BJ\'s"].exists)
+    //}
     
-    func testRestaurantRunOut() throws {
-        let app = XCUIApplication()
-        for n in 0...21 {
-            app.swipeRight()
-        }
-        XCTAssert(app.staticTexts["No more restaurants"].exists)
-    }
+    //func testRestaurantRunOut() throws {
+        //let app = XCUIApplication()
+        //for n in 0...21 {
+            //app.swipeRight()
+        //}
+        //XCTAssert(app.staticTexts["No more restaurants"].exists)
+    //}
     
     //func testInvalidRemoveSavedRestaurant() throws {
         //let app = XCUIApplication()
@@ -125,27 +125,27 @@ class RinderUITests: XCTestCase {
         //XCTAssertFalse(app.cells.staticTexts["BJ\'s"].exists)
     //}
     
-    func testFavoriteRestaurant() throws {
-        let app = XCUIApplication()
-        app.buttons["Add to Favorites"].tap()
-        app.buttons["person.circle"].tap()
-        XCTAssert(app.cells.staticTexts["BJ\'s"].exists)
-    }
+    //func testFavoriteRestaurant() throws {
+        //let app = XCUIApplication()
+        //app.buttons["Add to Favorites"].tap()
+        //app.buttons["person.circle"].tap()
+        //XCTAssert(app.cells.staticTexts["BJ\'s"].exists)
+    //}
     
-    func testInvalidFavoriteRemoval() throws {
-        let app = XCUIApplication()
-        app.buttons["person.circle"].tap()
-        app.cells.staticTexts["BJ\'s"].swipeLeft()
-        XCTAssert(app.cells.staticTexts["BJ\'s"].exists)
-    }
+    //func testInvalidFavoriteRemoval() throws {
+        //let app = XCUIApplication()
+        //app.buttons["person.circle"].tap()
+        //app.cells.staticTexts["BJ\'s"].swipeLeft()
+        //XCTAssert(app.cells.staticTexts["BJ\'s"].exists)
+    //}
     
-    func testValidFavoriteRemoval() throws {
-        let app = XCUIApplication()
-        app.buttons["person.circle"].tap()
-        app.cells.staticTexts["BJ\'s"].swipeLeft()
-        app.buttons["Delete"].tap()
-        XCTAssertFalse(app.cells.staticTexts["BJ\'s"].exists)
-    }
+    //func testValidFavoriteRemoval() throws {
+        //let app = XCUIApplication()
+        //app.buttons["person.circle"].tap()
+        //app.cells.staticTexts["BJ\'s"].swipeLeft()
+        //app.buttons["Delete"].tap()
+        //XCTAssertFalse(app.cells.staticTexts["BJ\'s"].exists)
+    //}
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
