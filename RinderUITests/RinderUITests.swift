@@ -15,7 +15,7 @@ class RinderUITests: XCTestCase {
         app.launch()
         let signInBtn = app.buttons[".i"]
         signInBtn.tap()
-
+        
         //click allow for location tracking
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         let allowBtn = springboard.buttons["Allow While Using App"]
@@ -80,6 +80,72 @@ class RinderUITests: XCTestCase {
         XCTAssert(app.cells.count == 0)
     }
     
+    func testSwipeLeft() throws{
+        let app = XCUIApplication()
+        app.swipeLeft()
+        XCTAssertFalse(app.staticTexts["BJ\'s"].exists)
+    }
+    
+    func testSwipeRight() throws {
+        let app = XCUIApplication()
+        app.swipeRight()
+        XCTAssertFalse(app.staticTexts["BJ\'s"].exists)
+    }
+    
+    func testSaveRestaurant() throws {
+        let app = XCUIApplication()
+        app.swipeRight()
+        app.buttons["My Restaurants"].tap()
+        XCTAssert(app.staticTexts["BJ\'s"].exists)
+    }
+    
+    func testRestaurantRunOut() throws {
+        let app = XCUIApplication()
+        for n in 0...21 {
+            app.swipeRight()
+        }
+        XCTAssert(app.staticTexts["No more restaurants"].exists)
+    }
+    
+    //func testInvalidRemoveSavedRestaurant() throws {
+        //let app = XCUIApplication()
+        //app.swipeRight()
+        //app.buttons["My Restaurants"].tap()
+        //app.cells.staticTexts["Cafe Torre"].swipeLeft()
+        //XCTAssert(app.staticTexts["Cafe Torre"].exists)
+    //}
+    
+    //func testValidRemoveSavedRestaurant() throws{
+        //let app = XCUIApplication()
+        //app.swipeRight()
+        //app.buttons["My Restaurants"].tap()
+        //app.swipeUp()
+        //app.cells.staticTexts["BJ\'s"].swipeLeft()
+        //app.buttons["Delete"].tap()
+        //XCTAssertFalse(app.cells.staticTexts["BJ\'s"].exists)
+    //}
+    
+    func testFavoriteRestaurant() throws {
+        let app = XCUIApplication()
+        app.buttons["Add to Favorites"].tap()
+        app.buttons["person.circle"].tap()
+        XCTAssert(app.cells.staticTexts["BJ\'s"].exists)
+    }
+    
+    func testInvalidFavoriteRemoval() throws {
+        let app = XCUIApplication()
+        app.buttons["person.circle"].tap()
+        app.cells.staticTexts["BJ\'s"].swipeLeft()
+        XCTAssert(app.cells.staticTexts["BJ\'s"].exists)
+    }
+    
+    func testValidFavoriteRemoval() throws {
+        let app = XCUIApplication()
+        app.buttons["person.circle"].tap()
+        app.cells.staticTexts["BJ\'s"].swipeLeft()
+        app.buttons["Delete"].tap()
+        XCTAssertFalse(app.cells.staticTexts["BJ\'s"].exists)
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
