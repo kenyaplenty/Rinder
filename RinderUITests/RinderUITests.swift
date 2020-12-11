@@ -46,16 +46,16 @@ class RinderUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testUserSearch() throws {
-        let app = XCUIApplication()
-        let searchButton = app.buttons["Search"]
-        searchButton.tap()
-        let search = app.searchFields["Email"]
-        search.tap()
-        app.typeText("cam@gmail.com")
-        app.keyboards.buttons["Search"].tap()
-        let profileName = app.cells.staticTexts["Cam Com"]
-        XCTAssert(profileName.exists)
+    //func testUserSearch() throws {
+        //let app = XCUIApplication()
+        //let searchButton = app.buttons["Search"]
+        //searchButton.tap()
+        //let search = app.searchFields["Email"]
+        //search.tap()
+        //app.typeText("cam@gmail.com")
+        //app.keyboards.buttons["Search"].tap()
+        //let profileName = app.cells.staticTexts["Cam Com"]
+        //XCTAssert(profileName.exists)
     }
     
     func testNonUserSearch() throws {
