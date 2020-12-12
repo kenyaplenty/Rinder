@@ -14,7 +14,21 @@ class SearchResult: NSObject {
     var restaurants: [Restaurant] = []
     var currentIndex: Int = 0
     
-    init (from restaurantsJSONArray: [AnyObject]?) {
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
+    
+    var totalResultsCount: Int = 0 //how many possible restaurants to fetch
+    private var isFetchingMoreRestaurants: Bool = false
+    
+    init (from restaurantsJSONArray: [AnyObject]?,
+          latitude: Double = 0.0,
+          longitude: Double = 0.0,
+          totalResults: Int = 0) {
+        
+        self.latitude = latitude
+        self.longitude = longitude
+        self.totalResultsCount = totalResults
+        
         guard let restaurantsJSONArray = restaurantsJSONArray else { return }
         
         successfulFetch = true
@@ -42,6 +56,20 @@ class SearchResult: NSObject {
             return restaurants[currentIndex]
         } else {
              return nil
+        }
+    }
+    
+    func checkForMoreRestaurants() {
+        if !isFetchingMoreRestaurants,
+           restaurants.count - currentIndex <= 6 {
+            isFetchingMoreRestaurants = true
+            
+            RestaurantHelper.getRestaurants(latitude: self.latitude,
+                                            longitude: self.longitude,
+                                            start: restaurants.count) { (searchResult) in
+                self.isFetchingMoreRestaurants = false
+                self.restaurants += searchResult.restaurants
+            }
         }
     }
     

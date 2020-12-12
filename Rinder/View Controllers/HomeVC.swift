@@ -290,6 +290,7 @@ class HomeVC: UIViewController {
         
         if let nextRestaurant = searchResult.nextRestaurant() {
             updateViewWithRestaurant(restaurant: nextRestaurant)
+            searchResult.checkForMoreRestaurants()
         } else {
             DispatchQueue.main.async {
                 self.backView.isHidden = true

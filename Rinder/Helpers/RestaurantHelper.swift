@@ -16,9 +16,11 @@ class RestaurantHelper {
     
     static func getRestaurants(latitude: Double,
                                longitude: Double,
+                               start: Int = 0,
                                completionHandler: @escaping (_ searchResult: SearchResult) -> Void) {
         var urlString = "https://developers.zomato.com/api/v2.1/search?"
-        urlString += "lat=\(latitude)"
+        urlString += "start=\(start)"
+        urlString += "&lat=\(latitude)"
         urlString += "&lon=\(longitude)"
         urlString += "&radius=3218.69" //radius is in meters (2mi radius)
         urlString += "&sort=real_distance"
@@ -42,7 +44,15 @@ class RestaurantHelper {
                     return completionHandler(SearchResult(from: nil))
                 }
                 
-                return completionHandler(SearchResult(from: restaurantsJSONArray))
+                var totalResults = 0
+                if let totalPossible = dictionary["results_found"] as? Int {
+                   totalResults = totalPossible
+                }
+                
+                return completionHandler(SearchResult(from: restaurantsJSONArray,
+                                                      latitude: latitude,
+                                                      longitude: longitude,
+                                                      totalResults: totalResults))
                 
             case .failure(let error):
                 return completionHandler(SearchResult(from: nil))
