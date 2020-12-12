@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var errorLbl: UILabel!
     
     //restaurant details
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet var backView: UIView!
     @IBOutlet weak var restaurantImage: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var distanceLbl: UILabel!
@@ -172,9 +172,11 @@ class HomeVC: UIViewController {
     }
     
     //fill in restaurant info
-    private func updateViewWithRestaurant(restaurant: Restaurant) {
-        backView.isHidden = false
-        self.errorLbl.isHidden = true
+    func updateViewWithRestaurant(restaurant: Restaurant, isUnitTesting: Bool = false) {
+        if !isUnitTesting {
+            self.backView.isHidden = false
+            self.errorLbl.isHidden = true
+        }
         
         DispatchQueue.main.async { [self] in
             
@@ -238,6 +240,10 @@ class HomeVC: UIViewController {
     //MARK: - Actions
     
     @IBAction func searchBtnTap(_ sender: Any) {
+        toSearch()
+    }
+    
+    func toSearch() {
         let viewController = SearchUserVC()
         viewController.context = context
         self.present(viewController, animated: true, completion: nil)
@@ -259,21 +265,33 @@ class HomeVC: UIViewController {
         }
     }
     
-    @objc func rejectTap() {
-        rejectRestaurant(card: self.backView)
+    @objc func rejectTap(isUnitTesting: Bool = false) {
+        if isUnitTesting {
+            rejectRestaurant(isUnitTesting: true)
+        } else {
+            rejectRestaurant()
+        }
     }
     
-    func rejectRestaurant(card: UIView) {
-        moveCard(card: card, moveLeft: true)
+    func rejectRestaurant(isUnitTesting: Bool = false) {
+        if !isUnitTesting {
+            moveCard(card: self.backView, moveLeft: true)
+        }
         nextRestaurant()
     }
     
-    @objc func acceptTap() {
-        acceptRestaurant(card: self.backView)
+    @objc func acceptTap(isUnitTesting: Bool = false) {
+        if isUnitTesting {
+            acceptRestaurant(isUnitTesting: true)
+        } else {
+            acceptRestaurant()
+        }
     }
     
-    func acceptRestaurant(card: UIView) {
-        moveCard(card: self.backView, moveLeft: false)
+    func acceptRestaurant(isUnitTesting: Bool = false) {
+        if !isUnitTesting {
+            moveCard(card: self.backView, moveLeft: false)
+        }
         
         if let restaurant = searchResult?.getCurrentRestaurant() {
             restaurant.saveToCoreData(context: context, saveToFavorites: false)
@@ -361,9 +379,9 @@ class HomeVC: UIViewController {
             
             //move off to the left
             if card.center.x < 75 {
-                rejectRestaurant(card: card)
+                rejectRestaurant()
             } else if card.center.x > (view.frame.width - 75) {
-                acceptRestaurant(card: card)
+                acceptRestaurant()
             } else {
                 UIView.animate(withDuration: 0.2) {
                     card.center = self.view.center

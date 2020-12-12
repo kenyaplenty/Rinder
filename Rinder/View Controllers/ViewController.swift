@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import CoreData
 import GoogleSignIn
 
 class ViewController: UIViewController {
 
     //MARK: - Outlets
-    
+    @IBOutlet weak var testButton: UIButton!
     @IBOutlet weak var signInBtn: GIDSignInButton!
     
+    //MARK: - Variables
+    var context: NSManagedObjectContext? {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate.persistentContainer.viewContext
+        }
+        return nil
+    }
+    
+    //MARK: - Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -38,6 +48,16 @@ class ViewController: UIViewController {
         viewController.modalPresentationStyle = .currentContext
         viewController.modalTransitionStyle = .coverVertical
         self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func testBtnPressed(_ sender: Any) {
+        guard let context = context else { return }
+        UserHelper.userSignedIn(viewContext: context,
+                                userId: "fakeUserId",
+                                name: "Fake User",
+                                email: "fake@gmail.com")
+        
+        NotificationCenter.default.post(name: Notification.Name("UserLoggedIn"), object: nil)
     }
 }
 

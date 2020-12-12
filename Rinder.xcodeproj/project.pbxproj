@@ -39,6 +39,28 @@
 		5BB983B8257B389B00093FF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9839C257B375200093FF5 /* GoogleService-Info.plist */; };
 		5BB983BC257B389B00093FF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9839C257B375200093FF5 /* GoogleService-Info.plist */; };
 		6B032A6E45A30CF1B14AED9E /* Pods_Rinder_RinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176DC0567E35D7E358A5C0D4 /* Pods_Rinder_RinderUITests.framework */; };
+		9FD8F173257C64CB003C09E2 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1357C379255E0B8100B1A89A /* HomeVC.xib */; };
+		9FD8F1B3257C6623003C09E2 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C378255E0B8100B1A89A /* HomeVC.swift */; };
+		9FD8F1B7257C6657003C09E2 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20B5255FA52A00FE65CB /* Restaurant.swift */; };
+		9FD8F1BB257C6665003C09E2 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20BC255FB73900FE65CB /* SearchResult.swift */; };
+		9FD8F1BF257C6673003C09E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C342255E0AAD00B1A89A /* AppDelegate.swift */; };
+		9FD8F1C3257C667A003C09E2 /* RestaurantHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C382255E138600B1A89A /* RestaurantHelper.swift */; };
+		9FD8F1C7257C667D003C09E2 /* SavedRestaurantHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B32AB7256F129E00232CBE /* SavedRestaurantHelper.swift */; };
+		9FD8F1CB257C6680003C09E2 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1385DAF6256DCA62004440B1 /* UserHelper.swift */; };
+		9FD8F1CF257C66D1003C09E2 /* Rinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1357C34B255E0AAD00B1A89A /* Rinder.xcdatamodeld */; };
+		9FD8F1D3257C66D9003C09E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C346255E0AAD00B1A89A /* ViewController.swift */; };
+		9FD8F1D7257C6717003C09E2 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13505ACD256DF4C300EE1815 /* ProfileVC.swift */; };
+		9FD8F1DB257C671A003C09E2 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13505AAD256DDCE400EE1815 /* SearchUserVC.swift */; };
+		9FD8F1DF257C671E003C09E2 /* SavedRestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20C4255FB76D00FE65CB /* SavedRestaurantsVC.swift */; };
+		9FD8F1E3257C673E003C09E2 /* SavedRestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20CE255FB82E00FE65CB /* SavedRestaurantCell.swift */; };
+		9FD8F1E7257C6744003C09E2 /* SavedRestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132B20CF255FB82E00FE65CB /* SavedRestaurantCell.xib */; };
+		9FD8F1EB257C6747003C09E2 /* UserSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13505ABC256DE44C00EE1815 /* UserSearchResultCell.swift */; };
+		9FD8F1EF257C674A003C09E2 /* UserSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13505ABD256DE44C00EE1815 /* UserSearchResultCell.xib */; };
+		9FD8F1F3257C6758003C09E2 /* SavedRestaurantsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132B20C5255FB76D00FE65CB /* SavedRestaurantsVC.xib */; };
+		9FD8F1F7257C675E003C09E2 /* SearchUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13505AAE256DDCE400EE1815 /* SearchUserVC.xib */; };
+		9FD8F1FB257C6765003C09E2 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13505ACE256DF4C300EE1815 /* ProfileVC.xib */; };
+		9FD8F1FF257C676C003C09E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357C344255E0AAD00B1A89A /* SceneDelegate.swift */; };
+		9FD8F203257C676F003C09E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1357C348255E0AAD00B1A89A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +409,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB983B8257B389B00093FF5 /* GoogleService-Info.plist in Resources */,
+				9FD8F1EF257C674A003C09E2 /* UserSearchResultCell.xib in Resources */,
+				9FD8F173257C64CB003C09E2 /* HomeVC.xib in Resources */,
+				9FD8F203257C676F003C09E2 /* Main.storyboard in Resources */,
+				9FD8F1E7257C6744003C09E2 /* SavedRestaurantCell.xib in Resources */,
+				9FD8F1FB257C6765003C09E2 /* ProfileVC.xib in Resources */,
+				9FD8F1F3257C6758003C09E2 /* SavedRestaurantsVC.xib in Resources */,
+				9FD8F1F7257C675E003C09E2 /* SearchUserVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +593,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD8F1D3257C66D9003C09E2 /* ViewController.swift in Sources */,
 				1357C35D255E0AB100B1A89A /* RinderTests.swift in Sources */,
+				9FD8F1C7257C667D003C09E2 /* SavedRestaurantHelper.swift in Sources */,
+				9FD8F1CF257C66D1003C09E2 /* Rinder.xcdatamodeld in Sources */,
+				9FD8F1E3257C673E003C09E2 /* SavedRestaurantCell.swift in Sources */,
+				9FD8F1CB257C6680003C09E2 /* UserHelper.swift in Sources */,
+				9FD8F1B3257C6623003C09E2 /* HomeVC.swift in Sources */,
+				9FD8F1FF257C676C003C09E2 /* SceneDelegate.swift in Sources */,
+				9FD8F1C3257C667A003C09E2 /* RestaurantHelper.swift in Sources */,
+				9FD8F1DB257C671A003C09E2 /* SearchUserVC.swift in Sources */,
+				9FD8F1DF257C671E003C09E2 /* SavedRestaurantsVC.swift in Sources */,
+				9FD8F1BB257C6665003C09E2 /* SearchResult.swift in Sources */,
+				9FD8F1BF257C6673003C09E2 /* AppDelegate.swift in Sources */,
+				9FD8F1D7257C6717003C09E2 /* ProfileVC.swift in Sources */,
+				9FD8F1B7257C6657003C09E2 /* Restaurant.swift in Sources */,
+				9FD8F1EB257C6747003C09E2 /* UserSearchResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,6 +23,7 @@ class RestaurantHelper {
         urlString += "&lat=\(latitude)"
         urlString += "&lon=\(longitude)"
         urlString += "&radius=3218.69" //radius is in meters (2mi radius)
+        urlString += "&category=2%2C8%2C9%2C10"
         urlString += "&sort=real_distance"
         urlString += "&order=desc"
         
@@ -43,7 +44,7 @@ class RestaurantHelper {
                       let restaurantsJSONArray = dictionary["restaurants"] as? [AnyObject] else {
                     return completionHandler(SearchResult(from: nil))
                 }
-                
+              
                 var totalResults = 0
                 if let totalPossible = dictionary["results_found"] as? Int {
                    totalResults = totalPossible
@@ -53,7 +54,7 @@ class RestaurantHelper {
                                                       latitude: latitude,
                                                       longitude: longitude,
                                                       totalResults: totalResults))
-                
+              
             case .failure(let error):
                 return completionHandler(SearchResult(from: nil))
             }
