@@ -405,6 +405,7 @@ extension HomeVC: CLLocationManagerDelegate {
                   currentLocation.distance(from: location) < 300 {
             return
         }
+        self.currentLocation = location
         
         getRestaurants(latitude: location.coordinate.latitude,
                        longitude: location.coordinate.longitude)
